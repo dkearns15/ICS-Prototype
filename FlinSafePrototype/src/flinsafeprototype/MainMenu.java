@@ -34,6 +34,8 @@ public class MainMenu extends javax.swing.JFrame {
         reportActivityButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MainMenu");
+        setName("MainMenu"); // NOI18N
 
         selectFeatureLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         selectFeatureLabel.setForeground(new java.awt.Color(0, 51, 204));
@@ -43,6 +45,11 @@ public class MainMenu extends javax.swing.JFrame {
         execSummaryButton.setText("Executive Summary");
         execSummaryButton.setMaximumSize(new java.awt.Dimension(187, 31));
         execSummaryButton.setMinimumSize(new java.awt.Dimension(187, 31));
+        execSummaryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                execSummaryButtonActionPerformed(evt);
+            }
+        });
 
         kioskButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         kioskButton.setText("FlinSafe Kiosk");
@@ -105,16 +112,20 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void securitySummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securitySummaryButtonActionPerformed
-        // TODO add your handling code here:
+        new SecuritySummaryMain().setVisible(true);
     }//GEN-LAST:event_securitySummaryButtonActionPerformed
 
     private void reportActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActivityButtonActionPerformed
-        // TODO add your handling code here:
+        new ReportActivityMain().setVisible(true);
     }//GEN-LAST:event_reportActivityButtonActionPerformed
 
     private void kioskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kioskButtonActionPerformed
-        // TODO add your handling code here:
+        new KioskMain().setVisible(true);
     }//GEN-LAST:event_kioskButtonActionPerformed
+
+    private void execSummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execSummaryButtonActionPerformed
+        new ExecSummaryMain().setVisible(true);
+    }//GEN-LAST:event_execSummaryButtonActionPerformed
 
     /**
      * @param args the command line arguments
