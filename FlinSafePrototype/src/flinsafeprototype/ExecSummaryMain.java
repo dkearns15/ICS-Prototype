@@ -38,24 +38,34 @@ public class ExecSummaryMain extends javax.swing.JFrame {
     public ExecSummaryMain() {
         initComponents();
         
+        //All of the types of incidents that will be graphed
         String[] incidentTypes = new String[3];
         incidentTypes[0] = "Building Access";
         incidentTypes[1] = "Snake Sighting";
         incidentTypes[2] = "Car Walk";
+        
+        //The frequency of each type of incident, corresponded to the string[] above
         int[] incidentFreq = new int[3];
         incidentFreq[0] = 0;
         incidentFreq[1] = 0;
         incidentFreq[2] = 0;
+        
+        //Get the csv file containing all of the data
         URL url = getClass().getResource("CompletedIncidents.csv");
         File file = new File(url.getPath());
+        
+        //Split by comma (it's a csv file)
         String csvSplitBy = ",";
         String line;
+        
+        //While there are still lines, read in each line
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((line = br.readLine()) != null) {
-                // use comma as separator
                 String[] incident = line.split(csvSplitBy);
                 try {
                     for(int i = 0; i < incidentTypes.length; i++){
+                        //increment frequency count of each incident every time it is found
+                        //not very efficient but it works
                         if(incident[2].equals(incidentTypes[i])){
                             incidentFreq[i]++;
                             break;
@@ -83,7 +93,9 @@ public class ExecSummaryMain extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         tab1Panel = new javax.swing.JPanel();
-        graph1Panel = new javax.swing.JPanel();
+        graphPanel1 = new javax.swing.JPanel();
+        graphPanel2 = new javax.swing.JPanel();
+        graphPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -93,15 +105,43 @@ public class ExecSummaryMain extends javax.swing.JFrame {
 
         tab1Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout graph1PanelLayout = new javax.swing.GroupLayout(graph1Panel);
-        graph1Panel.setLayout(graph1PanelLayout);
-        graph1PanelLayout.setHorizontalGroup(
-            graph1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 244, Short.MAX_VALUE)
+        graphPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout graphPanel1Layout = new javax.swing.GroupLayout(graphPanel1);
+        graphPanel1.setLayout(graphPanel1Layout);
+        graphPanel1Layout.setHorizontalGroup(
+            graphPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
         );
-        graph1PanelLayout.setVerticalGroup(
-            graph1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+        graphPanel1Layout.setVerticalGroup(
+            graphPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
+        );
+
+        graphPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout graphPanel2Layout = new javax.swing.GroupLayout(graphPanel2);
+        graphPanel2.setLayout(graphPanel2Layout);
+        graphPanel2Layout.setHorizontalGroup(
+            graphPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
+        );
+        graphPanel2Layout.setVerticalGroup(
+            graphPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
+        );
+
+        graphPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout graphPanel3Layout = new javax.swing.GroupLayout(graphPanel3);
+        graphPanel3.setLayout(graphPanel3Layout);
+        graphPanel3Layout.setHorizontalGroup(
+            graphPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
+        );
+        graphPanel3Layout.setVerticalGroup(
+            graphPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout tab1PanelLayout = new javax.swing.GroupLayout(tab1Panel);
@@ -110,15 +150,22 @@ public class ExecSummaryMain extends javax.swing.JFrame {
             tab1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(graph1Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(508, Short.MAX_VALUE))
+                .addComponent(graphPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(graphPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(graphPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab1PanelLayout.setVerticalGroup(
             tab1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(graph1Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addGroup(tab1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(graphPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(graphPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(graphPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Incident Summary", tab1Panel);
@@ -159,7 +206,7 @@ public class ExecSummaryMain extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1210, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -187,21 +234,29 @@ public class ExecSummaryMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initIncidentFrequencyGraph(String[] types, int[] freq){
+        
+        //Currently this if statement doesn't really do anything
         if(types.length != freq.length){
-            graph1Panel.add(new JLabel("Types and frequency doesn't line up", JLabel.LEFT));
+            graphPanel1.add(new JLabel("Types and frequency doesn't line up", JLabel.LEFT));
+            graphPanel1.validate();
             return;
         }
+        
         String series1 = "Incident Type";
+        //Add each column to the dataset
+        //Default category dataset is a general dataset used for categorical data
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for(int i = 0; i < types.length; i++){
             dataset.addValue(freq[i], series1, types[i]);
         }
+        
+        //Create and add a bar chart to the display. Added to graphPanel1
         JFreeChart barChart = ChartFactory.createBarChart("Frequency of Each Incident Type", "Incident Type", "Frequency", dataset);
         ChartPanel panel = new ChartPanel(barChart);
-        panel.setPreferredSize(new Dimension(300, 300));
-        graph1Panel.setLayout(new java.awt.BorderLayout());
-        graph1Panel.add(panel, BorderLayout.CENTER);
-        graph1Panel.validate();
+        panel.setPreferredSize(new Dimension(graphPanel1.getWidth(), graphPanel1.getHeight()));
+        graphPanel1.setLayout(new java.awt.BorderLayout());
+        graphPanel1.add(panel, BorderLayout.CENTER);
+        graphPanel1.validate();
     }
     /**
      * @param args the command line arguments
@@ -239,7 +294,9 @@ public class ExecSummaryMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel graph1Panel;
+    private javax.swing.JPanel graphPanel1;
+    private javax.swing.JPanel graphPanel2;
+    private javax.swing.JPanel graphPanel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
