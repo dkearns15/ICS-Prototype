@@ -81,39 +81,106 @@ public class ExecSummaryMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        graphPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tab1Panel = new javax.swing.JPanel();
+        graph1Panel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Executive Summary Main");
 
-        graphPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tab1Panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout graphPanel1Layout = new javax.swing.GroupLayout(graphPanel1);
-        graphPanel1.setLayout(graphPanel1Layout);
-        graphPanel1Layout.setHorizontalGroup(
-            graphPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 281, Short.MAX_VALUE)
+        javax.swing.GroupLayout graph1PanelLayout = new javax.swing.GroupLayout(graph1Panel);
+        graph1Panel.setLayout(graph1PanelLayout);
+        graph1PanelLayout.setHorizontalGroup(
+            graph1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 244, Short.MAX_VALUE)
         );
-        graphPanel1Layout.setVerticalGroup(
-            graphPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+        graph1PanelLayout.setVerticalGroup(
+            graph1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout tab1PanelLayout = new javax.swing.GroupLayout(tab1Panel);
+        tab1Panel.setLayout(tab1PanelLayout);
+        tab1PanelLayout.setHorizontalGroup(
+            tab1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab1PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(graph1Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(508, Short.MAX_VALUE))
+        );
+        tab1PanelLayout.setVerticalGroup(
+            tab1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab1PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(graph1Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Incident Summary", tab1Panel);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Report Date", "Report Summary", "Report Writer"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(300);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(200);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(200);
+        }
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Reports", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(454, Short.MAX_VALUE)
-                .addComponent(graphPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(graphPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -121,7 +188,7 @@ public class ExecSummaryMain extends javax.swing.JFrame {
 
     private void initIncidentFrequencyGraph(String[] types, int[] freq){
         if(types.length != freq.length){
-            graphPanel1.add(new JLabel("Types and frequency doesn't line up", JLabel.LEFT));
+            graph1Panel.add(new JLabel("Types and frequency doesn't line up", JLabel.LEFT));
             return;
         }
         String series1 = "Incident Type";
@@ -132,9 +199,9 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         JFreeChart barChart = ChartFactory.createBarChart("Frequency of Each Incident Type", "Incident Type", "Frequency", dataset);
         ChartPanel panel = new ChartPanel(barChart);
         panel.setPreferredSize(new Dimension(300, 300));
-        graphPanel1.setLayout(new java.awt.BorderLayout());
-        graphPanel1.add(panel, BorderLayout.CENTER);
-        graphPanel1.validate();
+        graph1Panel.setLayout(new java.awt.BorderLayout());
+        graph1Panel.add(panel, BorderLayout.CENTER);
+        graph1Panel.validate();
     }
     /**
      * @param args the command line arguments
@@ -172,6 +239,11 @@ public class ExecSummaryMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel graphPanel1;
+    private javax.swing.JPanel graph1Panel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel tab1Panel;
     // End of variables declaration//GEN-END:variables
 }
