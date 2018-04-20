@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
@@ -27,7 +28,29 @@ import javax.swing.JPanel;
  *
  * @author Darragh Kearns (kear0057)
  */
+
+//Future endevour would be to use mouse listeners to add hover notifications saying where each incident is
+
 public class MapWithPointsPanel extends JPanel {
+    
+    
+    //Currently hardcoded, can be modified later 
+    private int[] freq = {10, 19, 50, 13, 60};
+    private int[] x = {98, 277, 140, 156, 217};
+    private int[] y = {198, 231, 84, 295, 140};
+    //First one is anchor court
+    //Second is education
+    //Third is hub
+    //Fourth is engineering
+    //Fifth is humanities courtyard
+    
+    public int[] getFreq() {
+        return freq;
+    }
+
+    public void setFreq(int[] freq) {
+        this.freq = freq;
+    }
 
     public MapWithPointsPanel() {
         setPreferredSize(new Dimension(382,382));
@@ -51,8 +74,11 @@ public class MapWithPointsPanel extends JPanel {
     
     public void draw(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.red);
-        g2.fillOval(100, 100, 100, 100);
+        Color color1 = new Color(255,83,83,65);
+        g2.setColor(color1);
+        for(int i = 0; i < x.length; i++){
+            g2.fillOval(x[i], y[i], freq[i], freq[i]);
+        }
     }
     
 }
