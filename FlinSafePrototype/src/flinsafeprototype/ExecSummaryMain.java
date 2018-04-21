@@ -19,6 +19,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.chart.BarChart;
@@ -94,8 +95,8 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         }
         initComponents();
         //graphPanel3.setFreq(incidentFreq);
-        initIncidentFrequencyGraph(incidentTypes, incidentFreq);
-        initFrequencyMap(incidentFreq);
+        initIncidentTypeFrequencyGraph(incidentTypes, incidentFreq);
+        initReportFrequencyGraph(incidentFreq);
     }
 
     /**
@@ -247,7 +248,7 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initIncidentFrequencyGraph(String[] types, int[] freq){
+    private void initIncidentTypeFrequencyGraph(String[] types, int[] freq){
         
         //Currently this if statement doesn't really do anything
         if(types.length != freq.length){
@@ -273,8 +274,17 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         graphPanel1.validate();
     }
     
-    private void initFrequencyMap(int[] freq) throws IOException{
+    private void initReportFrequencyGraph(int[] freq){
+        String series1 = "Times";
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        JFreeChart lineChart = ChartFactory.createLineChart("Frequency of reports", "Date Occuring", "Frequency", dataset);
+         ChartPanel panel = new ChartPanel(lineChart);
+        panel.setPreferredSize(new Dimension(graphPanel2.getWidth(), graphPanel2.getHeight()));
+        graphPanel2.setLayout(new java.awt.BorderLayout());
+        graphPanel2.add(panel, BorderLayout.CENTER);
+        graphPanel2.validate();
     }
+
     /**
      * @param args the command line arguments
      */

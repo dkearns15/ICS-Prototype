@@ -5,6 +5,10 @@
  */
 package flinsafeprototype;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author dkear
@@ -14,8 +18,9 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    public MainMenu() throws IOException {
         initComponents();
+        new ReportDetails(1).setVisible(true);
     }
 
     /**
@@ -134,7 +139,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_kioskButtonActionPerformed
 
     private void execSummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execSummaryButtonActionPerformed
-        new ExecSummaryMain().setVisible(true);
+        try {
+            new ExecSummaryMain().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_execSummaryButtonActionPerformed
 
     /**
@@ -167,7 +176,11 @@ public class MainMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                try {
+                    new MainMenu().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
