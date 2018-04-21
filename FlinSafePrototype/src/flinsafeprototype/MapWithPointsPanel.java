@@ -74,7 +74,7 @@ public class MapWithPointsPanel extends JPanel {
     
     public void draw(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        Color color1 = new Color(255,83,83,65);
+        Color color1 = new Color(255,83,83,150);
         g2.setColor(color1);
         for(int i = 0; i < x.length; i++){
             g2.fillOval(x[i], y[i], freq[i], freq[i]);
