@@ -112,7 +112,7 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         tab1Panel = new javax.swing.JPanel();
         graphPanel1 = new javax.swing.JPanel();
         graphPanel2 = new javax.swing.JPanel();
-        graphPanel3 = new flinsafeprototype.MapWithPointsPanel();
+        graphPanel3 = new flinsafeprototype.MapWithPointsPanel(10, 150);
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();

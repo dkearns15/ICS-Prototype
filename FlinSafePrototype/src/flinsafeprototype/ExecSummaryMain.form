@@ -128,6 +128,9 @@
               </Layout>
             </Container>
             <Container class="flinsafeprototype.MapWithPointsPanel" name="graphPanel3">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new flinsafeprototype.MapWithPointsPanel(10, 150)"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">

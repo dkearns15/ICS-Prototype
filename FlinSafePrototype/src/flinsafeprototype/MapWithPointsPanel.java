@@ -38,6 +38,8 @@ public class MapWithPointsPanel extends JPanel {
     private int[] freq = {10, 19, 50, 13, 60};
     private int[] x = {98, 277, 140, 156, 217};
     private int[] y = {198, 231, 84, 295, 140};
+    private int xpoint;
+    private int ypoint;
     //First one is anchor court
     //Second is education
     //Third is hub
@@ -58,6 +60,14 @@ public class MapWithPointsPanel extends JPanel {
         
     }
     
+    public MapWithPointsPanel(int x, int y) {
+        xpoint = x;
+        ypoint = y;
+        setPreferredSize(new Dimension(382,382));
+        setVisible(true);
+        
+    }
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -71,14 +81,13 @@ public class MapWithPointsPanel extends JPanel {
         g.drawImage(image, 0, 0, null);
         draw(g);
     }
-    
+
     public void draw(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
         Color color1 = new Color(255,83,83,150);
         g2.setColor(color1);
-        for(int i = 0; i < x.length; i++){
-            g2.fillOval(x[i], y[i], freq[i], freq[i]);
-        }
+        g2.fillOval(xpoint, ypoint, 30, 30);
+
     }
     
 }
