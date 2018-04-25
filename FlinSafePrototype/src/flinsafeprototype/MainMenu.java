@@ -20,7 +20,6 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() throws IOException {
         initComponents();
-        new ReportDetails(1).setVisible(true);
     }
 
     /**
@@ -127,7 +126,11 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void securitySummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securitySummaryButtonActionPerformed
-        new SecuritySummaryMain().setVisible(true);
+        try {
+            new SecuritySummaryMain().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_securitySummaryButtonActionPerformed
 
     private void reportActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActivityButtonActionPerformed

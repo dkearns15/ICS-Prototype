@@ -5,6 +5,20 @@
  */
 package flinsafeprototype;
 
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dkear
@@ -14,8 +28,10 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     /**
      * Creates new form securitySummary
      */
-    public SecuritySummaryMain() {
+    public SecuritySummaryMain() throws IOException {
         initComponents();
+        initTableListener();
+        readReports();
     }
 
     /**
@@ -27,18 +43,114 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tabbedMenu = new javax.swing.JTabbedPane();
+        tab1Queue = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        incidentQueueTable = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        inProgressTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        recentlyResolvedTable = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Security Summary Main");
+
+        incidentQueueTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Comments"
+            }
+        ));
+        jScrollPane1.setViewportView(incidentQueueTable);
+
+        javax.swing.GroupLayout tab1QueueLayout = new javax.swing.GroupLayout(tab1Queue);
+        tab1Queue.setLayout(tab1QueueLayout);
+        tab1QueueLayout.setHorizontalGroup(
+            tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab1QueueLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 137, Short.MAX_VALUE))
+        );
+        tab1QueueLayout.setVerticalGroup(
+            tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+        );
+
+        tabbedMenu.addTab("Incident Queue", tab1Queue);
+
+        inProgressTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Responder", "Comments"
+            }
+        ));
+        jScrollPane2.setViewportView(inProgressTable);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 137, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+        );
+
+        tabbedMenu.addTab("In Progress", jPanel2);
+
+        recentlyResolvedTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Responder", "Result", "Other Details"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(recentlyResolvedTable);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 137, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+        );
+
+        tabbedMenu.addTab("Recently Resolved", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(tabbedMenu)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tabbedMenu)
+                .addContainerGap())
         );
 
         pack();
@@ -75,11 +187,79 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SecuritySummaryMain().setVisible(true);
+                try {
+                    new SecuritySummaryMain().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
+    public void openReportDetails(int num) throws IOException {
+        new ReportDetails(num).setVisible(true);
+    }
+
+    public void initTableListener() {
+        recentlyResolvedTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openReportDetails(id);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+    }
+
+    public void readReports() throws FileNotFoundException, IOException {
+        URL url = getClass().getResource("Reports.csv");
+        try {
+            File file = new File(url.getPath());
+
+            //Split by comma (it's a csv file)
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) recentlyResolvedTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[9], incident[6], incident[7], incident[10], incident[3]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            rowCount = tableModel.getRowCount();
+            //numIncidentsLabel.setText(Integer.toString(rowCount));
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable inProgressTable;
+    private javax.swing.JTable incidentQueueTable;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable recentlyResolvedTable;
+    private javax.swing.JPanel tab1Queue;
+    private javax.swing.JTabbedPane tabbedMenu;
     // End of variables declaration//GEN-END:variables
 }

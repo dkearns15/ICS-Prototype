@@ -35,9 +35,11 @@ public class MapWithPointsPanel extends JPanel {
     
     
     //Currently hardcoded, can be modified later 
-    private int[] freq = {10, 19, 50, 13, 60};
-    private int[] x = {98, 277, 140, 156, 217};
-    private int[] y = {198, 231, 84, 295, 140};
+    //private int[] freq = {10, 19, 50, 13, 60};
+    //private int[] x = {98, 277, 140, 156, 217};
+    //private int[] y = {198, 231, 84, 295, 140};
+    
+    
     private int xpoint;
     private int ypoint;
     //First one is anchor court
@@ -46,13 +48,13 @@ public class MapWithPointsPanel extends JPanel {
     //Fourth is engineering
     //Fifth is humanities courtyard
     
-    public int[] getFreq() {
-        return freq;
-    }
-
-    public void setFreq(int[] freq) {
-        this.freq = freq;
-    }
+//    public int[] getFreq() {
+//        return freq;
+//    }
+//
+//    public void setFreq(int[] freq) {
+//        this.freq = freq;
+//    }
 
     public MapWithPointsPanel() {
         setPreferredSize(new Dimension(382,382));
@@ -66,6 +68,22 @@ public class MapWithPointsPanel extends JPanel {
         setPreferredSize(new Dimension(382,382));
         setVisible(true);
         
+    }
+
+    public int getXpoint() {
+        return xpoint;
+    }
+
+    public void setXpoint(int xpoint) {
+        this.xpoint = xpoint;
+    }
+
+    public int getYpoint() {
+        return ypoint;
+    }
+
+    public void setYpoint(int ypoint) {
+        this.ypoint = ypoint;
     }
     
     @Override

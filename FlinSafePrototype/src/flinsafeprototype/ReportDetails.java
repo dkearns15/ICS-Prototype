@@ -62,7 +62,7 @@ public class ReportDetails extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         resolutionLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
         mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
@@ -250,9 +250,12 @@ public class ReportDetails extends javax.swing.JFrame {
     }
 
     public void initText(int incidentNum) throws IOException {
+        Locations locs = new Locations();
+        
         URL url = getClass().getResource("Reports.csv");
-        File file = new File(url.getPath());
-
+        try {
+            File file = new File(url.getPath());
+        
         //Split by comma (it's a csv file)
         String csvSplitBy = ",";
         String line;
@@ -274,7 +277,16 @@ public class ReportDetails extends javax.swing.JFrame {
         locationLabel.setText(incident[6]);
         writerLabel.setText(incident[7]);
         textTextArea.setText(incident[8]);
-        
+        //Currently unimplemented, need something that we can load up with x and y values for different locations on the map and get value based on strings, e.g. Hub, Engineering
+        //int xpoint = locations.getX(incident[6]);
+        //int ypoint = locations.getY(incident[6]);
+        mapWithPointsPanel1.setXpoint(locs.getLocationX(incident[6]));
+        mapWithPointsPanel1.setYpoint(locs.getLocationY(incident[6]));
+        mapWithPointsPanel1.repaint();
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+        }
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateLabel;
