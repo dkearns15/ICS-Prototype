@@ -156,12 +156,12 @@ public class ReportDetails extends javax.swing.JFrame {
                                     .addComponent(locationLabel)
                                     .addComponent(writerLabel)
                                     .addComponent(resolutionLabel))))
-                        .addGap(0, 420, Short.MAX_VALUE))
+                        .addGap(0, 426, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(27, 27, 27)
                         .addComponent(jScrollPane1)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -172,7 +172,7 @@ public class ReportDetails extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(205, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -205,10 +205,11 @@ public class ReportDetails extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(resolutionLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -277,11 +278,14 @@ public class ReportDetails extends javax.swing.JFrame {
         locationLabel.setText(incident[6]);
         writerLabel.setText(incident[7]);
         textTextArea.setText(incident[8]);
-        //Currently unimplemented, need something that we can load up with x and y values for different locations on the map and get value based on strings, e.g. Hub, Engineering
-        //int xpoint = locations.getX(incident[6]);
-        //int ypoint = locations.getY(incident[6]);
-        mapWithPointsPanel1.setXpoint(locs.getLocationX(incident[6]));
-        mapWithPointsPanel1.setYpoint(locs.getLocationY(incident[6]));
+        
+        
+        //Gets the location based on the word describing the locations
+        //If it does not find the location, X and Y point will be zero
+        //Currently supported locations (can add more in Locations.java)
+        //  hub, humanities, engineering
+        mapWithPointsPanel1.setXpoint(locs.getLocationX(incident[6].toLowerCase()));
+        mapWithPointsPanel1.setYpoint(locs.getLocationY(incident[6].toLowerCase()));
         mapWithPointsPanel1.repaint();
         } catch (NullPointerException e) {
             //Create a popup saying, we can't find the file

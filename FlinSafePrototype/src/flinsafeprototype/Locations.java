@@ -18,9 +18,9 @@ public class Locations {
     TreeMap<String, Location> locs = new TreeMap();
 
     public Locations() {
-        locs.put("Hub", new Location("Hub", 136, 100));
-        locs.put("Humanities", new Location("Humanities", 184, 105));
-        locs.put("Engineering", new Location("Engineering", 181, 312));
+        locs.put("hub", new Location("hub", 136, 100));
+        locs.put("humanities", new Location("humanities", 184, 105));
+        locs.put("engineering", new Location("engineering", 181, 312));
     }
     
     public int getLocationX(String location){

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package flinsafeprototype;
 
 import java.awt.Color;
@@ -17,6 +16,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Double.max;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,18 +28,13 @@ import javax.swing.JPanel;
  *
  * @author Darragh Kearns (kear0057)
  */
-
 //Future endevour would be to use mouse listeners to add hover notifications saying where each incident is
-
 public class MapWithPointsPanel extends JPanel {
-    
-    
+
     //Currently hardcoded, can be modified later 
     //private int[] freq = {10, 19, 50, 13, 60};
     //private int[] x = {98, 277, 140, 156, 217};
     //private int[] y = {198, 231, 84, 295, 140};
-    
-    
     private int xpoint;
     private int ypoint;
     //First one is anchor court
@@ -47,7 +42,7 @@ public class MapWithPointsPanel extends JPanel {
     //Third is hub
     //Fourth is engineering
     //Fifth is humanities courtyard
-    
+
 //    public int[] getFreq() {
 //        return freq;
 //    }
@@ -55,19 +50,18 @@ public class MapWithPointsPanel extends JPanel {
 //    public void setFreq(int[] freq) {
 //        this.freq = freq;
 //    }
-
     public MapWithPointsPanel() {
-        setPreferredSize(new Dimension(382,382));
+        setPreferredSize(new Dimension(382, 382));
         setVisible(true);
-        
+
     }
-    
+
     public MapWithPointsPanel(int x, int y) {
         xpoint = x;
         ypoint = y;
-        setPreferredSize(new Dimension(382,382));
+        setPreferredSize(new Dimension(382, 382));
         setVisible(true);
-        
+
     }
 
     public int getXpoint() {
@@ -85,7 +79,7 @@ public class MapWithPointsPanel extends JPanel {
     public void setYpoint(int ypoint) {
         this.ypoint = ypoint;
     }
-    
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -100,12 +94,12 @@ public class MapWithPointsPanel extends JPanel {
         draw(g);
     }
 
-    public void draw(Graphics g){
+    public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        Color color1 = new Color(255,83,83,150);
+        Color color1 = new Color(255, 0, 0, 175);
         g2.setColor(color1);
-        g2.fillOval(xpoint, ypoint, 30, 30);
+        g2.fillOval(xpoint, ypoint, 20, 20);
 
     }
-    
+
 }
