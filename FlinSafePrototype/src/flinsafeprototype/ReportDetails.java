@@ -16,12 +16,16 @@ import java.util.stream.Stream;
 
 /**
  *
- * @author dkear
+ * @author 
+ * 
+ * In depth details for a specific report
  */
 public class ReportDetails extends javax.swing.JFrame {
 
     /**
      * Creates new form ReportDetails
+     * 
+     * From the Reports.csv file based on id numbers
      */
     public ReportDetails(int incidentNum) throws IOException {
         initComponents();
@@ -250,6 +254,13 @@ public class ReportDetails extends javax.swing.JFrame {
         });
     }
 
+    /*
+    * Pass in an incident id as the incident number
+    * Should add a try catch for invalid incident number
+    *
+    * Reads in details from Reports.csv and displays them and sets up the
+    * MapWithPointsPanel with the point in the correct place
+    */
     public void initText(int incidentNum) throws IOException {
         Locations locs = new Locations();
         
@@ -257,8 +268,6 @@ public class ReportDetails extends javax.swing.JFrame {
         try {
             File file = new File(url.getPath());
         
-        //Split by comma (it's a csv file)
-        String csvSplitBy = ",";
         String line;
         String[] incident = null;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {

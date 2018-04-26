@@ -12,6 +12,9 @@ import java.util.logging.Logger;
 /**
  *
  * @author dkear
+ * 
+ * MainMenu is used as a dispatch screen for each of the bits of functionality
+ * implemented in this assignment
  */
 public class MainMenu extends javax.swing.JFrame {
 

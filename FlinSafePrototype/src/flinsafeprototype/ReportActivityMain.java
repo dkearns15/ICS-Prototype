@@ -8,6 +8,9 @@ package flinsafeprototype;
 /**
  *
  * @author dkear
+ * 
+ * Currently unimplemented
+ * Will probably be deleted
  */
 public class ReportActivityMain extends javax.swing.JFrame {
 

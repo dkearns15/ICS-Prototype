@@ -22,6 +22,9 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author dkear
+ * 
+ * Very barebones currently. It is essentially what security guards will have
+ * on their computers.
  */
 public class SecuritySummaryMain extends javax.swing.JFrame {
 
@@ -196,10 +199,15 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         });
     }
 
+    //Opens a new report detail instance for the report with the id 'num'
     public void openReportDetails(int num) throws IOException {
         new ReportDetails(num).setVisible(true);
     }
 
+    
+    //Adds a listener to the table on tab 3 which listens for a double click and
+    //opens a new ReportDetails instance with the id of that report if it hears
+    //a double click
     public void initTableListener() {
         recentlyResolvedTable.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent mouseEvent) {
@@ -222,8 +230,6 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         URL url = getClass().getResource("Reports.csv");
         try {
             File file = new File(url.getPath());
-
-            //Split by comma (it's a csv file)
             String line;
             String[] incident = null;
             DefaultTableModel tableModel = (DefaultTableModel) recentlyResolvedTable.getModel();
@@ -234,19 +240,24 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 tableModel.removeRow(0);
             }
 
+            //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
                 while ((line = br.readLine()) != null) {
+                    
+                    //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[9], incident[6], incident[7], incident[10], incident[3]};
                     tableModel.addRow(t);
                 }
             }
 
+            //Just here in case we want it later
             rowCount = tableModel.getRowCount();
-            //numIncidentsLabel.setText(Integer.toString(rowCount));
+            
         } catch (NullPointerException e) {
             //Create a popup saying, we can't find the file
+            //Not implemented yet
         }
     }
 

@@ -8,6 +8,8 @@ package flinsafeprototype;
 /**
  *
  * @author dkear
+ * 
+ * Currently undeveloped
  */
 public class KioskMain extends javax.swing.JFrame {
 

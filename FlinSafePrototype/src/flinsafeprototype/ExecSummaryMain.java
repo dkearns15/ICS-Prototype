@@ -39,6 +39,10 @@ import org.jfree.data.xy.XYSeriesCollection;
 /**
  *
  * @author dkear
+ * 
+ * Probably ignore this page. It is not used anymore and most of the stuff
+ * in it is repeated elsewhere in better ways. It does have a good example of
+ * how to set up a graph/chart though.
  */
 public class ExecSummaryMain extends javax.swing.JFrame {
 
@@ -57,6 +61,7 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         incidentTypes[4] = "Fire Alarm";
         
         //The frequency of each type of incident, corresponded to the string[] above
+        //Initialised to 0
         int[] incidentFreq = new int[5];
         incidentFreq[0] = 0;
         incidentFreq[1] = 0;
@@ -66,9 +71,11 @@ public class ExecSummaryMain extends javax.swing.JFrame {
         
         //Get the csv file containing all of the data
         URL url = getClass().getResource("CompletedIncidents.csv");
+        //Should probably add a try catch here to make sure we have got the file.
         File file = new File(url.getPath());
         
         //Split by comma (it's a csv file)
+        //See other files for better splitting
         String csvSplitBy = ",";
         String line;
         
@@ -94,7 +101,6 @@ public class ExecSummaryMain extends javax.swing.JFrame {
             e.printStackTrace();
         }
         initComponents();
-        //graphPanel3.setFreq(incidentFreq);
         initIncidentTypeFrequencyGraph(incidentTypes, incidentFreq);
         initReportFrequencyGraph(incidentFreq);
     }
