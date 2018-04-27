@@ -145,11 +145,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_kioskButtonActionPerformed
 
     private void execSummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execSummaryButtonActionPerformed
-        try {
-            new ExecSummaryMain().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }//GEN-LAST:event_execSummaryButtonActionPerformed
 
     /**
