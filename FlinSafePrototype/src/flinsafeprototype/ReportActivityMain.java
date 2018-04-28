@@ -9,8 +9,10 @@ package flinsafeprototype;
  *
  * @author dkear
  * 
- * Currently unimplemented
- * Will probably be deleted
+ * displays list of active cases
+ * dialog or form to take on task or close task
+ * might implement tabbed dialog to display 
+ * unallocated "active" jobs AND allocated "active" "in progress" jobs
  */
 public class ReportActivityMain extends javax.swing.JFrame {
 
