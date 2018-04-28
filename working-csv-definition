@@ -1,3 +1,4 @@
+
 Use this file as a reference for the internal file structure, also take relevant table headers from this file when making your designs.
 
 
@@ -15,7 +16,10 @@ Reporter       Text
 Description    Text
 Type          
 Resolved       True/False
+ResolvedDate   DD/MM/YYYY
+ResolvedTime   HH:MM:SS 
 Responder      Text
 Resolution     Text
 Comments       Text
+
 
