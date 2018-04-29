@@ -6,10 +6,18 @@
 package flinsafeprototype;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -240,6 +248,91 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_addToQueueButtonActionPerformed
 
     private void respondImmeditatelyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondImmeditatelyButtonActionPerformed
+        URL url = getClass().getResource("InProgress.csv");
+        File tempFile = new File("tempfile.csv");
+        File file = new File(url.getPath());
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+
+        //add to inprogress
+        try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(NewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(incidentInfo[0] + "," + hour + ":" + min + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + home.getCurrentUser() + "," + incidentInfo[4] + "," + incidentInfo[3]);
+            writer.append(incidentInfo[0] + "," + hour + ":" + min + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + home.getCurrentUser() + "," + incidentInfo[4] + "," + incidentInfo[3]);
+            writer.newLine();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(NewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            
+            home.readInProgress();
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //remove from new incidents queue
+        int id = Integer.parseInt(incidentInfo[0]);
+        url = getClass().getResource("NewIncidents.csv");
+        file = new File(url.getPath());
+        
+        //read in all lines
+        BufferedReader reader;
+        LinkedList<String> stringList = new LinkedList<String>();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            //reader.readLine();
+            String currentLine;
+            while((currentLine = reader.readLine()) != null){
+                stringList.add(currentLine);
+            }
+            reader.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        //write all out except for the one we want to remove
+        
+        try {
+            
+            writer = new BufferedWriter(new FileWriter(file, false));
+            String currentLine;
+            currentLine = stringList.remove();
+            writer.write(currentLine);
+            writer.newLine();
+            while(stringList.size() > 0){
+                currentLine = stringList.remove();
+                String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                if(Integer.parseInt(incident[0]) != id){
+                    writer.write(currentLine);
+                    writer.newLine();
+                }
+            }
+            writer.close();
+            home.readNewIncidents();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         parent.setContentPane(new respondImmediatelyPanel(home, parent));
         parent.revalidate();
     }//GEN-LAST:event_respondImmeditatelyButtonActionPerformed

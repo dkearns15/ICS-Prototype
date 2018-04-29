@@ -29,7 +29,7 @@ public class NewIncidentResponse extends javax.swing.JFrame {
     }
 
     
-    public NewIncidentResponse(int incidentNum, SecuritySummaryMain home) throws IOException {
+    public NewIncidentResponse(int rowNum, SecuritySummaryMain home) throws IOException {
         initComponents();
         
         URL url = getClass().getResource("NewIncidents.csv");
@@ -37,18 +37,19 @@ public class NewIncidentResponse extends javax.swing.JFrame {
             File file = new File(url.getPath());
         
         String line;
-        incidentInfo = null;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            for (int i = 0; i < incidentNum; i++) {
+            for (int i = 0; i <= rowNum; i++) {
                 br.readLine();
             }
             line = br.readLine();
-            incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            //this.incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            setIncidentInfo(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1));
+            System.out.println(incidentInfo);
         }
         } catch (NullPointerException e) {
             //Create a popup saying, we can't find the file
         }
-        this.setContentPane(new IncidentResponsePanel(incidentNum, home, this));
+        this.setContentPane(new IncidentResponsePanel(rowNum, home, this));
     }
 
     public String[] getIncidentInfo() {

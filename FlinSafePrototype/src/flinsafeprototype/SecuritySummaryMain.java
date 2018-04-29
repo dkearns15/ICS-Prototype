@@ -33,6 +33,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class SecuritySummaryMain extends javax.swing.JFrame {
 
+    private String currentUser;
+
     /**
      * Creates new form securitySummary
      */
@@ -41,6 +43,16 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         initTableListener();
         readReports();
         readNewIncidents();
+        readInProgress();
+        currentUser = "Gerry Mortimer";
+    }
+
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
     }
 
     /**
@@ -181,7 +193,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Incident ID", "Report Type", "Report Location", "Report Time", "Responder", "Comments"
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Responder", "Response Time", "Comments"
             }
         ));
         jScrollPane2.setViewportView(inProgressTable);
@@ -343,16 +355,51 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 JTable table = (JTable) mouseEvent.getSource();
                 Point point = mouseEvent.getPoint();
                 int row = table.rowAtPoint(point);
-                int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                //int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
                     try {
-                        openIncidentResponse(id);
+                        openIncidentResponse(row);
                     } catch (IOException ex) {
                         Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         });
+    }
+
+    public void readInProgress() throws FileNotFoundException, IOException {
+        URL url = getClass().getResource("InProgress.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) inProgressTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[3], incident[6], incident[2], incident[5], incident[4], incident[6]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
     }
 
     public void readNewIncidents() throws FileNotFoundException, IOException {
