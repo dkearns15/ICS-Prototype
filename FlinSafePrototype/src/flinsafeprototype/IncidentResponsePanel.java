@@ -249,7 +249,6 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
 
     private void respondImmeditatelyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondImmeditatelyButtonActionPerformed
         URL url = getClass().getResource("InProgress.csv");
-        File tempFile = new File("tempfile.csv");
         File file = new File(url.getPath());
         BufferedWriter writer = null;
         Calendar calendar = Calendar.getInstance();

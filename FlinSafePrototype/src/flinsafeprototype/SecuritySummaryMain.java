@@ -44,6 +44,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         readReports();
         readNewIncidents();
         readInProgress();
+        readIncidentQueue();
         currentUser = "Gerry Mortimer";
     }
 
@@ -168,7 +169,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Incident ID", "Report Type", "Report Location", "Report Time", "Comments"
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Comments", "Priority", "Security Guard Comments"
             }
         ));
         jScrollPane1.setViewportView(incidentQueueTable);
@@ -367,6 +368,41 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         });
     }
 
+    public void readIncidentQueue() throws FileNotFoundException, IOException{
+        URL url = getClass().getResource("IncidentQueue.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) incidentQueueTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
+    }
+    
     public void readInProgress() throws FileNotFoundException, IOException {
         URL url = getClass().getResource("InProgress.csv");
         try {

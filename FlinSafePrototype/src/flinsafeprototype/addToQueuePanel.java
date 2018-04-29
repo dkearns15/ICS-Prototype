@@ -5,6 +5,19 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author dkear
@@ -71,9 +84,9 @@ public class addToQueuePanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        priorityComboBox = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        notesTextArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1024, 433));
@@ -132,11 +145,11 @@ public class addToQueuePanel extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel11.setText("Select A Priority");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Medium", "High", "Urgent" }));
+        priorityComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Medium", "High", "Urgent" }));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        notesTextArea.setColumns(20);
+        notesTextArea.setRows(5);
+        jScrollPane2.setViewportView(notesTextArea);
 
         jButton1.setText("Add to Incident Queue");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +201,7 @@ public class addToQueuePanel extends javax.swing.JPanel {
                                     .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(priorityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane2))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +248,7 @@ public class addToQueuePanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(priorityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -249,14 +262,97 @@ public class addToQueuePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String priority = (String) priorityComboBox.getSelectedItem();
+        String notes = notesTextArea.getText();
+        
+        URL url = getClass().getResource("IncidentQueue.csv");
+        File file = new File(url.getPath());
+        BufferedWriter writer = null;
+
+        //add to inprogress
+        try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(NewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + priority + "," + notes);
+            writer.append(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + priority + "," + notes);
+            writer.newLine();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(NewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            
+            home.readIncidentQueue();
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //remove from new incidents queue
+        int id = Integer.parseInt(incidentInfo[0]);
+        url = getClass().getResource("NewIncidents.csv");
+        file = new File(url.getPath());
+        
+        //read in all lines
+        BufferedReader reader;
+        LinkedList<String> stringList = new LinkedList<String>();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            //reader.readLine();
+            String currentLine;
+            while((currentLine = reader.readLine()) != null){
+                stringList.add(currentLine);
+            }
+            reader.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        //write all out except for the one we want to remove
+        
+        try {
+            
+            writer = new BufferedWriter(new FileWriter(file, false));
+            String currentLine;
+            currentLine = stringList.remove();
+            writer.write(currentLine);
+            writer.newLine();
+            while(stringList.size() > 0){
+                currentLine = stringList.remove();
+                String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                if(Integer.parseInt(incident[0]) != id){
+                    writer.write(currentLine);
+                    writer.newLine();
+                }
+            }
+            writer.close();
+            home.readNewIncidents();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        parent.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -269,10 +365,11 @@ public class addToQueuePanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel locationLabel;
     private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
+    private javax.swing.JTextArea notesTextArea;
     private javax.swing.JLabel numLabel;
+    private javax.swing.JComboBox<String> priorityComboBox;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
