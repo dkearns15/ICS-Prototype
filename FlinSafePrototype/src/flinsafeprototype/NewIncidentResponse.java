@@ -10,12 +10,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author dkear
  */
 public class NewIncidentResponse extends javax.swing.JFrame {
+    
+    private String[] incidentInfo;
 
     /**
      * Creates new form NewReportResponse
@@ -27,46 +31,36 @@ public class NewIncidentResponse extends javax.swing.JFrame {
     
     public NewIncidentResponse(int incidentNum, SecuritySummaryMain home) throws IOException {
         initComponents();
-        initText(incidentNum);
-    }
-    
-    
-    public void initText(int incidentNum) throws IOException {
-        Locations locs = new Locations();
         
         URL url = getClass().getResource("NewIncidents.csv");
         try {
             File file = new File(url.getPath());
         
         String line;
-        String[] incident = null;
+        incidentInfo = null;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             for (int i = 0; i < incidentNum; i++) {
                 br.readLine();
             }
             line = br.readLine();
-            incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
         }
-        System.out.println(incident[0]);
-        timeLabel.setText(incident[1]);
-        numLabel.setText(incident[0]);
-        typeLabel.setText(incident[2]);
-        locationLabel.setText(incident[3]);
-        commentsTextArea.setText(incident[4]);
-        
-        
-        //Gets the location based on the word describing the locations
-        //If it does not find the location, X and Y point will be zero
-        //Currently supported locations (can add more in Locations.java)
-        //  hub, humanities, engineering
-        mapWithPointsPanel1.setXpoint(locs.getLocationX(incident[3].toLowerCase()));
-        mapWithPointsPanel1.setYpoint(locs.getLocationY(incident[3].toLowerCase()));
-        mapWithPointsPanel1.repaint();
         } catch (NullPointerException e) {
             //Create a popup saying, we can't find the file
         }
-
+        this.setContentPane(new IncidentResponsePanel(incidentNum, home, this));
     }
+
+    public String[] getIncidentInfo() {
+        return incidentInfo;
+    }
+
+    public void setIncidentInfo(String[] incidentInfo) {
+        this.incidentInfo = incidentInfo;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,176 +70,21 @@ public class NewIncidentResponse extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        addToQueueButton = new javax.swing.JButton();
-        respondImmeditatelyButton = new javax.swing.JButton();
-        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
-        jLabel3 = new javax.swing.JLabel();
-        numLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        typeLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        locationLabel = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        commentsTextArea = new javax.swing.JTextArea();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Incident Details:");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setText("How would you like to respond?");
-
-        addToQueueButton.setText("Add Incident to Queue");
-        addToQueueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToQueueButtonActionPerformed(evt);
-            }
-        });
-
-        respondImmeditatelyButton.setText("Respond Immediately");
-        respondImmeditatelyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                respondImmeditatelyButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
-        mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
-        mapWithPointsPanel1Layout.setHorizontalGroup(
-            mapWithPointsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
-        );
-        mapWithPointsPanel1Layout.setVerticalGroup(
-            mapWithPointsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
-        );
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel3.setText("Incident Number");
-
-        numLabel.setText("jLabel9");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel4.setText("Report Type");
-
-        typeLabel.setText("jLabel9");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel6.setText("Report Time");
-
-        timeLabel.setText("jLabel9");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel7.setText("Report Location");
-
-        locationLabel.setText("jLabel9");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel8.setText("Report Comments");
-
-        commentsTextArea.setColumns(20);
-        commentsTextArea.setLineWrap(true);
-        commentsTextArea.setRows(5);
-        jScrollPane1.setViewportView(commentsTextArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(addToQueueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(respondImmeditatelyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numLabel)
-                            .addComponent(typeLabel)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(locationLabel)
-                            .addComponent(timeLabel))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+            .addGap(0, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(numLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(typeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(timeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(locationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(respondImmeditatelyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addToQueueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGap(0, 433, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addToQueueButtonActionPerformed
-
-    private void respondImmeditatelyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondImmeditatelyButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_respondImmeditatelyButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,21 +123,5 @@ public class NewIncidentResponse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addToQueueButton;
-    private javax.swing.JTextArea commentsTextArea;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
-    private javax.swing.JLabel numLabel;
-    private javax.swing.JButton respondImmeditatelyButton;
-    private javax.swing.JLabel timeLabel;
-    private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
 }
