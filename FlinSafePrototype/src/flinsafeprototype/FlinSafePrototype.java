@@ -6,6 +6,7 @@
 package flinsafeprototype;
 
 import java.io.IOException;
+import java.awt.Dimension;
 
 /**
  *
