@@ -15,8 +15,8 @@ Location       Text
 Coords         XX:YY
 Reporter       Text
 Description    Text
-Type          
-Resolved       True/False/In Progress
+Type           Fire / Excort / Building Access / Assault / Removal
+Resolved       True / False/ In Progress
 ResolvedDate   DD/MM/YYYY
 ResolvedTime   HH:MM:SS 
 Responder      Text
