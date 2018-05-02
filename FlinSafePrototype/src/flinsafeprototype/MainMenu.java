@@ -8,6 +8,7 @@ package flinsafeprototype;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -148,7 +149,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_securitySummaryButtonActionPerformed
 
     private void reportActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActivityButtonActionPerformed
-        new ReportActivityMain().setVisible(true);
+        ReportActivityMain RAframe = new ReportActivityMain();
+        RAframe.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        //RAframe.setUndecorated(true);
+        RAframe.setVisible(true);
+        //new ReportActivityMain().setVisible(true);
     }//GEN-LAST:event_reportActivityButtonActionPerformed
 
     private void kioskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kioskButtonActionPerformed
