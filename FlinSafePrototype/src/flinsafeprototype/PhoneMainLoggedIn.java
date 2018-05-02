@@ -102,8 +102,10 @@ public class PhoneMainLoggedIn extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(OtherReport)
-                            .addComponent(ReportType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ReportType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(OtherReport)))))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,7 +148,7 @@ public class PhoneMainLoggedIn extends javax.swing.JFrame {
     }//GEN-LAST:event_ReportTypeActionPerformed
 
     private void OtherReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherReportActionPerformed
-        // TODO add your handling code here:
+        new PhoneFire().setVisible(true);
     }//GEN-LAST:event_OtherReportActionPerformed
 
     /**

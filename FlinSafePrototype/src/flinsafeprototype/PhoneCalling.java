@@ -76,7 +76,7 @@ public class PhoneCalling extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void HangUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HangUpActionPerformed
-        // TODO add your handling code here:
+        new PhoneMain().setVisible(true);
     }//GEN-LAST:event_HangUpActionPerformed
 
     /**
