@@ -14,12 +14,12 @@ package flinsafeprototype;
  * might implement tabbed dialog to display 
  * unallocated "active" jobs AND allocated "active" "in progress" jobs
  */
-public class ReportIncident extends javax.swing.JFrame {
+public class KioskReportIncident extends javax.swing.JFrame {
 
     /**
      * Creates new form ReportActivityMain
      */
-    public ReportIncident() {
+    public KioskReportIncident() {
         initComponents();
     }
 
@@ -169,56 +169,56 @@ public class ReportIncident extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new KioskMain().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        new IncidentForm().setVisible(true);
-        new ReportIncident().setVisible(false);
+        new KioskIncidentForm().setVisible(true);
+        new KioskReportIncident().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -239,21 +239,23 @@ public class ReportIncident extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskReportIncident.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReportIncident().setVisible(true);
+                new KioskReportIncident().setVisible(true);
             }
         });
     }

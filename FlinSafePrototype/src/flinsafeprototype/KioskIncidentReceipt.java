@@ -14,12 +14,12 @@ package flinsafeprototype;
  * might implement tabbed dialog to display 
  * unallocated "active" jobs AND allocated "active" "in progress" jobs
  */
-public class IncidentReceipt extends javax.swing.JFrame {
+public class KioskIncidentReceipt extends javax.swing.JFrame {
 
     /**
      * Creates new form ReportActivityMain
      */
-    public IncidentReceipt() {
+    public KioskIncidentReceipt() {
         initComponents();
     }
 
@@ -150,7 +150,7 @@ public class IncidentReceipt extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new KioskMain().setVisible(true);
-        new IncidentReceipt().setVisible(false);
+        new KioskIncidentReceipt().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -171,14 +171,18 @@ public class IncidentReceipt extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskIncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskIncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskIncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskIncidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -187,7 +191,7 @@ public class IncidentReceipt extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IncidentReceipt().setVisible(true);
+                new KioskIncidentReceipt().setVisible(true);
             }
         });
     }

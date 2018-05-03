@@ -34,7 +34,7 @@ import javax.swing.JPanel;
  * 
  */
 //Future endevour would be to use mouse listeners to add hover notifications saying where each incident is
-public class MapWithPointsPanel extends JPanel {
+public class HelperMapWithPointsPanel extends JPanel {
 
     //Currently hardcoded, can be modified later 
     //private int[] freq = {10, 19, 50, 13, 60};
@@ -57,14 +57,14 @@ public class MapWithPointsPanel extends JPanel {
 //    public void setFreq(int[] freq) {
 //        this.freq = freq;
 //    }
-    public MapWithPointsPanel() {
+    public HelperMapWithPointsPanel() {
         setPreferredSize(new Dimension(382, 382));
         setVisible(true);
 
     }
 
     //Creates a map with the point at a specific place
-    public MapWithPointsPanel(int x, int y) {
+    public HelperMapWithPointsPanel(int x, int y) {
         xpoint = x;
         ypoint = y;
         setPreferredSize(new Dimension(382, 382));
@@ -99,7 +99,7 @@ public class MapWithPointsPanel extends JPanel {
         try {
             image = ImageIO.read(new File(url.getPath()));
         } catch (IOException ex) {
-            Logger.getLogger(MapWithPointsPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HelperMapWithPointsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         //Draw the picture at the location 0,0
         g.drawImage(image, 0, 0, null);

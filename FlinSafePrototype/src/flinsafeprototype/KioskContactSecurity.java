@@ -14,12 +14,12 @@ package flinsafeprototype;
  * might implement tabbed dialog to display 
  * unallocated "active" jobs AND allocated "active" "in progress" jobs
  */
-public class ContactSecurity extends javax.swing.JFrame {
+public class KioskContactSecurity extends javax.swing.JFrame {
 
     /**
      * Creates new form ReportActivityMain
      */
-    public ContactSecurity() {
+    public KioskContactSecurity() {
         initComponents();
     }
 
@@ -107,8 +107,8 @@ public class ContactSecurity extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         new Calling().setVisible(true);
-          new ContactSecurity().setVisible(false);
+         new KioskCalling().setVisible(true);
+          new KioskContactSecurity().setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -129,14 +129,18 @@ public class ContactSecurity extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -145,7 +149,7 @@ public class ContactSecurity extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ContactSecurity().setVisible(true);
+                new KioskContactSecurity().setVisible(true);
             }
         });
     }

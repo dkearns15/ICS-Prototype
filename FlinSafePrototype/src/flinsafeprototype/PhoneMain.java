@@ -116,7 +116,7 @@ public class PhoneMain extends javax.swing.JFrame {
     }//GEN-LAST:event_PhoneSecurityAlertsActionPerformed
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
-        new LogIn().setVisible(true);
+        new KioskLogIn().setVisible(true);
     }//GEN-LAST:event_LogInActionPerformed
 
     /**

@@ -23,20 +23,20 @@ import java.util.logging.Logger;
  *
  * @author dkear
  */
-public class IncidentResponsePanel extends javax.swing.JPanel {
+public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
 
     private String[] incidentInfo;
-    NewIncidentResponse parent;
+    SecuritySummaryNewIncidentResponse parent;
     SecuritySummaryMain home;
 
     /**
      * Creates new form IncidentResponsePanel
      */
-    public IncidentResponsePanel() {
+    public SecuritySummaryIncidentResponsePanel() {
         initComponents();
     }
 
-    public IncidentResponsePanel(int incidentNum, SecuritySummaryMain home, NewIncidentResponse parent) throws IOException {
+    public SecuritySummaryIncidentResponsePanel(int incidentNum, SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) throws IOException {
         initComponents();
         this.parent = parent;
         this.home = home;
@@ -46,7 +46,7 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
     }
 
     public void initText(int incidentNum) throws IOException {
-        Locations locs = new Locations();
+        HelperLocations locs = new HelperLocations();
         System.out.println(incidentInfo[0]);
         timeLabel.setText(incidentInfo[1]);
         numLabel.setText(incidentInfo[0]);
@@ -88,7 +88,7 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addToQueueButton = new javax.swing.JButton();
         respondImmeditatelyButton = new javax.swing.JButton();
-        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
+        mapWithPointsPanel1 = new flinsafeprototype.HelperMapWithPointsPanel();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -243,7 +243,7 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
-        parent.setContentPane(new addToQueuePanel(home, parent));
+        parent.setContentPane(new SecuritySummaryaddToQueuePanel(home, parent));
         parent.revalidate();
     }//GEN-LAST:event_addToQueueButtonActionPerformed
 
@@ -259,7 +259,7 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
         try {
             writer = new BufferedWriter(new FileWriter(file, true));
         } catch (IOException ex) {
-            Logger.getLogger(NewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             System.out.println(incidentInfo[0] + "," + hour + ":" + min + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + home.getCurrentUser() + "," + incidentInfo[4] + "," + incidentInfo[3]);
@@ -267,7 +267,7 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
             writer.newLine();
             
         } catch (IOException ex) {
-            Logger.getLogger(NewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.flush();
@@ -275,14 +275,14 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
             
             
         } catch (IOException ex) {
-            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         try {
             
             home.readInProgress();
         } catch (IOException ex) {
-            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //remove from new incidents queue
@@ -302,9 +302,9 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
             }
             reader.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
             
         //write all out except for the one we want to remove
@@ -327,12 +327,12 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
             writer.close();
             home.readNewIncidents();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(IncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        parent.setContentPane(new respondImmediatelyPanel(home, parent));
+        parent.setContentPane(new SecuritySummaryrespondImmediatelyPanel(home, parent));
         parent.revalidate();
     }//GEN-LAST:event_respondImmeditatelyButtonActionPerformed
 
@@ -350,7 +350,7 @@ public class IncidentResponsePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
+    private flinsafeprototype.HelperMapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numLabel;
     private javax.swing.JButton respondImmeditatelyButton;
     private javax.swing.JLabel timeLabel;

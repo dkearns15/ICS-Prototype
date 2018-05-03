@@ -131,7 +131,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="flinsafeprototype.MapWithPointsPanel" name="mapWithPointsPanel1">
+    <Container class="flinsafeprototype.HelperMapWithPointsPanel" name="mapWithPointsPanel1">
 
       <Layout>
         <DimensionLayout dim="0">

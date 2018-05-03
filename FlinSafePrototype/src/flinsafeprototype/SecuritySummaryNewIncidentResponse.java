@@ -17,19 +17,19 @@ import java.util.logging.Logger;
  *
  * @author dkear
  */
-public class NewIncidentResponse extends javax.swing.JFrame {
+public class SecuritySummaryNewIncidentResponse extends javax.swing.JFrame {
     
     private String[] incidentInfo;
 
     /**
      * Creates new form NewReportResponse
      */
-    public NewIncidentResponse() {
+    public SecuritySummaryNewIncidentResponse() {
         initComponents();
     }
 
     
-    public NewIncidentResponse(int rowNum, SecuritySummaryMain home) throws IOException {
+    public SecuritySummaryNewIncidentResponse(int rowNum, SecuritySummaryMain home) throws IOException {
         initComponents();
         
         URL url = getClass().getResource("NewIncidents.csv");
@@ -49,7 +49,7 @@ public class NewIncidentResponse extends javax.swing.JFrame {
         } catch (NullPointerException e) {
             //Create a popup saying, we can't find the file
         }
-        this.setContentPane(new IncidentResponsePanel(rowNum, home, this));
+        this.setContentPane(new SecuritySummaryIncidentResponsePanel(rowNum, home, this));
     }
 
     public String[] getIncidentInfo() {
@@ -104,21 +104,23 @@ public class NewIncidentResponse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewIncidentResponse().setVisible(true);
+                new SecuritySummaryNewIncidentResponse().setVisible(true);
             }
         });
     }

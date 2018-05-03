@@ -9,12 +9,12 @@ package flinsafeprototype;
  *
  * @author dkear
  */
-public class Success extends javax.swing.JPanel {
+public class HelperSuccess extends javax.swing.JPanel {
 
     /**
      * Creates new form Success
      */
-    public Success() {
+    public HelperSuccess() {
         initComponents();
     }
 

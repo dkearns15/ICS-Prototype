@@ -9,22 +9,22 @@ package flinsafeprototype;
  *
  * @author dkear
  */
-public class respondImmediatelyPanel extends javax.swing.JPanel {
+public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
 
     private String[] incidentInfo;
-    NewIncidentResponse parent;
+    SecuritySummaryNewIncidentResponse parent;
     
     /**
      * Creates new form respondImmediatelyPanel
      */
-    public respondImmediatelyPanel() {
+    public SecuritySummaryrespondImmediatelyPanel() {
         initComponents();
     }
     
-    public respondImmediatelyPanel(SecuritySummaryMain home, NewIncidentResponse parent) {
+    public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
         this.parent = parent;
         this.incidentInfo = parent.getIncidentInfo();
-        Locations locs = new Locations();
+        HelperLocations locs = new HelperLocations();
         initComponents();
         
         
@@ -54,7 +54,7 @@ public class respondImmediatelyPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
+        mapWithPointsPanel1 = new flinsafeprototype.HelperMapWithPointsPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         commentsTextArea = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
@@ -293,7 +293,7 @@ public class respondImmediatelyPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
+    private flinsafeprototype.HelperMapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numLabel;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel typeLabel;

@@ -328,7 +328,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     }
 
     public void openIncidentResponse(int num) throws IOException {
-        new NewIncidentResponse(num, this).setVisible(true);
+        new SecuritySummaryNewIncidentResponse(num, this).setVisible(true);
     }
 
     //Adds a listener to the table on tab 3 which listens for a double click and

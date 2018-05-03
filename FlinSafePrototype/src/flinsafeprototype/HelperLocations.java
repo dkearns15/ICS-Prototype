@@ -19,13 +19,13 @@ import java.util.TreeMap;
  * 
  * Could be abstracted further to allow for building it for different images.
  */
-public class Locations {
+public class HelperLocations {
     //A TreeMap stores a key and a value, the key can be used to retrieve the value.
     //In this case, the String is the key, and is used to retrieve a location with coordinate details
     TreeMap<String, Location> locs = new TreeMap();
 
     //Constructor automatically adds locations to the TreeMap
-    public Locations() {
+    public HelperLocations() {
         locs.put("hub", new Location("hub", 136, 100));
         locs.put("humanities", new Location("humanities", 184, 105));
         locs.put("engineering", new Location("engineering", 181, 312));
