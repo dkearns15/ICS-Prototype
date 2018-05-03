@@ -42,7 +42,7 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
         this.home = home;
         this.incidentInfo = parent.getIncidentInfo();
         initText(incidentNum);
-        
+
     }
 
     public void initText(int incidentNum) throws IOException {
@@ -265,31 +265,31 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
             System.out.println(incidentInfo[0] + "," + hour + ":" + min + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + home.getCurrentUser() + "," + incidentInfo[4] + "," + incidentInfo[3]);
             writer.append(incidentInfo[0] + "," + hour + ":" + min + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + home.getCurrentUser() + "," + incidentInfo[4] + "," + incidentInfo[3]);
             writer.newLine();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.flush();
             writer.close();
-            
-            
+
+
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
-            
+
             home.readInProgress();
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //remove from new incidents queue
         int id = Integer.parseInt(incidentInfo[0]);
         url = getClass().getResource("NewIncidents.csv");
         file = new File(url.getPath());
-        
+
         //read in all lines
         BufferedReader reader;
         LinkedList<String> stringList = new LinkedList<String>();
@@ -306,11 +306,11 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+
         //write all out except for the one we want to remove
-        
+
         try {
-            
+
             writer = new BufferedWriter(new FileWriter(file, false));
             String currentLine;
             currentLine = stringList.remove();
@@ -331,7 +331,7 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         parent.setContentPane(new SecuritySummaryrespondImmediatelyPanel(home, parent));
         parent.revalidate();
     }//GEN-LAST:event_respondImmeditatelyButtonActionPerformed

@@ -71,14 +71,15 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         newIncidentTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        viewIncidentDetailsButton = new javax.swing.JButton();
+        addToQueueButton = new javax.swing.JButton();
         tab1Queue = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         incidentQueueTable = new javax.swing.JTable();
         inProgressPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         inProgressTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         recentlyResolvedPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         recentlyResolvedTable = new javax.swing.JTable();
@@ -108,17 +109,17 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
         jLabel1.setText("Options:");
 
-        jButton1.setText("View Incident Details");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        viewIncidentDetailsButton.setText("View Incident Details");
+        viewIncidentDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                viewIncidentDetailsButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Add Straight to Queue");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addToQueueButton.setText("Add Straight to Queue");
+        addToQueueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addToQueueButtonActionPerformed(evt);
             }
         });
 
@@ -130,8 +131,8 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(viewIncidentDetailsButton)
+                    .addComponent(addToQueueButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -140,9 +141,9 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(viewIncidentDetailsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(addToQueueButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -199,17 +200,30 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(inProgressTable);
 
+        jButton1.setText("View Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout inProgressPanelLayout = new javax.swing.GroupLayout(inProgressPanel);
         inProgressPanel.setLayout(inProgressPanelLayout);
         inProgressPanelLayout.setHorizontalGroup(
             inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inProgressPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 209, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addGap(0, 78, Short.MAX_VALUE))
         );
         inProgressPanelLayout.setVerticalGroup(
             inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addGroup(inProgressPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("In Progress", inProgressPanel);
@@ -263,12 +277,12 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void viewIncidentDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIncidentDetailsButtonActionPerformed
         int selectedRow = newIncidentTable.getSelectedRow();
         try {
             int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(selectedRow, 0));
             try {
-                openIncidentResponse(id);
+                openIncidentResponse(selectedRow);
             } catch (IOException ex) {
                 Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -276,11 +290,34 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             System.out.println("Didn't select incident");
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_viewIncidentDetailsButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
+        int row = newIncidentTable.getSelectedRow();
+        int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(row, 0));
+        try {
+            SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(row, this);
+            a.setVisible(rootPaneCheckingEnabled);
+            a.setContentPane(new SecuritySummaryaddToQueuePanel(this, a));
+            a.revalidate();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addToQueueButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int selectedRow = inProgressTable.getSelectedRow();
+        try {
+            int id = Integer.parseInt((String) inProgressTable.getModel().getValueAt(selectedRow, 0));
+            try {
+                openInProgressResponse(selectedRow);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,6 +367,9 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     public void openIncidentResponse(int num) throws IOException {
         new SecuritySummaryNewIncidentResponse(num, this).setVisible(true);
     }
+    public void openInProgressResponse(int num) throws IOException {
+        new SecuritySummaryInProgressResponse(num, this).setVisible(true);
+    }
 
     //Adds a listener to the table on tab 3 which listens for a double click and
     //opens a new ReportDetails instance with the id of that report if it hears
@@ -360,6 +400,21 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
                     try {
                         openIncidentResponse(row);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+        inProgressTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                //int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openInProgressResponse(row);
                     } catch (IOException ex) {
                         Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -510,11 +565,11 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel NewIncidentsPanel;
+    private javax.swing.JButton addToQueueButton;
     private javax.swing.JPanel inProgressPanel;
     private javax.swing.JTable inProgressTable;
     private javax.swing.JTable incidentQueueTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -526,5 +581,6 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     private javax.swing.JTable recentlyResolvedTable;
     private javax.swing.JPanel tab1Queue;
     private javax.swing.JTabbedPane tabbedMenu;
+    private javax.swing.JButton viewIncidentDetailsButton;
     // End of variables declaration//GEN-END:variables
 }
