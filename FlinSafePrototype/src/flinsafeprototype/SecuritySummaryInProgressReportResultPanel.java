@@ -6,6 +6,19 @@
 package flinsafeprototype;
 
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,20 +46,13 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         System.out.println(this.getWidth());
         parent.setSize(new Dimension(761, 805));
         
-//        timeLabel.setText(incidentInfo[1]);
-//        numLabel.setText(incidentInfo[0]);
-//        typeLabel.setText(incidentInfo[2]);
-//        locationLabel.setText(incidentInfo[3]);
-//        commentsTextArea.setText(incidentInfo[4]);
-//        
-//        
-//        //Gets the location based on the word describing the locations
-//        //If it does not find the location, X and Y point will be zero
-//        //Currently supported locations (can add more in Locations.java)
-//        //  hub, humanities, engineering
-//        mapWithPointsPanel1.setXpoint(locs.getLocationX(incidentInfo[3].toLowerCase()));
-//        mapWithPointsPanel1.setYpoint(locs.getLocationY(incidentInfo[3].toLowerCase()));
-//        mapWithPointsPanel1.repaint();
+        timeLabel.setText(incidentInfo[2]);
+        numLabel.setText(incidentInfo[0]);
+        typeLabel.setText(incidentInfo[3]);
+        locationLabel.setText(incidentInfo[6]);
+        commentsTextArea.setText(incidentInfo[5]);
+        responderLabel.setText(incidentInfo[4]);
+        responseStartTimeLabel.setText(incidentInfo[1]);
     }
 
     /**
@@ -136,6 +142,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         commentsTextArea.setColumns(20);
         commentsTextArea.setLineWrap(true);
         commentsTextArea.setRows(5);
+        commentsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(commentsTextArea);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -162,7 +169,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel17.setText("Report Result:");
 
-        reportResultComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resolved","Escalated" }));
+        reportResultComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resolved","Escalated","Resolved and Escalated" }));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel18.setText("Report Text:");
@@ -324,7 +331,90 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        URL url = getClass().getResource("Reports.csv");
+        File file = new File(url.getPath());
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+
+        //add to reports
+        try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(incidentInfo[0] + ", " + new Date() + "," + incidentInfo[2] + "," + reportTitleTextField.getText() + "," + reportSummaryTextField.getText() + "," + reportResolutionTextField.getText() + "," + incidentInfo[6] + "," + "Gerry Mortimer" + ", \"Security Guards Comments:" + reportTextTextArea.getText() + "Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
+            writer.append(incidentInfo[0] + ", " + new Date() + "," + incidentInfo[2] + "," + reportTitleTextField.getText() + "," + reportSummaryTextField.getText() + "," + reportResolutionTextField.getText() + "," + incidentInfo[6] + "," + "Gerry Mortimer" + ", \"Security Guards Comments:" + reportTextTextArea.getText() + "Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+
+            home.readReports();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //remove from in progress
+        int id = Integer.parseInt(incidentInfo[0]);
+        url = getClass().getResource("InProgress.csv");
+        file = new File(url.getPath());
+
+        //read in all lines
+        BufferedReader reader;
+        LinkedList<String> stringList = new LinkedList<String>();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            //reader.readLine();
+            String currentLine;
+            while((currentLine = reader.readLine()) != null){
+                stringList.add(currentLine);
+            }
+            reader.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //write all out except for the one we want to remove
+
+        try {
+
+            writer = new BufferedWriter(new FileWriter(file, false));
+            String currentLine;
+            currentLine = stringList.remove();
+            writer.write(currentLine);
+            writer.newLine();
+            while(stringList.size() > 0){
+                currentLine = stringList.remove();
+                String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                if(Integer.parseInt(incident[0]) != id){
+                    writer.write(currentLine);
+                    writer.newLine();
+                }
+            }
+            writer.close();
+            home.readInProgress();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

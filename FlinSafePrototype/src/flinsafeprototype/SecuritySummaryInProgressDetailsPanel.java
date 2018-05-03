@@ -85,6 +85,7 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
         commentsTextArea.setColumns(20);
         commentsTextArea.setLineWrap(true);
         commentsTextArea.setRows(5);
+        commentsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(commentsTextArea);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
