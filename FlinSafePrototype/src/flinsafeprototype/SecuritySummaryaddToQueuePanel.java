@@ -67,7 +67,7 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mapWithPointsPanel1 = new flinsafeprototype.HelperMapWithPointsPanel();
+        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         commentsTextArea = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
@@ -366,7 +366,7 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.HelperMapWithPointsPanel mapWithPointsPanel1;
+    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JTextArea notesTextArea;
     private javax.swing.JLabel numLabel;
     private javax.swing.JComboBox<String> priorityComboBox;

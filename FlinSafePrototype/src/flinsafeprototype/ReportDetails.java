@@ -45,7 +45,7 @@ public class ReportDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mapWithPointsPanel1 = new flinsafeprototype.HelperMapWithPointsPanel();
+        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -314,7 +314,7 @@ public class ReportDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.HelperMapWithPointsPanel mapWithPointsPanel1;
+    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numberLabel;
     private javax.swing.JLabel resolutionLabel;
     private javax.swing.JLabel summaryLabel;

@@ -237,7 +237,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="respondImmeditatelyButtonActionPerformed"/>
       </Events>
     </Component>
-    <Container class="flinsafeprototype.HelperMapWithPointsPanel" name="mapWithPointsPanel1">
+    <Container class="flinsafeprototype.MapWithPointsPanel" name="mapWithPointsPanel1">
 
       <Layout>
         <DimensionLayout dim="0">

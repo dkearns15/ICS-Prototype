@@ -73,7 +73,7 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
         numLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        mapWithPointsPanel1 = new flinsafeprototype.HelperMapWithPointsPanel();
+        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         responseStartTimeLabel = new javax.swing.JLabel();
@@ -243,7 +243,8 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void finishedRespondingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRespondingButtonActionPerformed
-        // TODO add your handling code here:
+        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
+        parent.revalidate();
     }//GEN-LAST:event_finishedRespondingButtonActionPerformed
 
 
@@ -261,7 +262,7 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.HelperMapWithPointsPanel mapWithPointsPanel1;
+    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numLabel;
     private javax.swing.JLabel responderLabel;
     private javax.swing.JLabel responseStartTimeLabel;

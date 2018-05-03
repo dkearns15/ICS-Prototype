@@ -223,7 +223,7 @@
         <Property name="text" type="java.lang.String" value="Incident Details:"/>
       </Properties>
     </Component>
-    <Container class="flinsafeprototype.HelperMapWithPointsPanel" name="mapWithPointsPanel1">
+    <Container class="flinsafeprototype.MapWithPointsPanel" name="mapWithPointsPanel1">
 
       <Layout>
         <DimensionLayout dim="0">

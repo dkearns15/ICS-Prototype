@@ -88,7 +88,7 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addToQueueButton = new javax.swing.JButton();
         respondImmeditatelyButton = new javax.swing.JButton();
-        mapWithPointsPanel1 = new flinsafeprototype.HelperMapWithPointsPanel();
+        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -350,7 +350,7 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationLabel;
-    private flinsafeprototype.HelperMapWithPointsPanel mapWithPointsPanel1;
+    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numLabel;
     private javax.swing.JButton respondImmeditatelyButton;
     private javax.swing.JLabel timeLabel;
