@@ -414,6 +414,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        parent.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -83,6 +83,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         recentlyResolvedPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         recentlyResolvedTable = new javax.swing.JTable();
+        openReportButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Security Summary Main");
@@ -246,17 +247,30 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(recentlyResolvedTable);
 
+        openReportButton.setText("Open Report");
+        openReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openReportButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout recentlyResolvedPanelLayout = new javax.swing.GroupLayout(recentlyResolvedPanel);
         recentlyResolvedPanel.setLayout(recentlyResolvedPanelLayout);
         recentlyResolvedPanelLayout.setHorizontalGroup(
             recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 209, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(openReportButton)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         recentlyResolvedPanelLayout.setVerticalGroup(
             recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(openReportButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("Recently Resolved", recentlyResolvedPanel);
@@ -318,6 +332,19 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             System.out.println("Didn't select incident");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void openReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openReportButtonActionPerformed
+        int selectedRow = recentlyResolvedTable.getSelectedRow();
+        try {
+            try {
+               openReportDetails(selectedRow + 1);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_openReportButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,7 +410,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
                     try {
-                        openReportDetails(id);
+                        openReportDetails(row + 1);
                     } catch (IOException ex) {
                         Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -577,6 +604,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable newIncidentTable;
+    private javax.swing.JButton openReportButton;
     private javax.swing.JPanel recentlyResolvedPanel;
     private javax.swing.JTable recentlyResolvedTable;
     private javax.swing.JPanel tab1Queue;
