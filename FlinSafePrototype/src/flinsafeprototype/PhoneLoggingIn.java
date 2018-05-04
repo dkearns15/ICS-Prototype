@@ -9,12 +9,12 @@ package flinsafeprototype;
  *
  * @author Bryn
  */
-public class KioskLogIn extends javax.swing.JFrame {
+public class PhoneLoggingIn extends javax.swing.JPanel {
 
     /**
-     * Creates new form LogIn
+     * Creates new form PhoneLoggingIn
      */
-    public KioskLogIn() {
+    public PhoneLoggingIn() {
         initComponents();
     }
 
@@ -27,16 +27,25 @@ public class KioskLogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Back = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         RememberMe = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         LoggedIn = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jTextField2.setText("jTextField2");
+
+        jLabel3.setText("Remember Me");
+
+        LoggedIn.setText("Log In");
+        LoggedIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoggedInActionPerformed(evt);
+            }
+        });
 
         Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -51,19 +60,8 @@ public class KioskLogIn extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
-        jTextField2.setText("jTextField2");
-
-        jLabel3.setText("Remember Me");
-
-        LoggedIn.setText("Log In");
-        LoggedIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoggedInActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -105,53 +103,18 @@ public class KioskLogIn extends javax.swing.JFrame {
                 .addComponent(LoggedIn)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LoggedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggedInActionPerformed
+        
+        //this.setContentPane(new PhoneMainLoggedIn());
+        this.revalidate();
+    }//GEN-LAST:event_LoggedInActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         new PhoneMain().setVisible(true);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void LoggedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggedInActionPerformed
-        new PhoneMainLoggedIn().setVisible(true);
-    }//GEN-LAST:event_LoggedInActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KioskLogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KioskLogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KioskLogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KioskLogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new KioskLogIn().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;

@@ -104,19 +104,23 @@ public class PhoneMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PhoneReportEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneReportEmergencyActionPerformed
-        new PhoneReportEmergency().setVisible(true);
+        this.setContentPane(new PhoneReportEmergency());
+        this.revalidate();
     }//GEN-LAST:event_PhoneReportEmergencyActionPerformed
 
     private void PhoneCallingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneCallingActionPerformed
-        new PhoneCalling().setVisible(true);
+        this.setContentPane(new PhoneCalling());
+        this.revalidate();
     }//GEN-LAST:event_PhoneCallingActionPerformed
 
     private void PhoneSecurityAlertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneSecurityAlertsActionPerformed
-        new PhoneSecurityAlerts().setVisible(true);
+        this.setContentPane(new PhoneSecurityAlerts());
+        this.revalidate();
     }//GEN-LAST:event_PhoneSecurityAlertsActionPerformed
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
-        new KioskLogIn().setVisible(true);
+        this.setContentPane(new PhoneLoggingIn());
+        this.revalidate();
     }//GEN-LAST:event_LogInActionPerformed
 
     /**
