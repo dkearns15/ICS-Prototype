@@ -76,6 +76,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         tab1Queue = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         incidentQueueTable = new javax.swing.JTable();
+        respondToIncidentButton = new javax.swing.JButton();
         inProgressPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         inProgressTable = new javax.swing.JTable();
@@ -173,8 +174,23 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             new String [] {
                 "Incident ID", "Report Type", "Report Location", "Report Time", "Comments", "Priority", "Security Guard Comments"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(incidentQueueTable);
+
+        respondToIncidentButton.setText("Respond to Incident");
+        respondToIncidentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                respondToIncidentButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab1QueueLayout = new javax.swing.GroupLayout(tab1Queue);
         tab1Queue.setLayout(tab1QueueLayout);
@@ -182,11 +198,17 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1QueueLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(respondToIncidentButton)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         tab1QueueLayout.setVerticalGroup(
             tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addGroup(tab1QueueLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(respondToIncidentButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("Incident Queue", tab1Queue);
@@ -198,7 +220,15 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             new String [] {
                 "Incident ID", "Report Type", "Report Location", "Report Time", "Responder", "Response Time", "Comments"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(inProgressTable);
 
         jButton1.setText("View Details");
@@ -310,7 +340,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         int row = newIncidentTable.getSelectedRow();
         int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(row, 0));
         try {
-            SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(row, this);
+            SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(row, this, true);
             a.setVisible(rootPaneCheckingEnabled);
             a.setContentPane(new SecuritySummaryaddToQueuePanel(this, a));
             a.revalidate();
@@ -345,6 +375,20 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             System.out.println("Didn't select incident");
         }
     }//GEN-LAST:event_openReportButtonActionPerformed
+
+    private void respondToIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondToIncidentButtonActionPerformed
+        int selectedRow = incidentQueueTable.getSelectedRow();
+        try {
+            //int id = Integer.parseInt((String) inProgressTable.getModel().getValueAt(selectedRow, 0));
+            try {
+                openIncidentQueueResponse(selectedRow);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_respondToIncidentButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,12 +434,17 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     public void openReportDetails(int num) throws IOException {
         new ReportDetails(num).setVisible(true);
     }
-
     public void openIncidentResponse(int num) throws IOException {
-        new SecuritySummaryNewIncidentResponse(num, this).setVisible(true);
+        new SecuritySummaryNewIncidentResponse(num, this, true).setVisible(true);
     }
     public void openInProgressResponse(int num) throws IOException {
         new SecuritySummaryInProgressResponse(num, this).setVisible(true);
+    }
+    public void openIncidentQueueResponse(int num) throws IOException {
+        SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(num, this, false);
+        a.setVisible(true);
+        a.setContentPane(new SecuritySummaryIncidentQueueResponsePanel(num, this, a));
+        a.revalidate();
     }
 
     //Adds a listener to the table on tab 3 which listens for a double click and
@@ -442,6 +491,21 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
                     try {
                         openInProgressResponse(row);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+        incidentQueueTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                //int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openIncidentQueueResponse(row);
                     } catch (IOException ex) {
                         Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -607,6 +671,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     private javax.swing.JButton openReportButton;
     private javax.swing.JPanel recentlyResolvedPanel;
     private javax.swing.JTable recentlyResolvedTable;
+    private javax.swing.JButton respondToIncidentButton;
     private javax.swing.JPanel tab1Queue;
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JButton viewIncidentDetailsButton;

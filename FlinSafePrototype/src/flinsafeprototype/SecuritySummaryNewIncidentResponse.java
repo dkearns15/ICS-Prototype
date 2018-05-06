@@ -29,10 +29,14 @@ public class SecuritySummaryNewIncidentResponse extends javax.swing.JFrame {
     }
 
     
-    public SecuritySummaryNewIncidentResponse(int rowNum, SecuritySummaryMain home) throws IOException {
+    public SecuritySummaryNewIncidentResponse(int rowNum, SecuritySummaryMain home, boolean newIncident) throws IOException {
         initComponents();
-        
-        URL url = getClass().getResource("NewIncidents.csv");
+        URL url;
+        if(newIncident == true){
+            url = getClass().getResource("NewIncidents.csv");
+        }else{
+            url = getClass().getResource("IncidentQueue.csv");
+        }
         try {
             File file = new File(url.getPath());
         

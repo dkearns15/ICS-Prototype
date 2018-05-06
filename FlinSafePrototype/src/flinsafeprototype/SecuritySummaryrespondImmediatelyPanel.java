@@ -13,6 +13,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
 
     private String[] incidentInfo;
     SecuritySummaryNewIncidentResponse parent;
+    SecuritySummaryMain home;
     
     /**
      * Creates new form respondImmediatelyPanel
@@ -24,6 +25,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
         this.parent = parent;
         this.incidentInfo = parent.getIncidentInfo();
+        this.home = home;
         HelperLocations locs = new HelperLocations();
         initComponents();
         
@@ -148,7 +150,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setText("Respond Immediately");
+        jLabel2.setText("Respond");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -271,7 +273,10 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // Will be updated to start John's section
+        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
+        String[] newIncidentInfo = {};
+        parent.setIncidentInfo(newIncidentInfo);
+        parent.revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

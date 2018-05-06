@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPanel {
     
     private String[] incidentInfo;
-    SecuritySummaryInProgressResponse parent;
+    javax.swing.JFrame parent;
     SecuritySummaryMain home;
     
     /**
@@ -37,6 +37,24 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         initComponents();
     }
     public SecuritySummaryInProgressReportResultPanel(SecuritySummaryMain home, SecuritySummaryInProgressResponse parent) {
+        this.parent = parent;
+        this.home = home;
+        incidentInfo = parent.getIncidentInfo();
+        HelperLocations locs = new HelperLocations();
+        initComponents();
+        this.incidentInfo = incidentInfo;
+        System.out.println(this.getWidth());
+        parent.setSize(new Dimension(761, 805));
+        
+        timeLabel.setText(incidentInfo[2]);
+        numLabel.setText(incidentInfo[0]);
+        typeLabel.setText(incidentInfo[3]);
+        locationLabel.setText(incidentInfo[6]);
+        commentsTextArea.setText(incidentInfo[5]);
+        responderLabel.setText(incidentInfo[4]);
+        responseStartTimeLabel.setText(incidentInfo[1]);
+    }
+    public SecuritySummaryInProgressReportResultPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
         this.parent = parent;
         this.home = home;
         incidentInfo = parent.getIncidentInfo();
