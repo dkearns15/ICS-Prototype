@@ -5,19 +5,63 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author dkear
  */
-public class ExecSummaryMain extends javax.swing.JFrame {
+public class NewIncidentResponse extends javax.swing.JFrame {
+    
+    private String[] incidentInfo;
 
     /**
-     * Creates new form ExecSummaryMain
+     * Creates new form NewReportResponse
      */
-    public ExecSummaryMain() {
+    public NewIncidentResponse() {
         initComponents();
     }
 
+    
+    public NewIncidentResponse(int rowNum, SecuritySummaryMain home) throws IOException {
+        initComponents();
+        
+        URL url = getClass().getResource("NewIncidents.csv");
+        try {
+            File file = new File(url.getPath());
+        
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            for (int i = 0; i <= rowNum; i++) {
+                br.readLine();
+            }
+            line = br.readLine();
+            //this.incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            setIncidentInfo(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1));
+            System.out.println(incidentInfo);
+        }
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+        }
+        this.setContentPane(new IncidentResponsePanel(rowNum, home, this));
+    }
+
+    public String[] getIncidentInfo() {
+        return incidentInfo;
+    }
+
+    public void setIncidentInfo(String[] incidentInfo) {
+        this.incidentInfo = incidentInfo;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,17 +72,16 @@ public class ExecSummaryMain extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Executive Summary Main");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 433, Short.MAX_VALUE)
         );
 
         pack();
@@ -61,20 +104,21 @@ public class ExecSummaryMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExecSummaryMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExecSummaryMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExecSummaryMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExecSummaryMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewIncidentResponse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExecSummaryMain().setVisible(true);
+                new NewIncidentResponse().setVisible(true);
             }
         });
     }
