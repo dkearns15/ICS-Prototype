@@ -1,0 +1,29 @@
+
+Use this file as a reference for the internal file structure, also take relevant table headers from this file when making your designs.
+
+
+
+File reports.csv:
+
+IncidentID     Number
+Priority       Number
+Date           DD/MM/YYYY
+Time           HH:MM:SS
+Title          Text
+Summary        Text
+Location       Text
+Coords         XX:YY
+Reporter       Text
+Description    Text
+Type           Fire / Excort / Building Access / Assault / Removal
+Resolved       True / False/ In Progress
+ResolvedDate   DD/MM/YYYY
+ResolvedTime   HH:MM:SS 
+Responder      Text
+Resolution     Text
+Comments       Text
+
+
+Open Questions (too lazy for issues):
+Do we have the queue as a separate table, or have it generated from data obtained in this one?
+In theory IncidentID + Priority should be sufficient to derive queue on the fly.

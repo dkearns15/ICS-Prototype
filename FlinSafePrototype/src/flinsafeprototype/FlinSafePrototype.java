@@ -5,17 +5,22 @@
  */
 package flinsafeprototype;
 
+import java.io.IOException;
+import java.awt.Dimension;
+
 /**
  *
  * @author dkear
+ * 
+ * Main file, just used as a home file and to initialise the main menu
  */
 public class FlinSafePrototype {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new MainMenu().setVisible(true);
     }
-    
+
 }

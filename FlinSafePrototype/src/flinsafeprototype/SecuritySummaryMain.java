@@ -5,17 +5,55 @@
  */
 package flinsafeprototype;
 
+import java.awt.BorderLayout;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dkear
+ *
+ * Very barebones currently. It is essentially what security guards will have on
+ * their computers.
  */
 public class SecuritySummaryMain extends javax.swing.JFrame {
+
+    private String currentUser;
 
     /**
      * Creates new form securitySummary
      */
-    public SecuritySummaryMain() {
+    public SecuritySummaryMain() throws IOException {
         initComponents();
+        initTableListener();
+        readReports();
+        readNewIncidents();
+        readInProgress();
+        readIncidentQueue();
+        currentUser = "Gerry Mortimer";
+    }
+
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
     }
 
     /**
@@ -27,22 +65,286 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tabbedMenu = new javax.swing.JTabbedPane();
+        NewIncidentsPanel = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        newIncidentTable = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        viewIncidentDetailsButton = new javax.swing.JButton();
+        addToQueueButton = new javax.swing.JButton();
+        tab1Queue = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        incidentQueueTable = new javax.swing.JTable();
+        inProgressPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        inProgressTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        recentlyResolvedPanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        recentlyResolvedTable = new javax.swing.JTable();
+        openReportButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Security Summary Main");
+
+        newIncidentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Comments"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(newIncidentTable);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("Options:");
+
+        viewIncidentDetailsButton.setText("View Incident Details");
+        viewIncidentDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewIncidentDetailsButtonActionPerformed(evt);
+            }
+        });
+
+        addToQueueButton.setText("Add Straight to Queue");
+        addToQueueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToQueueButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(viewIncidentDetailsButton)
+                    .addComponent(addToQueueButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(viewIncidentDetailsButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addToQueueButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout NewIncidentsPanelLayout = new javax.swing.GroupLayout(NewIncidentsPanel);
+        NewIncidentsPanel.setLayout(NewIncidentsPanelLayout);
+        NewIncidentsPanelLayout.setHorizontalGroup(
+            NewIncidentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NewIncidentsPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        NewIncidentsPanelLayout.setVerticalGroup(
+            NewIncidentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        tabbedMenu.addTab("New Incidents", NewIncidentsPanel);
+
+        incidentQueueTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Comments", "Priority", "Security Guard Comments"
+            }
+        ));
+        jScrollPane1.setViewportView(incidentQueueTable);
+
+        javax.swing.GroupLayout tab1QueueLayout = new javax.swing.GroupLayout(tab1Queue);
+        tab1Queue.setLayout(tab1QueueLayout);
+        tab1QueueLayout.setHorizontalGroup(
+            tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab1QueueLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(209, Short.MAX_VALUE))
+        );
+        tab1QueueLayout.setVerticalGroup(
+            tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+        );
+
+        tabbedMenu.addTab("Incident Queue", tab1Queue);
+
+        inProgressTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Report Time", "Responder", "Response Time", "Comments"
+            }
+        ));
+        jScrollPane2.setViewportView(inProgressTable);
+
+        jButton1.setText("View Details");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout inProgressPanelLayout = new javax.swing.GroupLayout(inProgressPanel);
+        inProgressPanel.setLayout(inProgressPanelLayout);
+        inProgressPanelLayout.setHorizontalGroup(
+            inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inProgressPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addGap(0, 78, Short.MAX_VALUE))
+        );
+        inProgressPanelLayout.setVerticalGroup(
+            inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addGroup(inProgressPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tabbedMenu.addTab("In Progress", inProgressPanel);
+
+        recentlyResolvedTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident ID", "Report Type", "Report Location", "Responder", "Result", "Other Details"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(recentlyResolvedTable);
+
+        openReportButton.setText("Open Report");
+        openReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openReportButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout recentlyResolvedPanelLayout = new javax.swing.GroupLayout(recentlyResolvedPanel);
+        recentlyResolvedPanel.setLayout(recentlyResolvedPanelLayout);
+        recentlyResolvedPanelLayout.setHorizontalGroup(
+            recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(openReportButton)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+        recentlyResolvedPanelLayout.setVerticalGroup(
+            recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(openReportButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tabbedMenu.addTab("Recently Resolved", recentlyResolvedPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(tabbedMenu)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tabbedMenu)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewIncidentDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIncidentDetailsButtonActionPerformed
+        int selectedRow = newIncidentTable.getSelectedRow();
+        try {
+            int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(selectedRow, 0));
+            try {
+                openIncidentResponse(selectedRow);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+
+    }//GEN-LAST:event_viewIncidentDetailsButtonActionPerformed
+
+    private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
+        int row = newIncidentTable.getSelectedRow();
+        int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(row, 0));
+        try {
+            SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(row, this);
+            a.setVisible(rootPaneCheckingEnabled);
+            a.setContentPane(new SecuritySummaryaddToQueuePanel(this, a));
+            a.revalidate();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addToQueueButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int selectedRow = inProgressTable.getSelectedRow();
+        try {
+            int id = Integer.parseInt((String) inProgressTable.getModel().getValueAt(selectedRow, 0));
+            try {
+                openInProgressResponse(selectedRow);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void openReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openReportButtonActionPerformed
+        int selectedRow = recentlyResolvedTable.getSelectedRow();
+        try {
+            try {
+               openReportDetails(selectedRow + 1);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_openReportButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -75,11 +377,238 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SecuritySummaryMain().setVisible(true);
+                try {
+                    new SecuritySummaryMain().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
+    //Opens a new report detail instance for the report with the id 'num'
+    public void openReportDetails(int num) throws IOException {
+        new ReportDetails(num).setVisible(true);
+    }
+
+    public void openIncidentResponse(int num) throws IOException {
+        new SecuritySummaryNewIncidentResponse(num, this).setVisible(true);
+    }
+    public void openInProgressResponse(int num) throws IOException {
+        new SecuritySummaryInProgressResponse(num, this).setVisible(true);
+    }
+
+    //Adds a listener to the table on tab 3 which listens for a double click and
+    //opens a new ReportDetails instance with the id of that report if it hears
+    //a double click
+    public void initTableListener() {
+        recentlyResolvedTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openReportDetails(row + 1);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+
+        newIncidentTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                //int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openIncidentResponse(row);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+        inProgressTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                //int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openInProgressResponse(row);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+    }
+
+    public void readIncidentQueue() throws FileNotFoundException, IOException{
+        URL url = getClass().getResource("IncidentQueue.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) incidentQueueTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
+    }
+    
+    public void readInProgress() throws FileNotFoundException, IOException {
+        URL url = getClass().getResource("InProgress.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) inProgressTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[3], incident[6], incident[2], incident[5], incident[4], incident[6]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
+    }
+
+    public void readNewIncidents() throws FileNotFoundException, IOException {
+        URL url = getClass().getResource("NewIncidents.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) newIncidentTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
+    }
+
+    public void readReports() throws FileNotFoundException, IOException {
+        URL url = getClass().getResource("Reports.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) recentlyResolvedTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[9], incident[6], incident[7], incident[10], incident[3]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel NewIncidentsPanel;
+    private javax.swing.JButton addToQueueButton;
+    private javax.swing.JPanel inProgressPanel;
+    private javax.swing.JTable inProgressTable;
+    private javax.swing.JTable incidentQueueTable;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable newIncidentTable;
+    private javax.swing.JButton openReportButton;
+    private javax.swing.JPanel recentlyResolvedPanel;
+    private javax.swing.JTable recentlyResolvedTable;
+    private javax.swing.JPanel tab1Queue;
+    private javax.swing.JTabbedPane tabbedMenu;
+    private javax.swing.JButton viewIncidentDetailsButton;
     // End of variables declaration//GEN-END:variables
 }
