@@ -5,6 +5,8 @@
  */
 package flinsafeprototype;
 
+import java.util.Calendar;
+
 /**
  *
  * @author dkear
@@ -273,9 +275,12 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
-        String[] newIncidentInfo = {};
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        String[] newIncidentInfo = {incidentInfo[0], Integer.toString(hour) + ":" + Integer.toString(min), incidentInfo[1], incidentInfo[2], "Gerry Mortimer", incidentInfo[4], incidentInfo[3]};
         parent.setIncidentInfo(newIncidentInfo);
+        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
         parent.revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
 
