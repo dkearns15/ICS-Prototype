@@ -32,6 +32,7 @@ public class PhoneMain extends javax.swing.JFrame {
         PhoneCalling = new javax.swing.JButton();
         LogIn = new javax.swing.JButton();
         PhoneSecurityAlerts = new javax.swing.JButton();
+        MobilityMain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,23 +67,32 @@ public class PhoneMain extends javax.swing.JFrame {
             }
         });
 
+        MobilityMain.setText("Accessibility Transport");
+        MobilityMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MobilityMainActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(49, 49, 49)
-                            .addComponent(LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(PhoneSecurityAlerts, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                            .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(49, 49, 49)
+                        .addComponent(LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PhoneCalling, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(PhoneSecurityAlerts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                            .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MobilityMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(170, 170, 170))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,11 +103,13 @@ public class PhoneMain extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(PhoneSecurityAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(MobilityMain, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,6 +130,10 @@ public class PhoneMain extends javax.swing.JFrame {
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
         new KioskLogIn().setVisible(true);
     }//GEN-LAST:event_LogInActionPerformed
+
+    private void MobilityMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MobilityMainActionPerformed
+        new PhoneMobilityMain().setVisible(true);
+    }//GEN-LAST:event_MobilityMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +172,7 @@ public class PhoneMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogIn;
+    private javax.swing.JButton MobilityMain;
     private javax.swing.JButton PhoneCalling;
     private javax.swing.JButton PhoneReportEmergency;
     private javax.swing.JButton PhoneSecurityAlerts;
