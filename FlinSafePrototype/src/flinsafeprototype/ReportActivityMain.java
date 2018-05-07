@@ -7,8 +7,15 @@ package flinsafeprototype;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author dkear
@@ -20,6 +27,9 @@ import javax.swing.JLabel;
  */
 public class ReportActivityMain extends javax.swing.JFrame {
 
+    private String[] incidentInfo;
+       
+    
     /**
      * Creates new form ReportActivityMain
      */
@@ -50,7 +60,7 @@ public class ReportActivityMain extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         panelOne = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        activeIncidentsTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         panelTwo = new javax.swing.JPanel();
@@ -91,7 +101,7 @@ public class ReportActivityMain extends javax.swing.JFrame {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        activeIncidentsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -102,7 +112,7 @@ public class ReportActivityMain extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(activeIncidentsTable);
 
         panelOne.addTab("Active Incidents", jScrollPane1);
 
@@ -390,8 +400,46 @@ public class ReportActivityMain extends javax.swing.JFrame {
         });
     }
 
+    public void readReports() throws FileNotFoundException, IOException {
+        URL url = getClass().getResource("Reports.csv");
+        try {
+            File file = new File(url.getPath());
+            String line;
+            String[] incident = null;
+            DefaultTableModel tableModel = (DefaultTableModel) activeIncidentsTable.getModel();
+
+            //clear out table of anything that might be in it
+            int rowCount = tableModel.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                tableModel.removeRow(0);
+            }
+
+            //Add all recentlyResolved reports to the recentlyResolvedTable
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                br.readLine(); //Skip headers
+                while ((line = br.readLine()) != null) {
+
+                    //The following regex splits a csv file by commas, but not if they are in quotes
+                    incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    String[] t = new String[]{incident[0], incident[9], incident[6], incident[7], incident[10], incident[3]};
+                    tableModel.addRow(t);
+                }
+            }
+
+            //Just here in case we want it later
+            rowCount = tableModel.getRowCount();
+
+        } catch (NullPointerException e) {
+            //Create a popup saying, we can't find the file
+            //Not implemented yet
+        }
+    }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_Close;
+    private javax.swing.JTable activeIncidentsTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -412,7 +460,6 @@ public class ReportActivityMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
