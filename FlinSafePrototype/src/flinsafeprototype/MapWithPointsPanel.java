@@ -93,19 +93,22 @@ public class MapWithPointsPanel extends JPanel {
         super.paintComponent(g);
         //Should probably add a try catch here
         URL url = getClass().getResource("flindersmap.png");
-        
+        URL url2 = getClass().getResource("mappinsmall.png");
         //Read in the image into 'image'
         BufferedImage image = null;
+        BufferedImage image2 = null;
         try {
             image = ImageIO.read(new File(url.getPath()));
+            image2 = ImageIO.read(new File(url2.getPath()));
         } catch (IOException ex) {
             Logger.getLogger(MapWithPointsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         //Draw the picture at the location 0,0
         g.drawImage(image, 0, 0, null);
+        g.drawImage(image2, xpoint, ypoint, null);
         
         //Draw the red circle point
-        draw(g);
+        //draw(g);
     }
 
     public void draw(Graphics g) {
