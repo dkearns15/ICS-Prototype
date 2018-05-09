@@ -6,6 +6,7 @@
 package flinsafeprototype;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
@@ -22,7 +24,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -46,6 +50,17 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         readInProgress();
         readIncidentQueue();
         currentUser = "Gerry Mortimer";
+        Font font = new Font("Tahoma", Font.PLAIN, 18);
+        JTableHeader header = newIncidentTable.getTableHeader();
+        header.setFont(font);
+        header = incidentQueueTable.getTableHeader();
+        header.setFont(font);
+        header = inProgressTable.getTableHeader();
+        header.setFont(font);
+        header = recentlyResolvedTable.getTableHeader();
+        header.setFont(font);
+        tabbedMenu.setFont(font);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     public String getCurrentUser() {
@@ -69,13 +84,11 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         NewIncidentsPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         newIncidentTable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         viewIncidentDetailsButton = new javax.swing.JButton();
-        addToQueueButton = new javax.swing.JButton();
         tab1Queue = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         incidentQueueTable = new javax.swing.JTable();
+        respondToIncidentButton = new javax.swing.JButton();
         inProgressPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         inProgressTable = new javax.swing.JTable();
@@ -88,6 +101,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Security Summary Main");
 
+        newIncidentTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         newIncidentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -104,12 +118,10 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        newIncidentTable.setRowHeight(24);
         jScrollPane4.setViewportView(newIncidentTable);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel1.setText("Options:");
-
+        viewIncidentDetailsButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         viewIncidentDetailsButton.setText("View Incident Details");
         viewIncidentDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,55 +129,28 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             }
         });
 
-        addToQueueButton.setText("Add Straight to Queue");
-        addToQueueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToQueueButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(viewIncidentDetailsButton)
-                    .addComponent(addToQueueButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(viewIncidentDetailsButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addToQueueButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout NewIncidentsPanelLayout = new javax.swing.GroupLayout(NewIncidentsPanel);
         NewIncidentsPanel.setLayout(NewIncidentsPanelLayout);
         NewIncidentsPanelLayout.setHorizontalGroup(
             NewIncidentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NewIncidentsPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(viewIncidentDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         NewIncidentsPanelLayout.setVerticalGroup(
             NewIncidentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(NewIncidentsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(viewIncidentDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("New Incidents", NewIncidentsPanel);
 
+        incidentQueueTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         incidentQueueTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -173,24 +158,48 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             new String [] {
                 "Incident ID", "Report Type", "Report Location", "Report Time", "Comments", "Priority", "Security Guard Comments"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        incidentQueueTable.setRowHeight(24);
         jScrollPane1.setViewportView(incidentQueueTable);
+
+        respondToIncidentButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        respondToIncidentButton.setText("Respond to Incident");
+        respondToIncidentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                respondToIncidentButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab1QueueLayout = new javax.swing.GroupLayout(tab1Queue);
         tab1Queue.setLayout(tab1QueueLayout);
         tab1QueueLayout.setHorizontalGroup(
             tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1QueueLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(respondToIncidentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         tab1QueueLayout.setVerticalGroup(
             tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addGroup(tab1QueueLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(respondToIncidentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("Incident Queue", tab1Queue);
 
+        inProgressTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inProgressTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -198,9 +207,19 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             new String [] {
                 "Incident ID", "Report Type", "Report Location", "Report Time", "Responder", "Response Time", "Comments"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        inProgressTable.setRowHeight(24);
         jScrollPane2.setViewportView(inProgressTable);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton1.setText("View Details");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,22 +232,23 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         inProgressPanelLayout.setHorizontalGroup(
             inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inProgressPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         inProgressPanelLayout.setVerticalGroup(
             inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
             .addGroup(inProgressPanelLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("In Progress", inProgressPanel);
 
+        recentlyResolvedTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         recentlyResolvedTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -245,8 +265,10 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        recentlyResolvedTable.setRowHeight(24);
         jScrollPane3.setViewportView(recentlyResolvedTable);
 
+        openReportButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         openReportButton.setText("Open Report");
         openReportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,17 +281,17 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         recentlyResolvedPanelLayout.setHorizontalGroup(
             recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(openReportButton)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(openReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         recentlyResolvedPanelLayout.setVerticalGroup(
             recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
             .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(openReportButton)
+                .addContainerGap()
+                .addComponent(openReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -279,7 +301,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedMenu)
+            .addComponent(tabbedMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,34 +312,6 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void viewIncidentDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIncidentDetailsButtonActionPerformed
-        int selectedRow = newIncidentTable.getSelectedRow();
-        try {
-            int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(selectedRow, 0));
-            try {
-                openIncidentResponse(selectedRow);
-            } catch (IOException ex) {
-                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Didn't select incident");
-        }
-
-    }//GEN-LAST:event_viewIncidentDetailsButtonActionPerformed
-
-    private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
-        int row = newIncidentTable.getSelectedRow();
-        int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(row, 0));
-        try {
-            SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(row, this);
-            a.setVisible(rootPaneCheckingEnabled);
-            a.setContentPane(new SecuritySummaryaddToQueuePanel(this, a));
-            a.revalidate();
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_addToQueueButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int selectedRow = inProgressTable.getSelectedRow();
@@ -345,6 +339,34 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             System.out.println("Didn't select incident");
         }
     }//GEN-LAST:event_openReportButtonActionPerformed
+
+    private void respondToIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondToIncidentButtonActionPerformed
+        int selectedRow = incidentQueueTable.getSelectedRow();
+        try {
+            //int id = Integer.parseInt((String) inProgressTable.getModel().getValueAt(selectedRow, 0));
+            try {
+                openIncidentQueueResponse(selectedRow);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_respondToIncidentButtonActionPerformed
+
+    private void viewIncidentDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIncidentDetailsButtonActionPerformed
+        int selectedRow = newIncidentTable.getSelectedRow();
+        try {
+            int id = Integer.parseInt((String) newIncidentTable.getModel().getValueAt(selectedRow, 0));
+            try {
+                openIncidentResponse(selectedRow);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Didn't select incident");
+        }
+    }//GEN-LAST:event_viewIncidentDetailsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,12 +412,17 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     public void openReportDetails(int num) throws IOException {
         new ReportDetails(num).setVisible(true);
     }
-
     public void openIncidentResponse(int num) throws IOException {
-        new SecuritySummaryNewIncidentResponse(num, this).setVisible(true);
+        new SecuritySummaryNewIncidentResponse(num, this, true).setVisible(true);
     }
     public void openInProgressResponse(int num) throws IOException {
         new SecuritySummaryInProgressResponse(num, this).setVisible(true);
+    }
+    public void openIncidentQueueResponse(int num) throws IOException {
+        SecuritySummaryNewIncidentResponse a = new SecuritySummaryNewIncidentResponse(num, this, false);
+        a.setVisible(true);
+        a.setContentPane(new SecuritySummaryIncidentQueueResponsePanel(num, this, a));
+        a.revalidate();
     }
 
     //Adds a listener to the table on tab 3 which listens for a double click and
@@ -442,6 +469,21 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
                     try {
                         openInProgressResponse(row);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+        incidentQueueTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                //int id = Integer.parseInt((String) table.getModel().getValueAt(row, 0));
+                if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                    try {
+                        openIncidentQueueResponse(row);
                     } catch (IOException ex) {
                         Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -506,7 +548,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-                    String[] t = new String[]{incident[0], incident[3], incident[6], incident[2], incident[5], incident[4], incident[6]};
+                    String[] t = new String[]{incident[0], incident[3], incident[6], incident[2], incident[4], incident[1], incident[5]};
                     tableModel.addRow(t);
                 }
             }
@@ -592,13 +634,10 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel NewIncidentsPanel;
-    private javax.swing.JButton addToQueueButton;
     private javax.swing.JPanel inProgressPanel;
     private javax.swing.JTable inProgressTable;
     private javax.swing.JTable incidentQueueTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -607,6 +646,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     private javax.swing.JButton openReportButton;
     private javax.swing.JPanel recentlyResolvedPanel;
     private javax.swing.JTable recentlyResolvedTable;
+    private javax.swing.JButton respondToIncidentButton;
     private javax.swing.JPanel tab1Queue;
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JButton viewIncidentDetailsButton;

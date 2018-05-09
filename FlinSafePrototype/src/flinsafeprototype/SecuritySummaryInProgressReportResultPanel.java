@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPanel {
     
     private String[] incidentInfo;
-    SecuritySummaryInProgressResponse parent;
+    javax.swing.JFrame parent;
     SecuritySummaryMain home;
     
     /**
@@ -37,6 +37,24 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         initComponents();
     }
     public SecuritySummaryInProgressReportResultPanel(SecuritySummaryMain home, SecuritySummaryInProgressResponse parent) {
+        this.parent = parent;
+        this.home = home;
+        incidentInfo = parent.getIncidentInfo();
+        HelperLocations locs = new HelperLocations();
+        initComponents();
+        this.incidentInfo = incidentInfo;
+        System.out.println(this.getWidth());
+        parent.setSize(new Dimension(761, 850));
+        
+        timeLabel.setText(incidentInfo[2]);
+        numLabel.setText(incidentInfo[0]);
+        typeLabel.setText(incidentInfo[3]);
+        locationLabel.setText(incidentInfo[6]);
+        commentsTextArea.setText(incidentInfo[5]);
+        responderLabel.setText(incidentInfo[4]);
+        responseStartTimeLabel.setText(incidentInfo[1]);
+    }
+    public SecuritySummaryInProgressReportResultPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
         this.parent = parent;
         this.home = home;
         incidentInfo = parent.getIncidentInfo();
@@ -105,41 +123,48 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Report Details");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Incident Number");
 
+        numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         numLabel.setText("jLabel9");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Report Type");
 
+        typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         typeLabel.setText("jLabel9");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Report Time");
 
+        timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         timeLabel.setText("jLabel9");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Report Location");
 
+        locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         locationLabel.setText("jLabel9");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Responder");
 
+        responderLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         responderLabel.setText("jLabel9");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Response Start Time");
 
+        responseStartTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         responseStartTimeLabel.setText("jLabel9");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Report Comments");
 
         commentsTextArea.setEditable(false);
         commentsTextArea.setColumns(20);
+        commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);
         commentsTextArea.setRows(5);
         commentsTextArea.setWrapStyleWord(true);
@@ -148,33 +173,41 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Incident Details:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        reportTitleTextField.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Report Title:");
 
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("This should be only a couple of words describing the incident");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        reportSummaryTextField.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Report Summary:");
 
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Summarise the report in one sentence");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        reportResolutionTextField.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("Report Resolution:");
 
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Summarise the resolution of the incident in one sentence");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("Report Result:");
 
+        reportResultComboBox.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         reportResultComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Resolved","Escalated","Resolved and Escalated" }));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel18.setText("Report Text:");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel18.setText("Report Details:");
 
         reportTextTextArea.setColumns(20);
+        reportTextTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         reportTextTextArea.setLineWrap(true);
         reportTextTextArea.setRows(5);
         reportTextTextArea.setWrapStyleWord(true);
@@ -183,6 +216,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
         jLabel19.setText("Go into more detail about the incident");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton1.setText("Submit Report");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +286,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
                                         .addComponent(reportResolutionTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                                         .addComponent(reportResultComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jScrollPane2)))))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -263,8 +297,9 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
@@ -326,7 +361,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

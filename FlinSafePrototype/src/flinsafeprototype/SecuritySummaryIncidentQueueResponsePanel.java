@@ -23,20 +23,19 @@ import java.util.logging.Logger;
  *
  * @author dkear
  */
-public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
+public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPanel {
 
     private String[] incidentInfo;
     SecuritySummaryNewIncidentResponse parent;
     SecuritySummaryMain home;
-
+    
     /**
-     * Creates new form IncidentResponsePanel
+     * Creates new form SecuritySummaryIncidentQueueResponsePanel
      */
-    public SecuritySummaryIncidentResponsePanel() {
+    public SecuritySummaryIncidentQueueResponsePanel() {
         initComponents();
     }
-
-    public SecuritySummaryIncidentResponsePanel(int incidentNum, SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) throws IOException {
+    public SecuritySummaryIncidentQueueResponsePanel(int incidentNum, SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) throws IOException {
         initComponents();
         this.parent = parent;
         this.home = home;
@@ -44,7 +43,6 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
         initText(incidentNum);
 
     }
-
     public void initText(int incidentNum) throws IOException {
         HelperLocations locs = new HelperLocations();
         System.out.println(incidentInfo[0]);
@@ -73,81 +71,22 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        numLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        typeLabel = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        locationLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        commentsTextArea = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        addToQueueButton = new javax.swing.JButton();
-        respondImmeditatelyButton = new javax.swing.JButton();
         mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jLabel5 = new javax.swing.JLabel();
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Incident Details:");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Incident Number");
-
-        numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        numLabel.setText("jLabel9");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Report Type");
-
-        typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        typeLabel.setText("jLabel9");
-
-        timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        timeLabel.setText("jLabel9");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Report Time");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Report Location");
-
-        locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        locationLabel.setText("jLabel9");
-
-        commentsTextArea.setEditable(false);
-        commentsTextArea.setColumns(20);
-        commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        commentsTextArea.setLineWrap(true);
-        commentsTextArea.setRows(5);
-        jScrollPane1.setViewportView(commentsTextArea);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Report Comments");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setText("How would you like to respond?");
-
-        addToQueueButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        addToQueueButton.setText("Add Incident to Queue");
-        addToQueueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToQueueButtonActionPerformed(evt);
-            }
-        });
-
-        respondImmeditatelyButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        respondImmeditatelyButton.setText("Respond Immediately");
-        respondImmeditatelyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                respondImmeditatelyButtonActionPerformed(evt);
-            }
-        });
+        jScrollPane1 = new javax.swing.JScrollPane();
+        commentsTextArea = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        respondImmeditatelyButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        locationLabel = new javax.swing.JLabel();
+        timeLabel = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        typeLabel = new javax.swing.JLabel();
+        numLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
         mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
@@ -164,28 +103,73 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(51, 51, 255));
         jLabel5.setText("Response Choice");
 
+        commentsTextArea.setEditable(false);
+        commentsTextArea.setColumns(20);
+        commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        commentsTextArea.setLineWrap(true);
+        commentsTextArea.setRows(5);
+        jScrollPane1.setViewportView(commentsTextArea);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("Would you like to respond to the incident?");
+
+        respondImmeditatelyButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        respondImmeditatelyButton.setText("Respond");
+        respondImmeditatelyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                respondImmeditatelyButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Report Comments");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Report Location");
+
+        locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        locationLabel.setText("jLabel9");
+
+        timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        timeLabel.setText("jLabel9");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Report Time");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Report Type");
+
+        typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        typeLabel.setText("jLabel9");
+
+        numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        numLabel.setText("jLabel9");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Incident Number");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Incident Details:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                                 .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(87, 87, 87)
-                                        .addComponent(addToQueueButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(respondImmeditatelyButton))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
+                                        .addGap(9, 9, 9)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel4))
@@ -194,22 +178,29 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
                                             .addComponent(numLabel)
                                             .addComponent(typeLabel)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
+                                        .addGap(17, 17, 17)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel6)
                                             .addComponent(jLabel7)
-                                            .addComponent(jLabel8))
+                                            .addComponent(jLabel6))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(locationLabel)
-                                            .addComponent(timeLabel))))
+                                            .addComponent(timeLabel)
+                                            .addComponent(locationLabel)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(respondImmeditatelyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(174, 174, 174))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(73, 73, 73)))))
                 .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
         );
@@ -244,19 +235,13 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(respondImmeditatelyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addToQueueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(respondImmeditatelyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(5, 5, 5))
                     .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
-        parent.setContentPane(new SecuritySummaryaddToQueuePanel(home, parent));
-        parent.revalidate();
-    }//GEN-LAST:event_addToQueueButtonActionPerformed
 
     private void respondImmeditatelyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondImmeditatelyButtonActionPerformed
         URL url = getClass().getResource("InProgress.csv");
@@ -284,7 +269,6 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
             writer.flush();
             writer.close();
 
-
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -296,9 +280,9 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //remove from new incidents queue
+        //remove from incident queue
         int id = Integer.parseInt(incidentInfo[0]);
-        url = getClass().getResource("NewIncidents.csv");
+        url = getClass().getResource("IncidentQueue.csv");
         file = new File(url.getPath());
 
         //read in all lines
@@ -330,13 +314,14 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
             while(stringList.size() > 0){
                 currentLine = stringList.remove();
                 String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                System.out.println(Integer.parseInt(incident[0]));
                 if(Integer.parseInt(incident[0]) != id){
                     writer.write(currentLine);
                     writer.newLine();
                 }
             }
             writer.close();
-            home.readNewIncidents();
+            home.readIncidentQueue();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -349,7 +334,6 @@ public class SecuritySummaryIncidentResponsePanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addToQueueButton;
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
