@@ -9,7 +9,7 @@ package flinsafeprototype;
  *
  * @author Bryn
  */
-public class PhoneMainLoggedIn extends javax.swing.JPanel {
+public class PhoneMainLoggedIn extends javax.swing.JFrame {
 
     /**
      * Creates new form PhoneMainLoggedIn
@@ -27,13 +27,22 @@ public class PhoneMainLoggedIn extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        OtherReport = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         PhoneCalling = new javax.swing.JButton();
         PhoneReportEmergency = new javax.swing.JButton();
         PhoneSecurityAlerts = new javax.swing.JButton();
         ReportType = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        OtherReport = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        OtherReport.setText("Submit");
+        OtherReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OtherReportActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("FlinSafe");
@@ -68,15 +77,8 @@ public class PhoneMainLoggedIn extends javax.swing.JPanel {
 
         jLabel2.setText("Other Security Report");
 
-        OtherReport.setText("Submit");
-        OtherReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OtherReportActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -104,7 +106,7 @@ public class PhoneMainLoggedIn extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(OtherReport)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,30 +125,104 @@ public class PhoneMainLoggedIn extends javax.swing.JPanel {
                 .addComponent(ReportType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(OtherReport)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void OtherReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherReportActionPerformed
+        String type = (String)ReportType.getSelectedItem();
+        switch(type){
+            case "Fire" :
+            new PhoneFire().setVisible(true);
+            this.dispose();
+            break;
+            case "Snake" :
+            new PhoneSnake().setVisible(true);
+            this.dispose();
+            break;
+            case "Escort" :
+            new PhoneEscort().setVisible(true);
+            this.dispose();
+            break;
+            case "Access" :
+            new PhoneAccess().setVisible(true);
+            this.dispose();
+            break;
+            case "Maintenence" :
+            new PhoneMaintenence().setVisible(true);
+            this.dispose();
+            break;
+            case "Injury" :
+            new PhoneInjury().setVisible(true);
+            this.dispose();
+            break;
+            case "Intruder" :
+            new PhoneIntruder().setVisible(true);
+            this.dispose();
+            break;
+            case "Other" :
+            new PhoneOther().setVisible(true);
+            this.dispose();
+            break;
+            
+        }
+    }//GEN-LAST:event_OtherReportActionPerformed
 
     private void PhoneCallingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneCallingActionPerformed
         new PhoneCalling().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_PhoneCallingActionPerformed
 
     private void PhoneReportEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneReportEmergencyActionPerformed
         new PhoneReportEmergency().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_PhoneReportEmergencyActionPerformed
 
     private void PhoneSecurityAlertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneSecurityAlertsActionPerformed
         new PhoneSecurityAlerts().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_PhoneSecurityAlertsActionPerformed
 
     private void ReportTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportTypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ReportTypeActionPerformed
 
-    private void OtherReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherReportActionPerformed
-        new PhoneFire().setVisible(true);
-    }//GEN-LAST:event_OtherReportActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PhoneMainLoggedIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PhoneMainLoggedIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PhoneMainLoggedIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PhoneMainLoggedIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PhoneMainLoggedIn().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OtherReport;

@@ -71,7 +71,7 @@ public class PhoneMain extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,30 +97,30 @@ public class PhoneMain extends javax.swing.JFrame {
                 .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(PhoneSecurityAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void PhoneReportEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneReportEmergencyActionPerformed
-        this.setContentPane(new PhoneReportEmergency());
-        this.revalidate();
+        new PhoneReportEmergency().setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_PhoneReportEmergencyActionPerformed
 
     private void PhoneCallingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneCallingActionPerformed
-        this.setContentPane(new PhoneCalling());
-        this.revalidate();
+        new PhoneCalling().setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_PhoneCallingActionPerformed
 
     private void PhoneSecurityAlertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneSecurityAlertsActionPerformed
-        this.setContentPane(new PhoneSecurityAlerts());
-        this.revalidate();
+        new PhoneSecurityAlerts().setVisible(true);
+        this.dispose();      
     }//GEN-LAST:event_PhoneSecurityAlertsActionPerformed
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
-        this.setContentPane(new PhoneLoggingIn());
-        this.revalidate();
+        new PhoneLoggingIn().setVisible(true);
+        this.dispose();        
     }//GEN-LAST:event_LogInActionPerformed
 
     /**

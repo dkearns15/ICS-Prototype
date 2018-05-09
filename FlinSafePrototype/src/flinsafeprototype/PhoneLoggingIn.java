@@ -9,7 +9,7 @@ package flinsafeprototype;
  *
  * @author Bryn
  */
-public class PhoneLoggingIn extends javax.swing.JPanel {
+public class PhoneLoggingIn extends javax.swing.JFrame {
 
     /**
      * Creates new form PhoneLoggingIn
@@ -27,14 +27,20 @@ public class PhoneLoggingIn extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         RememberMe = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         LoggedIn = new javax.swing.JButton();
         Back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setText("Password");
+
+        jTextField1.setText("jTextField1");
 
         jTextField2.setText("jTextField2");
 
@@ -56,12 +62,8 @@ public class PhoneLoggingIn extends javax.swing.JPanel {
 
         jLabel1.setText("Username");
 
-        jLabel2.setText("Password");
-
-        jTextField1.setText("jTextField1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -80,7 +82,7 @@ public class PhoneLoggingIn extends javax.swing.JPanel {
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(LoggedIn)))
                     .addComponent(Back))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,20 +103,56 @@ public class PhoneLoggingIn extends javax.swing.JPanel {
                     .addComponent(jLabel3))
                 .addGap(26, 26, 26)
                 .addComponent(LoggedIn)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoggedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggedInActionPerformed
-        
-        //this.setContentPane(new PhoneMainLoggedIn());
-        this.revalidate();
+        new PhoneMainLoggedIn().setVisible(true);
+        this.dispose();         
     }//GEN-LAST:event_LoggedInActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         new PhoneMain().setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_BackActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PhoneLoggingIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PhoneLoggingIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PhoneLoggingIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PhoneLoggingIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PhoneLoggingIn().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
