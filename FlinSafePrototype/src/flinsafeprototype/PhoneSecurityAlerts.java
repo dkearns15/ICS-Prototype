@@ -45,14 +45,14 @@ public class PhoneSecurityAlerts extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Back)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(496, Short.MAX_VALUE))
         );
 
         pack();
@@ -60,6 +60,7 @@ public class PhoneSecurityAlerts extends javax.swing.JFrame {
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         new PhoneMain().setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_BackActionPerformed
 
     /**

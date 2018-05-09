@@ -27,19 +27,18 @@ public class PhoneCalling extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSlider1 = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
-        HangUp = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
+        EndCall = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Volume");
+        jLabel1.setText("Calling Security");
 
-        HangUp.setText("Hang Up");
-        HangUp.addActionListener(new java.awt.event.ActionListener() {
+        EndCall.setText("End Call");
+        EndCall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HangUpActionPerformed(evt);
+                EndCallActionPerformed(evt);
             }
         });
 
@@ -50,34 +49,34 @@ public class PhoneCalling extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addGap(34, 34, 34)
                         .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(HangUp)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                        .addGap(89, 89, 89)
+                        .addComponent(EndCall)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
+                .addGap(78, 78, 78)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(HangUp)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(344, 344, 344)
+                .addComponent(EndCall)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HangUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HangUpActionPerformed
-        new PhoneMain().setVisible(true);
-    }//GEN-LAST:event_HangUpActionPerformed
+    private void EndCallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EndCallActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EndCallActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,7 +114,7 @@ public class PhoneCalling extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton HangUp;
+    private javax.swing.JButton EndCall;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
