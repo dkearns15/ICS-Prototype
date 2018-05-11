@@ -7,17 +7,12 @@ package flinsafeprototype;
 
 /**
  *
- * @author dkear
- * 
- * displays list of active cases
- * dialog or form to take on task or close task
- * might implement tabbed dialog to display 
- * unallocated "active" jobs AND allocated "active" "in progress" jobs
+ * @author Frenchy
  */
 public class KioskContactSecurity extends javax.swing.JFrame {
 
     /**
-     * Creates new form ReportActivityMain
+     * Creates new form KioskContactSecurity
      */
     public KioskContactSecurity() {
         initComponents();
@@ -34,19 +29,26 @@ public class KioskContactSecurity extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Report Activity Main");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Contact Security");
 
         jButton2.setText("Back");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jButton1.setText("Call Security");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Security Desk Phone Number:     (08) 8201 2880");
@@ -56,14 +58,6 @@ public class KioskContactSecurity extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Non Emergency Police:     131 444 ");
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jButton1.setText("Call Security");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,7 +73,7 @@ public class KioskContactSecurity extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(76, 76, 76)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -94,7 +88,7 @@ public class KioskContactSecurity extends javax.swing.JFrame {
                     .addComponent(jButton2))
                 .addGap(38, 38, 38)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -107,9 +101,9 @@ public class KioskContactSecurity extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         new KioskCalling().setVisible(true);
-          new KioskContactSecurity().setVisible(false);
-// TODO add your handling code here:
+        new KioskCalling().setVisible(true);
+        this.dispose(); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -137,13 +131,6 @@ public class KioskContactSecurity extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(KioskContactSecurity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

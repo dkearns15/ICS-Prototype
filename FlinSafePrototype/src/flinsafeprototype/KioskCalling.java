@@ -7,17 +7,12 @@ package flinsafeprototype;
 
 /**
  *
- * @author dkear
- * 
- * displays list of active cases
- * dialog or form to take on task or close task
- * might implement tabbed dialog to display 
- * unallocated "active" jobs AND allocated "active" "in progress" jobs
+ * @author Frenchy
  */
 public class KioskCalling extends javax.swing.JFrame {
 
     /**
-     * Creates new form ReportActivityMain
+     * Creates new form KioskCalling
      */
     public KioskCalling() {
         initComponents();
@@ -32,18 +27,21 @@ public class KioskCalling extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
         jLabel5 = new javax.swing.JLabel();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Report Activity Main");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel5.setText("Volume up (placeholder)");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Calling");
+
+        jLabel6.setText("volume Down (placehodler)");
 
         jButton3.setText("End Call (placeholder image)");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +49,6 @@ public class KioskCalling extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        jLabel5.setText("Volume up (placeholder)");
-
-        jLabel6.setText("volume Down (placehodler)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,7 +77,7 @@ public class KioskCalling extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSlider1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -97,9 +91,9 @@ public class KioskCalling extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         new KioskMain().setVisible(true);
-         new KioskCalling().setVisible(false);
-// TODO add your handling code here:
+        new KioskMain().setVisible(true);
+        this.dispose(); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -127,21 +121,6 @@ public class KioskCalling extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(KioskCalling.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

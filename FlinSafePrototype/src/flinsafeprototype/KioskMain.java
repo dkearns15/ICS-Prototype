@@ -94,15 +94,15 @@ public class KioskMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setContentPane(new tester());
-        this.revalidate();
+        new KioskReportIncident().setVisible(true);
+        this.dispose(); 
         //new ReportIncident().setVisible(true);
         //new KioskMain().setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new KioskContactSecurity().setVisible(true);
-        new KioskMain().setVisible(false);
+        this.dispose(); 
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
