@@ -157,7 +157,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_reportActivityButtonActionPerformed
 
     private void kioskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kioskButtonActionPerformed
-        new KioskMain().setVisible(true);
+        new KioskMainScreen().setVisible(true);
     }//GEN-LAST:event_kioskButtonActionPerformed
 
     private void execSummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execSummaryButtonActionPerformed

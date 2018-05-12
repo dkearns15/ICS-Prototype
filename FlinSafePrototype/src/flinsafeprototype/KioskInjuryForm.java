@@ -9,12 +9,12 @@ package flinsafeprototype;
  *
  * @author Frenchy
  */
-public class KioskFireForm extends javax.swing.JFrame {
+public class KioskInjuryForm extends javax.swing.JFrame {
 
     /**
      * Creates new form KioskFireForm
      */
-    public KioskFireForm() {
+    public KioskInjuryForm() {
         initComponents();
     }
 
@@ -52,7 +52,7 @@ public class KioskFireForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabel1.setText("Reporting Fire");
+        jLabel1.setText("Injury");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("Back");
@@ -66,7 +66,7 @@ public class KioskFireForm extends javax.swing.JFrame {
         jLabel2.setText("Location:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Size:");
+        jLabel3.setText("Room:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Type:");
@@ -166,7 +166,7 @@ public class KioskFireForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new KioskReportIncident().setVisible(true);
-        this.dispose(); 
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -193,20 +193,21 @@ public class KioskFireForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KioskFireForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskInjuryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KioskFireForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskInjuryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KioskFireForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskInjuryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KioskFireForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KioskInjuryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new KioskFireForm().setVisible(true);
+                new KioskInjuryForm().setVisible(true);
             }
         });
     }

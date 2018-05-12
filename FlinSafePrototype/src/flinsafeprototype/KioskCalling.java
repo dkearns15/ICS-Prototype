@@ -98,7 +98,7 @@ public class KioskCalling extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new KioskMain().setVisible(true);
+        new KioskMainScreen().setVisible(true);
         this.dispose(); 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

@@ -139,7 +139,7 @@ public class KioskIncidentForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new KioskReportIncident().setVisible(true);
-        new KioskIncidentForm().setVisible(false);
+        this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
