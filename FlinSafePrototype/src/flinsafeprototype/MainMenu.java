@@ -165,7 +165,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_execSummaryButtonActionPerformed
 
     private void phoneAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneAppButtonActionPerformed
-        new PhoneMain().setVisible(true);
+        new PhoneFrame().setVisible(true);
     }//GEN-LAST:event_phoneAppButtonActionPerformed
 
     /**

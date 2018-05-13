@@ -186,7 +186,8 @@ public class PhonePanelLoggingIn extends javax.swing.JPanel {
     }//GEN-LAST:event_LoggedInActionPerformed
 
     private void Back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back1ActionPerformed
-        new PhoneMain().setVisible(true);
+        parent.setContentPane(new PhoneMainPanel(parent));
+        parent.revalidate();
     }//GEN-LAST:event_Back1ActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
