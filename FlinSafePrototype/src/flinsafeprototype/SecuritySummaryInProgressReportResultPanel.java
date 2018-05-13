@@ -367,8 +367,10 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        URL url = getClass().getResource("Reports.csv");
-        File file = new File(url.getPath());
+        //CSV FILE HERE
+        //URL url = getClass().getResource("Reports.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
         BufferedWriter writer = null;
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -406,8 +408,10 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
 
         //remove from in progress
         int id = Integer.parseInt(incidentInfo[0]);
-        url = getClass().getResource("InProgress.csv");
-        file = new File(url.getPath());
+        //CSV FILE HERE
+        //url = getClass().getResource("InProgress.csv");
+        //file = new File(url.getPath());
+        file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
 
         //read in all lines
         BufferedReader reader;

@@ -33,8 +33,6 @@ import javax.swing.table.JTableHeader;
  *
  * @author dkear
  *
- * Very barebones currently. It is essentially what security guards will have on
- * their computers.
  */
 public class SecuritySummaryMain extends javax.swing.JFrame {
 
@@ -494,9 +492,11 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     }
 
     public void readIncidentQueue() throws FileNotFoundException, IOException{
-        URL url = getClass().getResource("IncidentQueue.csv");
+        //CSV FILE HERE
+        //URL url = getClass().getResource("IncidentQueue.csv");
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
             String line;
             String[] incident = null;
             DefaultTableModel tableModel = (DefaultTableModel) incidentQueueTable.getModel();
@@ -507,7 +507,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 tableModel.removeRow(0);
             }
 
-            ArrayList<String[]> list = new ArrayList();
+//            ArrayList<String[]> list = new ArrayList();
             //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
@@ -516,13 +516,13 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
-                    //tableModel.addRow(t);
-                    list.add(t);
+                    tableModel.addRow(t);
+                    //list.add(t);
                 }
             }
-            while(!list.isEmpty()){
-                tableModel.addRow(list.remove(list.size() - 1));
-            }
+//            while(!list.isEmpty()){
+//                tableModel.addRow(list.remove(list.size() - 1));
+//            }
 
             //Just here in case we want it later
             rowCount = tableModel.getRowCount();
@@ -534,9 +534,11 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     }
     
     public void readInProgress() throws FileNotFoundException, IOException {
-        URL url = getClass().getResource("InProgress.csv");
+        //CSV FILE HERE
+        //URL url = getClass().getResource("InProgress.csv");
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
             String line;
             String[] incident = null;
             DefaultTableModel tableModel = (DefaultTableModel) inProgressTable.getModel();
@@ -546,7 +548,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             for (int i = 0; i < rowCount; i++) {
                 tableModel.removeRow(0);
             }
-            ArrayList<String[]> list = new ArrayList();
+//            ArrayList<String[]> list = new ArrayList();
             //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
@@ -555,13 +557,13 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[3], incident[6], incident[2], incident[4], incident[1], incident[5]};
-                    //tableModel.addRow(t);
-                    list.add(t);
+                    tableModel.addRow(t);
+//                    list.add(t);
                 }
             }
-            while(!list.isEmpty()){
-                tableModel.addRow(list.remove(list.size() - 1));
-            }
+//            while(!list.isEmpty()){
+//                tableModel.addRow(list.remove(list.size() - 1));
+//            }
             //Just here in case we want it later
             rowCount = tableModel.getRowCount();
 
@@ -572,9 +574,11 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     }
 
     public void readNewIncidents() throws FileNotFoundException, IOException {
-        URL url = getClass().getResource("NewIncidents.csv");
+        //CSV FILE HERE
+        //URL url = getClass().getResource("NewIncidents.csv");
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
             String line;
             String[] incident = null;
             DefaultTableModel tableModel = (DefaultTableModel) newIncidentTable.getModel();
@@ -607,9 +611,11 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     }
 
     public void readReports() throws FileNotFoundException, IOException {
-        URL url = getClass().getResource("Reports.csv");
+        //CSV FILE HERE
+        //URL url = getClass().getResource("Reports.csv");
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
             String line;
             String[] incident = null;
             DefaultTableModel tableModel = (DefaultTableModel) recentlyResolvedTable.getModel();
@@ -619,7 +625,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             for (int i = 0; i < rowCount; i++) {
                 tableModel.removeRow(0);
             }
-            ArrayList<String[]> list = new ArrayList();
+            //ArrayList<String[]> list = new ArrayList();
             //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
@@ -628,13 +634,13 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[9], incident[6], incident[7], incident[10], incident[3]};
-                    list.add(t);
-                    //tableModel.addRow(t);
+                    //list.add(t);
+                    tableModel.addRow(t);
                 }
             }
-            while(!list.isEmpty()){
-                tableModel.addRow(list.remove(list.size() - 1));
-            }
+//            while(!list.isEmpty()){
+//                tableModel.addRow(list.remove(list.size() - 1));
+//            }
             //Just here in case we want it later
             rowCount = tableModel.getRowCount();
 

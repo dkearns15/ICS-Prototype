@@ -246,8 +246,10 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
     }// </editor-fold>//GEN-END:initComponents
 
     private void respondImmeditatelyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_respondImmeditatelyButtonActionPerformed
-        URL url = getClass().getResource("InProgress.csv");
-        File file = new File(url.getPath());
+        //CSV FILE HERE
+        //URL url = getClass().getResource("InProgress.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
         BufferedWriter writer = null;
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -284,8 +286,10 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
 
         //remove from incident queue
         int id = Integer.parseInt(incidentInfo[0]);
-        url = getClass().getResource("IncidentQueue.csv");
-        file = new File(url.getPath());
+        //CSV FILE HERE
+        //url = getClass().getResource("IncidentQueue.csv");
+        //file = new File(url.getPath());
+        file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
 
         //read in all lines
         BufferedReader reader;

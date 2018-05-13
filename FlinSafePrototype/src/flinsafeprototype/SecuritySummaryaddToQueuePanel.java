@@ -276,8 +276,10 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
         String priority = (String) priorityComboBox.getSelectedItem();
         String notes = notesTextArea.getText();
         
-        URL url = getClass().getResource("IncidentQueue.csv");
-        File file = new File(url.getPath());
+        //CSV FILE HERE
+        //URL url = getClass().getResource("IncidentQueue.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
         BufferedWriter writer = null;
 
         //add to inprogress
@@ -312,8 +314,10 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
         
         //remove from new incidents queue
         int id = Integer.parseInt(incidentInfo[0]);
-        url = getClass().getResource("NewIncidents.csv");
-        file = new File(url.getPath());
+        //CSV FILE HERE
+        //url = getClass().getResource("NewIncidents.csv");
+        //file = new File(url.getPath());
+        file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
         
         //read in all lines
         BufferedReader reader;

@@ -31,14 +31,18 @@ public class SecuritySummaryNewIncidentResponse extends javax.swing.JFrame {
     
     public SecuritySummaryNewIncidentResponse(int rowNum, SecuritySummaryMain home, boolean newIncident) throws IOException {
         initComponents();
-        URL url;
+        //URL url;
+        String file;
         if(newIncident == true){
-            url = getClass().getResource("NewIncidents.csv");
+            //CSV FILE HERE
+            //url = getClass().getResource("NewIncidents.csv");
+            file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
         }else{
-            url = getClass().getResource("IncidentQueue.csv");
+            //url = getClass().getResource("IncidentQueue.csv");
+            file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
         }
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
         
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {

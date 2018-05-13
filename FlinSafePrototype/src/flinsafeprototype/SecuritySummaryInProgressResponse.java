@@ -28,10 +28,11 @@ public class SecuritySummaryInProgressResponse extends javax.swing.JFrame {
 
     public SecuritySummaryInProgressResponse(int rowNum, SecuritySummaryMain home) throws IOException {
         initComponents();
-        
-        URL url = getClass().getResource("InProgress.csv");
+        //CSV FILE HERE
+        //URL url = getClass().getResource("InProgress.csv");
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
         
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {

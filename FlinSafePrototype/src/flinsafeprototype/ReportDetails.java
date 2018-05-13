@@ -271,10 +271,10 @@ public class ReportDetails extends javax.swing.JFrame {
     public void initText(int incidentNum) throws IOException {
         HelperLocations locs = new HelperLocations();
         
-        URL url = getClass().getResource("Reports.csv");
+        //URL url = getClass().getResource("Reports.csv");
         try {
-            File file = new File(url.getPath());
-        
+            //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
         String line;
         String[] incident = null;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
