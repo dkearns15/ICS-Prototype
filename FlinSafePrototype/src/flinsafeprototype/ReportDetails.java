@@ -123,10 +123,12 @@ public class ReportDetails extends javax.swing.JFrame {
         writerLabel.setText("jLabel9");
 
         textTextArea.setEditable(false);
+        textTextArea.setBackground(new java.awt.Color(240, 240, 240));
         textTextArea.setColumns(20);
         textTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         textTextArea.setLineWrap(true);
         textTextArea.setRows(5);
+        textTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(textTextArea);
 
         numberLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N

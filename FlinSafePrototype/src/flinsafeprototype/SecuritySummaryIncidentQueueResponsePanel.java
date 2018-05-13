@@ -104,10 +104,12 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
         jLabel5.setText("Response Choice");
 
         commentsTextArea.setEditable(false);
+        commentsTextArea.setBackground(new java.awt.Color(240, 240, 240));
         commentsTextArea.setColumns(20);
         commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);
         commentsTextArea.setRows(5);
+        commentsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(commentsTextArea);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N

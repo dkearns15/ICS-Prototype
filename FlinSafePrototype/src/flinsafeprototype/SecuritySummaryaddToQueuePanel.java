@@ -103,10 +103,12 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
         );
 
         commentsTextArea.setEditable(false);
+        commentsTextArea.setBackground(new java.awt.Color(240, 240, 240));
         commentsTextArea.setColumns(20);
         commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);
         commentsTextArea.setRows(5);
+        commentsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(commentsTextArea);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

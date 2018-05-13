@@ -82,6 +82,7 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
         finishedRespondingButton = new javax.swing.JButton();
 
         commentsTextArea.setEditable(false);
+        commentsTextArea.setBackground(new java.awt.Color(240, 240, 240));
         commentsTextArea.setColumns(20);
         commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);

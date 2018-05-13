@@ -44,7 +44,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         initComponents();
         this.incidentInfo = incidentInfo;
         System.out.println(this.getWidth());
-        parent.setSize(new Dimension(761, 850));
+        parent.setSize(new Dimension(761, 900));
         
         timeLabel.setText(incidentInfo[2]);
         numLabel.setText(incidentInfo[0]);
@@ -163,6 +163,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         jLabel8.setText("Report Comments");
 
         commentsTextArea.setEditable(false);
+        commentsTextArea.setBackground(new java.awt.Color(240, 240, 240));
         commentsTextArea.setColumns(20);
         commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);
@@ -284,8 +285,8 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel16)
                                         .addComponent(reportResolutionTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
-                                        .addComponent(reportResultComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane2)))))))
+                                        .addComponent(jScrollPane2)
+                                        .addComponent(reportResultComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -361,7 +362,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

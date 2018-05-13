@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -506,6 +507,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                 tableModel.removeRow(0);
             }
 
+            ArrayList<String[]> list = new ArrayList();
             //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
@@ -514,8 +516,12 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
-                    tableModel.addRow(t);
+                    //tableModel.addRow(t);
+                    list.add(t);
                 }
+            }
+            while(!list.isEmpty()){
+                tableModel.addRow(list.remove(list.size() - 1));
             }
 
             //Just here in case we want it later
@@ -540,7 +546,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             for (int i = 0; i < rowCount; i++) {
                 tableModel.removeRow(0);
             }
-
+            ArrayList<String[]> list = new ArrayList();
             //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
@@ -549,10 +555,13 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[3], incident[6], incident[2], incident[4], incident[1], incident[5]};
-                    tableModel.addRow(t);
+                    //tableModel.addRow(t);
+                    list.add(t);
                 }
             }
-
+            while(!list.isEmpty()){
+                tableModel.addRow(list.remove(list.size() - 1));
+            }
             //Just here in case we want it later
             rowCount = tableModel.getRowCount();
 
@@ -610,7 +619,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             for (int i = 0; i < rowCount; i++) {
                 tableModel.removeRow(0);
             }
-
+            ArrayList<String[]> list = new ArrayList();
             //Add all recentlyResolved reports to the recentlyResolvedTable
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 br.readLine(); //Skip headers
@@ -619,10 +628,13 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[9], incident[6], incident[7], incident[10], incident[3]};
-                    tableModel.addRow(t);
+                    list.add(t);
+                    //tableModel.addRow(t);
                 }
             }
-
+            while(!list.isEmpty()){
+                tableModel.addRow(list.remove(list.size() - 1));
+            }
             //Just here in case we want it later
             rowCount = tableModel.getRowCount();
 
