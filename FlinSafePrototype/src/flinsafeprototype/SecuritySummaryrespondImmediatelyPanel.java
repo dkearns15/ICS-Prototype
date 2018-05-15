@@ -6,6 +6,10 @@
 package flinsafeprototype;
 
 import java.util.Calendar;
+import javax.swing.JOptionPane;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 /**
  *
@@ -16,29 +20,27 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     private String[] incidentInfo;
     SecuritySummaryNewIncidentResponse parent;
     SecuritySummaryMain home;
-    
+
     /**
      * Creates new form respondImmediatelyPanel
      */
     public SecuritySummaryrespondImmediatelyPanel() {
         initComponents();
     }
-    
+
     public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
         this.parent = parent;
         this.incidentInfo = parent.getIncidentInfo();
         this.home = home;
         HelperLocations locs = new HelperLocations();
         initComponents();
-        
-        
+
         timeLabel.setText(incidentInfo[1]);
         numLabel.setText(incidentInfo[0]);
         typeLabel.setText(incidentInfo[2]);
         locationLabel.setText(incidentInfo[3]);
         commentsTextArea.setText(incidentInfo[4]);
-        
-        
+
         //Gets the location based on the word describing the locations
         //If it does not find the location, X and Y point will be zero
         //Currently supported locations (can add more in Locations.java)
@@ -72,9 +74,9 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        sendTextButton = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        phoneNumTextField = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -142,13 +144,18 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton2.setText("Send Text");
+        sendTextButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        sendTextButton.setText("Send Text");
+        sendTextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendTextButtonActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Security Office Printer", "Jerry's Printer"}));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        phoneNumTextField.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton3.setText("Mark as In Progress");
@@ -210,7 +217,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneNumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -218,7 +225,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton2))
+                                        .addComponent(sendTextButton))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
@@ -268,8 +275,8 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2))
+                                    .addComponent(phoneNumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sendTextButton))
                                 .addGap(0, 48, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -319,11 +326,42 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         parent.revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void sendTextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendTextButtonActionPerformed
+        String phoneNumber = phoneNumTextField.getText();
+        if (phoneNumber.length() == 9 && phoneNumber.charAt(0) == '4' && isNumeric(phoneNumber) && false) {
+            String realPhoneNumber = "+61".concat(phoneNumber);
+            String ACCOUNT_SID = "notreal";
+            String AUTH_TOKEN = "notreal";
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+            Message message = Message
+                    .creator(new PhoneNumber(realPhoneNumber), // to
+                            new PhoneNumber("+61417605225"), // from
+                            "Incident Number: " + incidentInfo[0] + "\n"
+                            + "Report Type: " + incidentInfo[2] + "\n"
+                            + "Report Time: " + incidentInfo[1] + "\n"
+                            + "Report Location: " + incidentInfo[3] + "\n"
+                            + "Report Comments: " + incidentInfo[4] + "\n")
+                    .create();
+            System.out.println(message);
+            System.out.println(message.getSid());
+        } else {
+            JOptionPane.showMessageDialog(parent, "The phone number must be in the format '4________' (4 followed by 8 numbers)");
+        }
+    }//GEN-LAST:event_sendTextButtonActionPerformed
+
+    public static boolean isNumeric(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -338,10 +376,11 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel locationLabel;
     private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numLabel;
+    private javax.swing.JTextField phoneNumTextField;
+    private javax.swing.JButton sendTextButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
