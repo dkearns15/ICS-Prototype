@@ -100,7 +100,7 @@ public class KioskMainScreenPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_reportIncidentButtonActionPerformed
 
     private void contactSecurityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactSecurityButtonActionPerformed
-        parent.setContentPane(this);
+        parent.setContentPane(new KioskContactSecurityPanel(parent, "string"));
         parent.revalidate();
     }//GEN-LAST:event_contactSecurityButtonActionPerformed
 

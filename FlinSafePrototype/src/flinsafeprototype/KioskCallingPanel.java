@@ -122,7 +122,8 @@ public class KioskCallingPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        // TODO add your handling code here:
+        parent.setContentPane(new KioskMainScreenPanel(parent));
+        parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void initFromType(String type){

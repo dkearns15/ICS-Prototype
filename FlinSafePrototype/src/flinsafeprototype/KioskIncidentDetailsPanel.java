@@ -15,13 +15,14 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
 
     JFrame parent;
     String type;
-    
+
     /**
      * Creates new form KioskIncidentDetailsPanel
      */
     public KioskIncidentDetailsPanel() {
         initComponents();
     }
+
     public KioskIncidentDetailsPanel(JFrame parent, String type) {
         initComponents();
         this.parent = parent;
@@ -139,7 +140,8 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
- 
+        parent.setContentPane(new KioskReportSelectionPanel(parent));
+        parent.revalidate();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void submitReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitReportButtonActionPerformed
@@ -147,7 +149,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         parent.revalidate();
     }//GEN-LAST:event_submitReportButtonActionPerformed
 
-    private void initFromType(String type){
+    private void initFromType(String type) {
         HelperLocations locs = new HelperLocations();
         mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
         mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
