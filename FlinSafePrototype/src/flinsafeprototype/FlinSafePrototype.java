@@ -7,6 +7,7 @@ package flinsafeprototype;
 
 import java.io.IOException;
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 /**
  *

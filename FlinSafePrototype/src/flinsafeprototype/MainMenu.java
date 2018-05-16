@@ -5,15 +5,17 @@
  */
 package flinsafeprototype;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author dkear
- * 
+ *
  * MainMenu is used as a dispatch screen for each of the bits of functionality
  * implemented in this assignment
  */
@@ -23,6 +25,44 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public MainMenu() throws IOException {
+        String fileString;
+        File fileFile;
+        try {
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "flindersmap.png";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "mappinsmall.png";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "The system could not find one of the necessary files.\n Please ensure that the directory with the .jar files in it contains the following files:\n - NewIncidents.csv \n - IncidentQueue.csv \n - Reports.csv \n - InProgress.csv \n - flindersmap.png \n - mappinsmall.png");
+            System.exit(0);
+        }
         initComponents();
     }
 
@@ -150,7 +190,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void reportActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActivityButtonActionPerformed
         ReportActivityMain RAframe = new ReportActivityMain();
-        RAframe.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        RAframe.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //RAframe.setUndecorated(true);
         RAframe.setVisible(true);
         //new ReportActivityMain().setVisible(true);
