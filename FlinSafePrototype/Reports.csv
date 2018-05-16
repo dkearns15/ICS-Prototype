@@ -1,4 +1,6 @@
 IncidentNumber,Report Date,Report Time,Report Title,Report Summary,Report Resolution,Report Location,Report Writer,Report Text,Report Type,Report Result
-1,28/03/2018,1330,Zambero Riot,"Fight at Zamberos with minor injuries, police called","15 students and 2 staff in hospital with minor injuries, the last burrito was torn apart in the fighting",Hub,Gerry Mortimer,After Zamberos got down to their last burrito a fight broke out amongst students who had been waiting in line. As other students realised that there was only one burrito left more fighting began to try and get the last burrito and a full scale riot began. Police were quickly called to the scene and managed to break up the riot before anyone was seriously injured.,Assault,"Resolved, Escalated"
-2,29/03/2018,1800,Car Walk,Walked PhD Student to Car,Safely at Car,Humanities,Gerry Mortimer,,Car Walk,Resolved
-3,25/04/2018,1500,Engineering Building Access,Let a PhD student into their office,,Engineering,Terry Mortimer,,Building Access,Resolved
+5, Tue May 15 15:20:39 ACST 2018,13:50,re,eeer,eeee,Hub,Gerry Mortimer, "Security Guards Comments:eeeeeeeeeeeeeeReporter Comments:Snake down the stair near the food court",Snake Sighting,Resolved
+4, Tue May 15 15:21:36 ACST 2018,12:00,,,,Engineering,Gerry Mortimer, "Security Guards Comments:Reporter Comments:FIRE ALARM 6 ENGINEERING ROOM 2.03 AUTO REPORT",Fire Alarm,Resolved
+3, Tue May 15 15:21:51 ACST 2018,11:15,,,,Hub,Gerry Mortimer, "Security Guards Comments:Reporter Comments:Locked in Alere",Building Access,Resolved
+2, Tue May 15 15:22:22 ACST 2018,10:00,,,,Engineering,Gerry Mortimer, "Security Guards Comments:Reporter Comments:I left my thesis on my desk and for some reason my card doesn't work",Building Access,Resolved
+1, Tue May 15 15:22:56 ACST 2018,9:00,aaw,www,www,Humanities,Gerry Mortimer, "Security Guards Comments:qqReporter Comments:Need to get into a lecture theatre to run my class",Building Access,Resolved
