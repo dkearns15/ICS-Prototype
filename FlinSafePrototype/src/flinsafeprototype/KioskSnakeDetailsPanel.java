@@ -26,7 +26,6 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
         initComponents();
         this.parent = parent;
         this.type = type;
-        initFromType(type);
     }
 
     /**

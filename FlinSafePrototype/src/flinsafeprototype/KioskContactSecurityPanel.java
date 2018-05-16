@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  *
  * @author dkear
  */
-public class KioskEscortDetailsPanel extends javax.swing.JPanel {
+public class KioskContactSecurityPanel extends javax.swing.JPanel {
 
     JFrame parent;
     String type;
@@ -19,10 +19,10 @@ public class KioskEscortDetailsPanel extends javax.swing.JPanel {
     /**
      * Creates new form KioskIncidentDetailsPanel
      */
-    public KioskEscortDetailsPanel() {
+    public KioskContactSecurityPanel() {
         initComponents();
     }
-    public KioskEscortDetailsPanel(JFrame parent, String type) {
+    public KioskContactSecurityPanel(JFrame parent, String type) {
         initComponents();
         this.parent = parent;
         this.type = type;
@@ -129,14 +129,10 @@ public class KioskEscortDetailsPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new KioskCalling().setVisible(true);
-        this.dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void initFromType(String type){
         HelperLocations locs = new HelperLocations();
-        titleLabel.setText(type);
-        locationLabel.setText("Hub");
         mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
         mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
         mapWithPointsPanel1.repaint();

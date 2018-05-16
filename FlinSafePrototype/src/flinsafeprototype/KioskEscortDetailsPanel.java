@@ -5,6 +5,7 @@
  */
 package flinsafeprototype;
 
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 
 /**
@@ -203,8 +204,6 @@ public class KioskEscortDetailsPanel extends javax.swing.JPanel {
 
     private void initFromType(String type){
         HelperLocations locs = new HelperLocations();
-        titleLabel.setText(type);
-        locationLabel.setText("Hub");
         mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
         mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
         mapWithPointsPanel1.repaint();

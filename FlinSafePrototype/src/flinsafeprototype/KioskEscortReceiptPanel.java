@@ -26,7 +26,6 @@ public class KioskEscortReceiptPanel extends javax.swing.JPanel {
         initComponents();
         this.parent = parent;
         this.type = type;
-        initFromType(type);
     }
 
     /**
@@ -180,14 +179,6 @@ public class KioskEscortReceiptPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void initFromType(String type){
-        HelperLocations locs = new HelperLocations();
-        titleLabel.setText(type);
-        locationLabel.setText("Hub");
-        mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
-        mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
-        mapWithPointsPanel1.repaint();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

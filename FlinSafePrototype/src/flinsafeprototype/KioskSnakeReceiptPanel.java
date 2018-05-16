@@ -150,9 +150,9 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(359, 359, 359)
+                        .addGap(343, 343, 343)
                         .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(216, Short.MAX_VALUE))
+                        .addContainerGap(232, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -188,8 +188,6 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
 
     private void initFromType(String type){
         HelperLocations locs = new HelperLocations();
-        titleLabel.setText(type);
-        locationLabel.setText("Hub");
         mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
         mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
         mapWithPointsPanel1.repaint();

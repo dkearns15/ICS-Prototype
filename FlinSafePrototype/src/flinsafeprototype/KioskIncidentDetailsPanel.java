@@ -149,8 +149,6 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
 
     private void initFromType(String type){
         HelperLocations locs = new HelperLocations();
-        titleLabel.setText(type);
-        locationLabel.setText("Hub");
         mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
         mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
         mapWithPointsPanel1.repaint();

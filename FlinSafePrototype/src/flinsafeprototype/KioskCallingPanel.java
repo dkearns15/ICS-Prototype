@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  *
  * @author dkear
  */
-public class KioskEscortDetailsPanel extends javax.swing.JPanel {
+public class KioskCallingPanel extends javax.swing.JPanel {
 
     JFrame parent;
     String type;
@@ -19,10 +19,10 @@ public class KioskEscortDetailsPanel extends javax.swing.JPanel {
     /**
      * Creates new form KioskIncidentDetailsPanel
      */
-    public KioskEscortDetailsPanel() {
+    public KioskCallingPanel() {
         initComponents();
     }
-    public KioskEscortDetailsPanel(JFrame parent, String type) {
+    public KioskCallingPanel(JFrame parent, String type) {
         initComponents();
         this.parent = parent;
         this.type = type;
@@ -127,8 +127,6 @@ public class KioskEscortDetailsPanel extends javax.swing.JPanel {
 
     private void initFromType(String type){
         HelperLocations locs = new HelperLocations();
-        titleLabel.setText(type);
-        locationLabel.setText("Hub");
         mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
         mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
         mapWithPointsPanel1.repaint();
