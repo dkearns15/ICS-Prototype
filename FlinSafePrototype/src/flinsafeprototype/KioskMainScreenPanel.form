@@ -27,12 +27,12 @@
                       <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="reportIncidentButton" max="32767" attributes="0"/>
-                          <Component id="contactSecurityButton" pref="932" max="32767" attributes="0"/>
+                          <Component id="contactSecurityButton" pref="957" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" pref="517" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="367" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="526" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -44,12 +44,12 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel1" min="-2" pref="87" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="reportIncidentButton" min="-2" pref="200" max="-2" attributes="0"/>
+              <Component id="reportIncidentButton" min="-2" pref="175" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="contactSecurityButton" pref="79" max="32767" attributes="0"/>
+              <Component id="contactSecurityButton" min="-2" pref="175" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel2" pref="254" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="115" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

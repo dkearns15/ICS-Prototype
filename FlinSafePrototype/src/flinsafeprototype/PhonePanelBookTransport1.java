@@ -130,7 +130,8 @@ public class PhonePanelBookTransport1 extends javax.swing.JPanel {
     }//GEN-LAST:event_BookTonsleyActionPerformed
 
     private void BookBedfordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookBedfordActionPerformed
-        // TODO add your handling code here:
+        parent.setContentPane(new PhonePanelBookTransportBedford(parent, false));
+        parent.revalidate();
     }//GEN-LAST:event_BookBedfordActionPerformed
 
     private void Btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CancelActionPerformed

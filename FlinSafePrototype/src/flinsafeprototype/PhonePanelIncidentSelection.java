@@ -6,6 +6,7 @@
 package flinsafeprototype;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -14,6 +15,8 @@ import javax.swing.JFrame;
 public class PhonePanelIncidentSelection extends javax.swing.JPanel {
 
     JFrame parent;
+    JPanel accessibility;
+    boolean accessibiltySet = false;
     /**
      * Creates new form PhonePanelIncidentSelection
      */
@@ -181,35 +184,43 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void accessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessButtonActionPerformed
-        parent.setContentPane(new PhonePanelGenericIncident(parent));
+        parent.setContentPane(new PhonePanelGenericIncident(parent, this));
         parent.revalidate();
     }//GEN-LAST:event_accessButtonActionPerformed
 
     private void accessibilityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessibilityButtonActionPerformed
         System.out.println("working1");
-        parent.setContentPane(new PhonePanelAccessibiltyTransport(parent));
+        if(accessibiltySet){
+            System.out.println("working13");
+            parent.setContentPane(accessibility);
+            parent.revalidate();
+        }else{
+            System.out.println("working4");
+            accessibiltySet = true;
+            accessibility = new PhonePanelAccessibiltyTransport(parent, this);
+            parent.setContentPane(accessibility);
+            parent.revalidate();
+        }
         System.out.println("working2");
-        parent.revalidate();
-        System.out.println("working3");
     }//GEN-LAST:event_accessibilityButtonActionPerformed
 
     private void maintenanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceButtonActionPerformed
-        parent.setContentPane(new PhonePanelGenericIncident(parent));
+        parent.setContentPane(new PhonePanelGenericIncident(parent, this));
         parent.revalidate();
     }//GEN-LAST:event_maintenanceButtonActionPerformed
 
     private void snakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snakeButtonActionPerformed
-        parent.setContentPane(new PhonePanelGenericIncident(parent));
+        parent.setContentPane(new PhonePanelGenericIncident(parent, this));
         parent.revalidate();
     }//GEN-LAST:event_snakeButtonActionPerformed
 
     private void injuryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_injuryButtonActionPerformed
-        parent.setContentPane(new PhonePanelGenericIncident(parent));
+        parent.setContentPane(new PhonePanelGenericIncident(parent, this));
         parent.revalidate();
     }//GEN-LAST:event_injuryButtonActionPerformed
 
     private void intruderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intruderButtonActionPerformed
-        parent.setContentPane(new PhonePanelGenericIncident(parent));
+        parent.setContentPane(new PhonePanelGenericIncident(parent, this));
         parent.revalidate();
     }//GEN-LAST:event_intruderButtonActionPerformed
 

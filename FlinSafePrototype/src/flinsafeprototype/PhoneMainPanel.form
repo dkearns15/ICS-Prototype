@@ -60,6 +60,7 @@
                   </Group>
                   <Component id="PhoneReportEmergency" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
                   <Component id="PhoneCalling" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
+                  <Component id="PhoneBookTransport" min="-2" pref="168" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -85,10 +86,12 @@
                       <Component id="jLabel1" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="LogIn" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="PhoneReportEmergency" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="PhoneCalling" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="PhoneBookTransport" min="-2" pref="62" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -157,6 +160,14 @@
           <Image iconType="3" name="/flinsafeprototype/phone4bottom.jpg"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="PhoneBookTransport">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Accessibility Transport"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PhoneBookTransportActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
