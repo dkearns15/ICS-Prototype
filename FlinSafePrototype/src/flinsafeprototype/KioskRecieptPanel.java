@@ -30,7 +30,7 @@ public class KioskRecieptPanel extends javax.swing.JPanel {
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
-                        parent.setContentPane(new KioskMainScreenPanel());
+                        parent.setContentPane(new KioskMainScreenPanel(parent));
                         parent.revalidate();
                     }
                 },
