@@ -76,10 +76,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         selectFeatureLabel = new javax.swing.JLabel();
-        execSummaryButton = new javax.swing.JButton();
         kioskButton = new javax.swing.JButton();
         securitySummaryButton = new javax.swing.JButton();
-        reportActivityButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         phoneAppButton = new javax.swing.JButton();
 
@@ -90,14 +88,6 @@ public class MainMenu extends javax.swing.JFrame {
         selectFeatureLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         selectFeatureLabel.setForeground(new java.awt.Color(0, 51, 204));
         selectFeatureLabel.setText("Select a Prototype Feature");
-
-        execSummaryButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        execSummaryButton.setText("Executive Summary");
-        execSummaryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                execSummaryButtonActionPerformed(evt);
-            }
-        });
 
         kioskButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         kioskButton.setText("FlinSafe Kiosk");
@@ -112,14 +102,6 @@ public class MainMenu extends javax.swing.JFrame {
         securitySummaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securitySummaryButtonActionPerformed(evt);
-            }
-        });
-
-        reportActivityButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        reportActivityButton.setText("Report Activity");
-        reportActivityButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportActivityButtonActionPerformed(evt);
             }
         });
 
@@ -145,17 +127,15 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(kioskButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                             .addComponent(securitySummaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(execSummaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reportActivityButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                             .addComponent(phoneAppButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(selectFeatureLabel)
                         .addGap(22, 22, 22))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,17 +144,13 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(selectFeatureLabel)
                 .addGap(18, 18, 18)
                 .addComponent(kioskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(execSummaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(securitySummaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(reportActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(phoneAppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -188,21 +164,9 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_securitySummaryButtonActionPerformed
 
-    private void reportActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActivityButtonActionPerformed
-        ReportActivityMain RAframe = new ReportActivityMain();
-        RAframe.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //RAframe.setUndecorated(true);
-        RAframe.setVisible(true);
-        //new ReportActivityMain().setVisible(true);
-    }//GEN-LAST:event_reportActivityButtonActionPerformed
-
     private void kioskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kioskButtonActionPerformed
         new KioskFrame().setVisible(true);
     }//GEN-LAST:event_kioskButtonActionPerformed
-
-    private void execSummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execSummaryButtonActionPerformed
-
-    }//GEN-LAST:event_execSummaryButtonActionPerformed
 
     private void phoneAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneAppButtonActionPerformed
         new PhoneFrame().setVisible(true);
@@ -248,11 +212,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton execSummaryButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton kioskButton;
     private javax.swing.JButton phoneAppButton;
-    private javax.swing.JButton reportActivityButton;
     private javax.swing.JButton securitySummaryButton;
     private javax.swing.JLabel selectFeatureLabel;
     // End of variables declaration//GEN-END:variables
