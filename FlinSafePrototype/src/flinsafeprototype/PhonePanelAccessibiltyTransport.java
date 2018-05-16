@@ -10,6 +10,7 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.swing.JFrame;
 public class PhonePanelAccessibiltyTransport extends javax.swing.JPanel {
 
     JFrame parent;
+    JPanel parent2;
 
     /**
      * Creates new form PhonePanelAccessibiltyTransport
@@ -26,11 +28,10 @@ public class PhonePanelAccessibiltyTransport extends javax.swing.JPanel {
         initComponents();
     }
 
-    public PhonePanelAccessibiltyTransport(JFrame parent) {
+    public PhonePanelAccessibiltyTransport(JFrame parent, JPanel parent2) {
         initComponents();
         this.parent = parent;
-        Timer timer = new Timer();
-        timer.schedule(new SayHello(), 0, 2000);
+        this.parent2 = parent2;
     }
 
     /**
@@ -167,24 +168,10 @@ public class PhonePanelAccessibiltyTransport extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back1ActionPerformed
-        
-        
-        this.remove(this.calendar2Form1);
-        this.removeAll();
-        try {
-            this.finalize();
-        } catch (Throwable ex) {
-            Logger.getLogger(PhonePanelAccessibiltyTransport.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        parent.setContentPane(new PhonePanelIncidentSelection(parent));
+        parent.setContentPane(parent2);
         parent.revalidate();
     }//GEN-LAST:event_Back1ActionPerformed
-    class SayHello extends TimerTask {
 
-        public void run() {
-            System.out.println("I'm still here!");
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back1;

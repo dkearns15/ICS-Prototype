@@ -6,6 +6,7 @@
 package flinsafeprototype;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -14,6 +15,7 @@ import javax.swing.JFrame;
 public class PhonePanelGenericIncident extends javax.swing.JPanel {
 
     JFrame parent;
+    JPanel parent2;
     
     /**
      * Creates new form PhonePanelGenericIncident
@@ -22,9 +24,10 @@ public class PhonePanelGenericIncident extends javax.swing.JPanel {
         initComponents();
     }
     
-    public PhonePanelGenericIncident(JFrame parent) {
+    public PhonePanelGenericIncident(JFrame parent, JPanel parent2) {
         initComponents();
         this.parent = parent;
+        this.parent2 = parent2;
     }
 
     /**
@@ -98,7 +101,7 @@ public class PhonePanelGenericIncident extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back1ActionPerformed
-        parent.setContentPane(new PhonePanelIncidentSelection(parent));
+        parent.setContentPane(parent2);
         parent.revalidate();
     }//GEN-LAST:event_Back1ActionPerformed
 
