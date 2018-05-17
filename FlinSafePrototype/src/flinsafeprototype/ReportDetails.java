@@ -283,7 +283,12 @@ public class ReportDetails extends javax.swing.JFrame {
             }
             line = br.readLine();
             incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            for(int i = 0; i < incident.length; i++){
+                incident[i] = incident[i].replaceAll("\"", "");
+            }
+                
         }
+        incident[8] = incident[8].replaceAll(";", "\\\n");
         System.out.println(incident[0]);
         numberLabel.setText(incident[0]);
         dateLabel.setText(incident[1]);

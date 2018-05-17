@@ -402,8 +402,8 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
             Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            System.out.println(incidentInfo[0] + ", " + new Date() + "," + incidentInfo[2] + "," + reportTitleTextField.getText() + "," + reportSummaryTextField.getText() + "," + reportResolutionTextField.getText() + "," + incidentInfo[6] + "," + "Gerry Mortimer" + ", \"Security Guards Comments:" + reportTextTextArea.getText() + "Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
-            writer.append(incidentInfo[0] + ", " + new Date() + "," + incidentInfo[2] + "," + reportTitleTextField.getText() + "," + reportSummaryTextField.getText() + "," + reportResolutionTextField.getText() + "," + incidentInfo[6] + "," + "Gerry Mortimer" + ", \"Security Guards Comments:" + reportTextTextArea.getText() + "Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
+            System.out.println(incidentInfo[0] + ", " + new Date() + ",\"" + incidentInfo[2] + "\",\"" + reportTitleTextField.getText() + "\",\"" + reportSummaryTextField.getText() + "\",\"" + reportResolutionTextField.getText() + "\"," + incidentInfo[6] + "," + "Gerry Mortimer" + ",\"Security Guards Comments:" + reportTextTextArea.getText() + ";Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
+            writer.append(incidentInfo[0] + ", " + new Date() + ",\"" + incidentInfo[2] + "\",\"" + reportTitleTextField.getText() + "\",\"" + reportSummaryTextField.getText() + "\",\"" + reportResolutionTextField.getText() + "\"," + incidentInfo[6] + "," + "Gerry Mortimer" + ",\"Security Guards Comments:" + reportTextTextArea.getText() + ";Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
             writer.newLine();
 
         } catch (IOException ex) {
