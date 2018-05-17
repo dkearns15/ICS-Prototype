@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *
@@ -29,6 +30,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
 
     private String[] incidentInfo;
     SecuritySummaryNewIncidentResponse parent;
+    JPanel source;
     SecuritySummaryMain home;
 
     /**
@@ -38,10 +40,11 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
+    public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent, JPanel source) {
         this.parent = parent;
         this.incidentInfo = parent.getIncidentInfo();
         this.home = home;
+        this.source = source;
         HelperLocations locs = new HelperLocations();
         initComponents();
 
@@ -382,52 +385,89 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_sendTextButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+
+        boolean isNewIncident = false;
+        if (source instanceof SecuritySummaryIncidentResponsePanel) {
+            isNewIncident = true;
+        }
         //CSV FILE HERE
         //URL url = getClass().getResource("InProgress.csv");
         //File file = new File(url.getPath());
-        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
-        BufferedWriter writer = null;
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int min = calendar.get(Calendar.MINUTE);
+        if (isNewIncident) {
+            String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
+            BufferedWriter writer = null;
+            Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int min = calendar.get(Calendar.MINUTE);
 
-        //add to new incidents
-        try {
-            writer = new BufferedWriter(new FileWriter(file, true));
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            //add to new incidents
+            try {
+                writer = new BufferedWriter(new FileWriter(file, true));
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                System.out.println(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + "0");
+                writer.append(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + "0");
+                writer.newLine();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                writer.flush();
+                writer.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+                home.readNewIncidents();
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        try {
-            System.out.println(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + "0");
-            writer.append(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + "0");
-            writer.newLine();
+        if (!isNewIncident) {
+            //add to incident queue
+            String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
+            BufferedWriter writer = null;
+            try {
+                writer = new BufferedWriter(new FileWriter(file, true));
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                System.out.println(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + incidentInfo[5] + "," + incidentInfo[6]);
+                writer.append(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + incidentInfo[5] + "," + incidentInfo[6]);
+                writer.newLine();
 
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                writer.flush();
+                writer.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+                home.readIncidentQueue();
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        try {
-            writer.flush();
-            writer.close();
-
-
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        try {
-
-            home.readNewIncidents();
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         //remove from in progress queue
         int id = Integer.parseInt(incidentInfo[0]);
         //CSV FILE HERE
         //url = getClass().getResource("NewIncidents.csv");
         //file = new File(url.getPath());
-        file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
-
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
+        BufferedWriter writer = null;
         //read in all lines
         BufferedReader reader;
         LinkedList<String> stringList = new LinkedList<String>();
@@ -435,7 +475,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             reader = new BufferedReader(new FileReader(file));
             //reader.readLine();
             String currentLine;
-            while((currentLine = reader.readLine()) != null){
+            while ((currentLine = reader.readLine()) != null) {
                 stringList.add(currentLine);
             }
             reader.close();
@@ -446,7 +486,6 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         }
 
         //write all out except for the one we want to remove
-
         try {
 
             writer = new BufferedWriter(new FileWriter(file, false));
@@ -454,10 +493,10 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             currentLine = stringList.remove();
             writer.write(currentLine);
             writer.newLine();
-            while(stringList.size() > 0){
+            while (stringList.size() > 0) {
                 currentLine = stringList.remove();
                 String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-                if(Integer.parseInt(incident[0]) != id){
+                if (Integer.parseInt(incident[0]) != id) {
                     writer.write(currentLine);
                     writer.newLine();
                 }
@@ -470,11 +509,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        try {
-            parent.setContentPane(new SecuritySummaryIncidentResponsePanel(Integer.parseInt(incidentInfo[0]), home, (SecuritySummaryNewIncidentResponse) this.parent));
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryrespondImmediatelyPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        parent.setContentPane(source);
         parent.revalidate();
     }//GEN-LAST:event_backButtonActionPerformed
 

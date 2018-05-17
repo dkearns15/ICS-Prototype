@@ -334,7 +334,7 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        parent.setContentPane(new SecuritySummaryrespondImmediatelyPanel(home, parent));
+        parent.setContentPane(new SecuritySummaryrespondImmediatelyPanel(home, parent, this));
         parent.revalidate();
     }//GEN-LAST:event_respondImmeditatelyButtonActionPerformed
 
