@@ -253,7 +253,7 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void finishedRespondingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRespondingButtonActionPerformed
-        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
+        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent, this));
         parent.revalidate();
     }//GEN-LAST:event_finishedRespondingButtonActionPerformed
 

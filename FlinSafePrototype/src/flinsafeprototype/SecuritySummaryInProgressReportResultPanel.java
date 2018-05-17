@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *
@@ -29,6 +30,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
     private String[] incidentInfo;
     javax.swing.JFrame parent;
     SecuritySummaryMain home;
+    JPanel source;
     
     /**
      * Creates new form SecuritySummaryInProgressReportResultPanel
@@ -36,9 +38,10 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
     public SecuritySummaryInProgressReportResultPanel() {
         initComponents();
     }
-    public SecuritySummaryInProgressReportResultPanel(SecuritySummaryMain home, SecuritySummaryInProgressResponse parent) {
+    public SecuritySummaryInProgressReportResultPanel(SecuritySummaryMain home, SecuritySummaryInProgressResponse parent, JPanel source) {
         this.parent = parent;
         this.home = home;
+        this.source = source;
         incidentInfo = parent.getIncidentInfo();
         HelperLocations locs = new HelperLocations();
         initComponents();
@@ -116,6 +119,7 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
         reportTextTextArea = new javax.swing.JTextArea();
         jLabel19 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Completed Incident Report Form");
@@ -225,6 +229,14 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
             }
         });
 
+        backButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,7 +244,9 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addGap(20, 20, 20)
+                        .addComponent(backButton)
+                        .addGap(32, 32, 32)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -260,11 +274,14 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(numLabel)
                                             .addComponent(typeLabel)
-                                            .addComponent(timeLabel)
-                                            .addComponent(locationLabel)
                                             .addComponent(responderLabel)
                                             .addComponent(responseStartTimeLabel)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(timeLabel)
+                                                    .addComponent(locationLabel))
+                                                .addGap(132, 132, 132))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +314,9 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(backButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGap(11, 11, 11)
@@ -458,8 +477,15 @@ public class SecuritySummaryInProgressReportResultPanel extends javax.swing.JPan
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        parent.setContentPane(source);
+        parent.setSize(1024, 500);
+        parent.revalidate();
+    }//GEN-LAST:event_backButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
