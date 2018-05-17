@@ -330,7 +330,7 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
         //CSV FILE HERE
         //url = getClass().getResource("NewIncidents.csv");
         //file = new File(url.getPath());
-        file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
+        file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
         
         //read in all lines
         BufferedReader reader;
