@@ -38,10 +38,6 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         accessibilityButton = new javax.swing.JButton();
         accessButton = new javax.swing.JButton();
@@ -59,14 +55,9 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4top.jpg"))); // NOI18N
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4left.jpg"))); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4right.jpg"))); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4bottom.jpg"))); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +65,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         accessibilityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/WheelchairPhone.png"))); // NOI18N
         accessibilityButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +73,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 accessibilityButtonActionPerformed(evt);
             }
         });
+        add(accessibilityButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 80, 80));
 
         accessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/RoomAccessPhone.png"))); // NOI18N
         accessButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +81,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 accessButtonActionPerformed(evt);
             }
         });
+        add(accessButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 80, 80));
 
         EscortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneEscort.png"))); // NOI18N
         EscortButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +89,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 EscortButtonActionPerformed(evt);
             }
         });
+        add(EscortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 80, 80));
 
         snakeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/SnakePhone.png"))); // NOI18N
         snakeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +97,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 snakeButtonActionPerformed(evt);
             }
         });
+        add(snakeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 80, 80));
 
         intruderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/IntruderPhone.png"))); // NOI18N
         intruderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +105,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 intruderButtonActionPerformed(evt);
             }
         });
+        add(intruderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 80, 80));
 
         injuryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/InjuryPhone.png"))); // NOI18N
         injuryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +113,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 injuryButtonActionPerformed(evt);
             }
         });
+        add(injuryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 80, 80));
 
         otherButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/OtherPhone.png"))); // NOI18N
         otherButton.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +121,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 otherButtonActionPerformed(evt);
             }
         });
+        add(otherButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 80, 80));
 
         fireButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/firephone.png"))); // NOI18N
         fireButton.addActionListener(new java.awt.event.ActionListener() {
@@ -130,136 +129,35 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                 fireButtonActionPerformed(evt);
             }
         });
+        add(fireButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 80, 80));
 
         jLabel1.setText("Fire");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, -1, -1));
 
         jLabel2.setText("Accessibility Transport");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, -1, -1));
 
         jLabel3.setText("Room Access");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         jLabel4.setText("Escort");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
 
         jLabel5.setText("Snake");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         jLabel6.setText("Injury");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, -1));
 
         jLabel11.setText("Intruder");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, -1));
 
         jLabel12.setText("Other");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EscortButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accessButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(injuryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fireButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel3)))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(accessibilityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(intruderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(backButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel6))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(27, 27, 27))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(snakeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5)
-                                    .addGap(26, 26, 26)))
-                            .addGap(45, 45, 45))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel11)
-                            .addGap(63, 63, 63))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(otherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(45, 45, 45))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(108, 108, 108)
-                            .addComponent(jLabel12)
-                            .addGap(76, 76, 76)))
-                    .addComponent(jLabel7))
-                .addComponent(jLabel8))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(accessButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accessibilityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(snakeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addGap(21, 21, 21)
-                                .addComponent(intruderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(EscortButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(injuryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(fireButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(otherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)
-                        .addGap(37, 37, 37))))
-        );
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -273,19 +171,9 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     }//GEN-LAST:event_accessButtonActionPerformed
 
     private void accessibilityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessibilityButtonActionPerformed
-        System.out.println("working1");
-        if(accessibiltySet){
-            System.out.println("working13");
-            parent.setContentPane(accessibility);
-            parent.revalidate();
-        }else{
-            System.out.println("working4");
-            accessibiltySet = true;
-            accessibility = new PhonePanelAccessibiltyTransport(parent, this);
-            parent.setContentPane(accessibility);
-            parent.revalidate();
-        }
-        System.out.println("working2");
+        
+        parent.setContentPane(new PhonePanelAccessibilityTransport(parent));
+        parent.revalidate();
     }//GEN-LAST:event_accessibilityButtonActionPerformed
 
     private void EscortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EscortButtonActionPerformed
@@ -328,7 +216,6 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     private javax.swing.JButton injuryButton;
     private javax.swing.JButton intruderButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
@@ -337,8 +224,6 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton otherButton;
     private javax.swing.JButton snakeButton;
     // End of variables declaration//GEN-END:variables

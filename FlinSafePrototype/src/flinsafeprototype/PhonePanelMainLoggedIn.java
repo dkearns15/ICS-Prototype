@@ -39,27 +39,17 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         PhoneCalling = new javax.swing.JButton();
-        PhoneReportEmergency = new javax.swing.JButton();
         PhoneMyReports = new javax.swing.JButton();
         makeAReportButton = new javax.swing.JButton();
-        BookTransport = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4top.jpg"))); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4right.jpg"))); // NOI18N
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4left.jpg"))); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4bottom.jpg"))); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("FlinSafe");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, 38));
 
         PhoneCalling.setText("Call Security Now");
         PhoneCalling.addActionListener(new java.awt.event.ActionListener() {
@@ -67,13 +57,7 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
                 PhoneCallingActionPerformed(evt);
             }
         });
-
-        PhoneReportEmergency.setText("Report Emergency");
-        PhoneReportEmergency.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PhoneReportEmergencyActionPerformed(evt);
-            }
-        });
+        add(PhoneCalling, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 158, 58));
 
         PhoneMyReports.setText("My Reports");
         PhoneMyReports.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +65,7 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
                 PhoneMyReportsActionPerformed(evt);
             }
         });
+        add(PhoneMyReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 158, 54));
 
         makeAReportButton.setText("Make a Report");
         makeAReportButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,63 +73,11 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
                 makeAReportButtonActionPerformed(evt);
             }
         });
+        add(makeAReportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 158, 51));
 
-        BookTransport.setText("Book AccesibilityTransport");
-        BookTransport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookTransportActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel9)
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(20, 20, 20))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PhoneMyReports, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(makeAReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(BookTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
-                .addComponent(jLabel7))
-            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(makeAReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PhoneMyReports, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BookTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10))
-        );
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PhoneCallingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneCallingActionPerformed
@@ -152,41 +85,26 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
         parent.validate();
     }//GEN-LAST:event_PhoneCallingActionPerformed
 
-    private void PhoneReportEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneReportEmergencyActionPerformed
-        parent.setContentPane(new PhonePanelEmergency(parent, true));
-        parent.revalidate();
-    }//GEN-LAST:event_PhoneReportEmergencyActionPerformed
-
-    private void PhoneMyReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneMyReportsActionPerformed
-        try {
-                parent.setContentPane(new PhonePanelMyReports(parent));
-                parent.revalidate();
-            } catch (IOException ex) {
-                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }//GEN-LAST:event_PhoneMyReportsActionPerformed
-
     private void makeAReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeAReportButtonActionPerformed
         parent.setContentPane(new PhonePanelIncidentSelection(parent));
         parent.revalidate();
     }//GEN-LAST:event_makeAReportButtonActionPerformed
 
-    private void BookTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookTransportActionPerformed
-        parent.setContentPane(new PhonePanelBookTransport1(parent, false));
-        parent.revalidate();
-    }//GEN-LAST:event_BookTransportActionPerformed
+    private void PhoneMyReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneMyReportsActionPerformed
+        try {
+            parent.setContentPane(new PhonePanelMyReports(parent));
+            parent.revalidate();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_PhoneMyReportsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BookTransport;
     private javax.swing.JButton PhoneCalling;
     private javax.swing.JButton PhoneMyReports;
-    private javax.swing.JButton PhoneReportEmergency;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton makeAReportButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,7 +36,7 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
         initComponents();
     }
     
-    public PhonePanelMyReportsDetails(JFrame parent, int rowNum) throws IOException {
+    public PhonePanelMyReportsDetails(JFrame parent, int rowNum, String id) throws IOException {
         initComponents();
         this.parent = parent;
                 
@@ -48,9 +48,11 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             for (int i = 0; i <= rowNum; i++) {
                 br.readLine();
+                
             }
             line = br.readLine();
             this.incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+            
             //setIncidentInfo(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1));
             //System.out.println(incidentInfo);
         }
@@ -58,15 +60,19 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
             //Create a popup saying, we can't find the file
         }
         
-        IncidentNumberText.setText(incidentInfo[0]);
+                IncidentNumberText.setText(incidentInfo[0]);
+                String test = IncidentNumberText.getText();
         AreaText.setText(incidentInfo[3]);
-        RoomText.setText(incidentInfo[4]);
-        CommentText.setText(incidentInfo[10]);
+        if (incidentInfo[2].equals("Accessibility Transport Request")) {
+            RoomText.setText(incidentInfo[5]);
+            reportTitle.setText("Accessibility Transport");
+        }
+        else {            
+            RoomText.setText(incidentInfo[4]);
+            CommentText.setText(incidentInfo[10]);
+            reportTitle.setText(incidentInfo[2]);
+        }
         reportTimeText.setText(incidentInfo[1]);
-        reportTitle.setText(incidentInfo[2]);
-        
-        
-       
         
         
         switch(incidentInfo[2]){
@@ -145,7 +151,19 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 ExtraText1.setText(incidentInfo[7]);
                 break;
             
-            case "Accessibility Transport" :
+            case "Accessibility Transport Request" :
+                ExtraLabel3.setVisible(false);
+                ExtraText3.setVisible(false);
+                CurrentLocationLabel.setVisible(false);
+                DestinationLabel.setVisible(false);
+                
+                AreaLabel.setText("Pick Up:");
+                RoomLabel.setText("Drop Off:");
+                reportTimeLabel.setText("Request Time:");
+                ExtraLabel1.setText("Pick Up Day:");
+                ExtraText1.setText("Wednesday 23rd May");
+                ExtraLabel2.setText("Pick Up Time:");
+                ExtraText2.setText(incidentInfo[7]);
             break;
 
             case "Other Report" :
@@ -159,7 +177,9 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 CurrentLocationLabel.setVisible(false);
 
                 reportTimeLabel.setText("Report Time:");
-        }   
+        } 
+        
+          
     }
 
     /**
@@ -171,10 +191,6 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         reportTitle = new javax.swing.JLabel();
         ExtraText3 = new javax.swing.JLabel();
@@ -196,14 +212,9 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
         IncidentNumberText = new javax.swing.JLabel();
         reportTimeLabel = new javax.swing.JLabel();
         reportTimeText = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4top.jpg"))); // NOI18N
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4left.jpg"))); // NOI18N
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4right.jpg"))); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4bottom.jpg"))); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -211,13 +222,17 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 78, -1, -1));
 
         reportTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         reportTitle.setText("Report Details");
+        add(reportTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 75, -1, -1));
 
         ExtraText3.setText("jLabel6");
+        add(ExtraText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 323, 137, -1));
 
         CommentLabel.setText("Additional Comments:");
+        add(CommentLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 374, -1, -1));
 
         Cancel.setText("Cancel Report");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -225,158 +240,60 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 CancelActionPerformed(evt);
             }
         });
+        add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 521, -1, -1));
 
         AreaText.setText("jLabel5");
+        add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 177, -1));
 
         AreaLabel.setText("Area:");
+        add(AreaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 184, -1, -1));
 
         CurrentLocationLabel.setText("Your Current Location:");
+        add(CurrentLocationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 164, -1, -1));
 
         RoomText.setText("jLabel6");
+        add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 177, -1));
 
         DestinationLabel.setText("Your Destination:");
+        add(DestinationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 241, -1, -1));
 
         ExtraLabel1.setText("Area:");
+        add(ExtraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 266, -1, -1));
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 398, 256, 113));
 
         ExtraLabel2.setText("Room:");
+        add(ExtraLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 298, -1, -1));
 
         ExtraText1.setText("jLabel5");
+        add(ExtraText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 176, -1));
 
         ExtraLabel3.setText("Time for Escort:");
+        add(ExtraLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 323, -1, -1));
 
         ExtraText2.setText("jLabel6");
+        add(ExtraText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 176, -1));
 
         RoomLabel.setText("Room:");
+        add(RoomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         jLabel2.setText("Incident Number:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 112, -1, -1));
 
         IncidentNumberText.setText("jLabel3");
+        add(IncidentNumberText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         reportTimeLabel.setText("Time of Request:");
+        add(reportTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         reportTimeText.setText("jLabel3");
+        add(reportTimeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel8)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(ExtraLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ExtraText3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(DestinationLabel)
-                                    .addComponent(CommentLabel)
-                                    .addComponent(CommentText, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CurrentLocationLabel)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ExtraLabel1)
-                                            .addComponent(ExtraLabel2))
-                                        .addGap(63, 63, 63)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ExtraText1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                            .addComponent(ExtraText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(AreaLabel)
-                                            .addComponent(RoomLabel))
-                                        .addGap(62, 62, 62)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(AreaText, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                                            .addComponent(RoomText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(IncidentNumberText))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(reportTimeLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(reportTimeText))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(backButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(reportTitle))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(Cancel)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(backButton)
-                            .addComponent(reportTitle))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(IncidentNumberText))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(reportTimeLabel)
-                            .addComponent(reportTimeText))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CurrentLocationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AreaLabel)
-                            .addComponent(AreaText))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RoomLabel)
-                            .addComponent(RoomText))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DestinationLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ExtraLabel1)
-                            .addComponent(ExtraText1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ExtraText2)
-                            .addComponent(ExtraLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ExtraLabel3)
-                            .addComponent(ExtraText3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CommentLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CommentText, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Cancel)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addContainerGap())
-        );
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -465,11 +382,8 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
     private javax.swing.JLabel RoomLabel;
     private javax.swing.JLabel RoomText;
     private javax.swing.JButton backButton;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel reportTimeLabel;
     private javax.swing.JLabel reportTimeText;
     private javax.swing.JLabel reportTitle;
