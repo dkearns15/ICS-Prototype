@@ -5,6 +5,7 @@
  */
 package flinsafeprototype;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -209,7 +210,7 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
             }
         });
         add(backButton);
-        backButton.setBounds(20, 90, 65, 29);
+        backButton.setBounds(20, 90, 90, 29);
 
         jLabel23.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel23.setText("FlinSafe: Add to Incident Queue");
@@ -316,7 +317,9 @@ public class SecuritySummaryaddToQueuePanel extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         try {
+            Dimension size = parent.getSize();
             parent.setContentPane(new SecuritySummaryIncidentResponsePanel(Integer.parseInt(incidentInfo[0]), home, (SecuritySummaryNewIncidentResponse) this.parent));
+            parent.setSize(size);
         } catch (IOException ex) {
             Logger.getLogger(SecuritySummaryaddToQueuePanel.class.getName()).log(Level.SEVERE, null, ex);
         }

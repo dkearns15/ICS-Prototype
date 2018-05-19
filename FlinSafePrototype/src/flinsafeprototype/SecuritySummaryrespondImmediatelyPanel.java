@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -47,7 +48,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         this.source = source;
         HelperLocations locs = new HelperLocations();
         initComponents();
-
+        parent.setSize(new Dimension(1046,531));
         timeLabel.setText(incidentInfo[1]);
         numLabel.setText(incidentInfo[0]);
         typeLabel.setText(incidentInfo[2]);
@@ -126,52 +127,52 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(commentsTextArea);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(170, 260, 387, 87);
+        jScrollPane1.setBounds(170, 240, 387, 80);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Report Comments");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(20, 260, 142, 22);
+        jLabel8.setBounds(20, 240, 142, 22);
 
         locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         locationLabel.setText("jLabel9");
         jPanel1.add(locationLabel);
-        locationLabel.setBounds(170, 230, 290, 20);
+        locationLabel.setBounds(170, 210, 290, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Report Location");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(40, 230, 124, 22);
+        jLabel7.setBounds(40, 210, 124, 22);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Report Time");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(60, 200, 97, 22);
+        jLabel6.setBounds(60, 180, 97, 22);
 
         timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         timeLabel.setText("jLabel9");
         jPanel1.add(timeLabel);
-        timeLabel.setBounds(170, 200, 280, 20);
+        timeLabel.setBounds(170, 180, 280, 20);
 
         typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         typeLabel.setText("jLabel9");
         jPanel1.add(typeLabel);
-        typeLabel.setBounds(170, 170, 210, 20);
+        typeLabel.setBounds(170, 150, 210, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Report Type");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 170, 97, 22);
+        jLabel4.setBounds(60, 150, 97, 22);
 
         numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         numLabel.setText("jLabel9");
         jPanel1.add(numLabel);
-        numLabel.setBounds(170, 140, 210, 20);
+        numLabel.setBounds(170, 120, 210, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Incident Number");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(30, 140, 132, 22);
+        jLabel3.setBounds(30, 120, 132, 22);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton1.setText("Print");
@@ -181,7 +182,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(270, 380, 103, 29);
+        jButton1.setBounds(250, 350, 103, 40);
 
         sendTextButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         sendTextButton.setText("Send Text");
@@ -191,16 +192,16 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(sendTextButton);
-        sendTextButton.setBounds(260, 450, 103, 29);
+        sendTextButton.setBounds(260, 419, 103, 40);
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Security Office Printer", "Jerry's Printer"}));
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(20, 380, 227, 26);
+        jComboBox1.setBounds(20, 350, 227, 40);
 
         phoneNumTextField.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jPanel1.add(phoneNumTextField);
-        phoneNumTextField.setBounds(60, 450, 183, 26);
+        phoneNumTextField.setBounds(60, 416, 183, 40);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton3.setText("Mark as In Progress");
@@ -210,7 +211,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(70, 490, 173, 29);
+        jButton3.setBounds(70, 470, 173, 40);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton4.setText("Mark as Completed");
@@ -220,20 +221,20 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(260, 490, 183, 29);
+        jButton4.setBounds(260, 470, 183, 40);
 
         jLabel5.setText("Select a printer to print the incident summary to:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 350, 280, 16);
+        jLabel5.setBounds(20, 320, 280, 30);
 
         jLabel9.setText("Enter a mobile phone number (4________) to text the incident summary to:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(20, 410, 434, 16);
+        jLabel9.setBounds(20, 390, 434, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel10.setText("+61");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(30, 460, 30, 20);
+        jLabel10.setBounds(20, 420, 30, 30);
 
         backButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         backButton.setText("Back");
@@ -243,7 +244,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(backButton);
-        backButton.setBounds(20, 100, 65, 29);
+        backButton.setBounds(20, 90, 100, 29);
 
         jLabel23.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         jLabel23.setText("FlinSafe: Response Choice");
@@ -265,7 +266,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -283,7 +284,9 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         int min = calendar.get(Calendar.MINUTE);
         String[] newIncidentInfo = {incidentInfo[0], Integer.toString(hour) + ":" + Integer.toString(min), incidentInfo[1], incidentInfo[2], "Gerry Mortimer", incidentInfo[4], incidentInfo[3]};
         parent.setIncidentInfo(newIncidentInfo);
+        Dimension size = parent.getSize();
         parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
+        parent.setSize(size);
         parent.revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -436,7 +439,10 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        Dimension size = parent.getSize();
         parent.setContentPane(source);
+        
+        parent.setSize(size);
         parent.revalidate();
     }//GEN-LAST:event_backButtonActionPerformed
 
