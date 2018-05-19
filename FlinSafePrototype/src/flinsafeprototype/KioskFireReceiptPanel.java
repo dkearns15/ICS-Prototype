@@ -22,10 +22,15 @@ public class KioskFireReceiptPanel extends javax.swing.JPanel {
     public KioskFireReceiptPanel() {
         initComponents();
     }
-    public KioskFireReceiptPanel(JFrame parent, String type) {
+    public KioskFireReceiptPanel(JFrame parent, String location, String type, String size, String Comments) {
         initComponents();
         this.parent = parent;
-        this.type = type;
+        
+        AreaText.setText(area);
+        RoomText.setText(room);
+        TypeText.setText(type);
+        SizeText.setText(size);
+        CommentText.setText(comment);
     }
 
     /**
