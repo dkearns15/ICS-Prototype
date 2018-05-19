@@ -133,7 +133,7 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
-        jLabel6.setBounds(0, 0, 1370, 720);
+        jLabel6.setBounds(0, 0, 1400, 770);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
