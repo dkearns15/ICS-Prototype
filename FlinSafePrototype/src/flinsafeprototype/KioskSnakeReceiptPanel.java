@@ -22,11 +22,14 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
     public KioskSnakeReceiptPanel() {
         initComponents();
     }
-    public KioskSnakeReceiptPanel(JFrame parent, String type) {
+    public KioskSnakeReceiptPanel(JFrame parent, String location, String size, String comments, String incidentnumber) {
         initComponents();
         this.parent = parent;
-        this.type = type;
-        initFromType(type);
+
+        LocationText.setText(location);
+        SizeText.setText(size);
+        CommentsText.setText(comments);
+        Randnumber.setText(incidentnumber);
     }
 
     /**
@@ -38,36 +41,24 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        CommentsText = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+
+        LocationText = new javax.swing.JTextField();
+        SizeText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setLayout(null);
 
-        javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
-        mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
-        mapWithPointsPanel1Layout.setHorizontalGroup(
-            mapWithPointsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
-        );
-        mapWithPointsPanel1Layout.setVerticalGroup(
-            mapWithPointsPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 45, Short.MAX_VALUE)
-        );
 
-        add(mapWithPointsPanel1);
-        mapWithPointsPanel1.setBounds(1097, 423, 382, 45);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
@@ -84,9 +75,9 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(321, 235, 230, 29);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        CommentsText.setColumns(20);
+        CommentsText.setRows(5);
+        jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(609, 235, 325, 96);
@@ -111,22 +102,23 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         add(jLabel7);
         jLabel7.setBounds(430, 457, 640, 29);
 
-        jTextField3.setText("jTextField1");
-        add(jTextField3);
-        jTextField3.setBounds(640, 357, 69, 22);
+
+        Randnumber.setText("jTextField1");
+        add(Randnumber);
+        Randnumber.setBounds(640, 357, 69, 22);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
         add(jLabel1);
         jLabel1.setBounds(321, 349, 301, 29);
 
-        jTextField1.setText("jTextField1");
-        add(jTextField1);
-        jTextField1.setBounds(609, 152, 69, 22);
+        LocationText.setText("jTextField1");
+        add(LocationText);
+        LocationText.setBounds(609, 152, 69, 22);
 
-        jTextField2.setText("jTextField2");
-        add(jTextField2);
-        jTextField2.setBounds(609, 195, 69, 22);
+        NumberText.setText("jTextField2");
+        add(NumberText);
+        NumberText.setBounds(609, 195, 69, 22);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel8);
@@ -138,14 +130,12 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         parent.revalidate();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void initFromType(String type){
-        HelperLocations locs = new HelperLocations();
-        mapWithPointsPanel1.setXpoint(locs.getLocationX("hub"));
-        mapWithPointsPanel1.setYpoint(locs.getLocationY("hub"));
-        mapWithPointsPanel1.repaint();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea CommentsText;
+    private javax.swing.JTextField LocationText;
+    private javax.swing.JTextField Randnumber;
+    private javax.swing.JTextField SizeText;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -155,10 +145,5 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     // End of variables declaration//GEN-END:variables
 }

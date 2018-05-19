@@ -5,6 +5,15 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -39,13 +48,13 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
 
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Location = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        Number = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        CommentsText = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
@@ -60,7 +69,7 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setText("Intruder");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
+        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
@@ -68,14 +77,14 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Number:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "1", "2", "3", "4 or more" }));
+        Number.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "1", "2", "3", "4 or more" }));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        CommentsText.setColumns(20);
+        CommentsText.setRows(5);
+        jScrollPane1.setViewportView(CommentsText);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -107,8 +116,8 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
                                     .addComponent(jLabel2))
                                 .addGap(192, 192, 192)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Number, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(537, 537, 537))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -135,11 +144,11 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -160,22 +169,59 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        parent.setContentPane(new KioskIntruderReceiptPanel(parent, "intruder"));
+        //CSV FILE HERE
+        //URL url = getClass().getResource("Reports.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        Random rand = new Random();
+        int n = rand.nextInt(500) + 1;
+
+        //add to reports
+       try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + (String) Number.getSelectedItem() + ", " + CommentsText.getText()+ ", ");
+            writer.append(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + (String) Number.getSelectedItem() + ", " + CommentsText.getText()+ ", ");
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String location = (String)Location.getSelectedItem();
+        String number = (String)Number.getSelectedItem();
+        String comments = CommentsText.getText();
+        String incidentnumber = Integer.toString(n);
+        parent.setContentPane(new KioskIntruderReceiptPanel(parent, location, number, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea CommentsText;
+    private javax.swing.JComboBox<String> Location;
+    private javax.swing.JComboBox<String> Number;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

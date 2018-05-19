@@ -5,6 +5,15 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -42,8 +51,8 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        commentsTextArea = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        CommentsText = new javax.swing.JTextArea();
+        Location = new javax.swing.JComboBox<>();
         submitReportButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
@@ -69,17 +78,18 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         add(jLabel4);
         jLabel4.setBounds(181, 195, 120, 29);
 
-        commentsTextArea.setColumns(20);
-        commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        commentsTextArea.setRows(5);
-        jScrollPane1.setViewportView(commentsTextArea);
+        CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CommentsText.setRows(5);
+        jScrollPane1.setViewportView(CommentsText);
 
+        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         add(jScrollPane1);
         jScrollPane1.setBounds(319, 195, 425, 201);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
-        add(jComboBox1);
-        jComboBox1.setBounds(333, 140, 126, 22);
+      
+        add(Location);
+        Location.setBounds(333, 140, 126, 22);
 
         submitReportButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         submitReportButton.setText("Submit Report");
@@ -90,6 +100,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         });
         add(submitReportButton);
         submitReportButton.setBounds(850, 312, 238, 84);
+
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
@@ -102,15 +113,51 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void submitReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitReportButtonActionPerformed
-        parent.setContentPane(new KioskRecieptPanel(parent));
+        //CSV FILE HERE
+        //URL url = getClass().getResource("Reports.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        Random rand = new Random();
+        int n = rand.nextInt(500) + 1;
+
+        //add to reports
+       try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(n + ", " + new Date() + ", " + "Other" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
+            writer.append(n + ", " + new Date() + ", " + "Other" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String location = (String)Location.getSelectedItem();
+        String comments = CommentsText.getText();
+        String incidentnumber = Integer.toString(n);
+        parent.setContentPane(new KioskRecieptPanel(parent, location, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_submitReportButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea CommentsText;
+    private javax.swing.JComboBox<String> Location;
     private javax.swing.JButton backButton;
-    private javax.swing.JTextArea commentsTextArea;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

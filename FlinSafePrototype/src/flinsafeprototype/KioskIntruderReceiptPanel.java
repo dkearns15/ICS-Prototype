@@ -22,10 +22,14 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
     public KioskIntruderReceiptPanel() {
         initComponents();
     }
-    public KioskIntruderReceiptPanel(JFrame parent, String type) {
+    public KioskIntruderReceiptPanel(JFrame parent, String location, String number, String comments, String incidentnumber) {
         initComponents();
         this.parent = parent;
-        this.type = type;
+
+        LocationText.setText(location);
+        NumberText.setText(number);
+        CommentsText.setText(comments);
+        Randnumber.setText(incidentnumber);
     }
 
     /**
@@ -41,14 +45,15 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        CommentsText = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+
+        LocationText = new javax.swing.JTextField();
+        NumberText = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -68,9 +73,9 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(242, 224, 230, 29);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        CommentsText.setColumns(20);
+        CommentsText.setRows(5);
+        jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(530, 224, 325, 96);
@@ -95,26 +100,29 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
         add(jLabel7);
         jLabel7.setBounds(340, 428, 640, 29);
 
-        jTextField3.setText("jTextField1");
-        add(jTextField3);
-        jTextField3.setBounds(561, 339, 69, 22);
+
+        Randnumber.setText("jTextField1");
+        add(Randnumber);
+        Randnumber.setBounds(561, 339, 69, 22);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
         add(jLabel1);
         jLabel1.setBounds(242, 331, 301, 29);
 
-        jTextField1.setText("jTextField1");
-        add(jTextField1);
-        jTextField1.setBounds(530, 114, 69, 22);
 
-        jTextField2.setText("jTextField2");
-        add(jTextField2);
-        jTextField2.setBounds(530, 170, 69, 22);
+        LocationText.setText("jTextField1");
+        add(LocationText);
+        LocationText.setBounds(530, 114, 69, 22);
+
+        NumberText.setText("jTextField2");
+        add(NumberText);
+        NumberText.setBounds(530, 170, 69, 22);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel9);
         jLabel9.setBounds(0, 0, 1370, 780);
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -124,6 +132,10 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea CommentsText;
+    private javax.swing.JTextField LocationText;
+    private javax.swing.JTextField NumberText;
+    private javax.swing.JTextField Randnumber;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -133,9 +145,5 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

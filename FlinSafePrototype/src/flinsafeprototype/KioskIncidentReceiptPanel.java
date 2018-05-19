@@ -22,10 +22,13 @@ public class KioskIncidentReceiptPanel extends javax.swing.JPanel {
     public KioskIncidentReceiptPanel() {
         initComponents();
     }
-    public KioskIncidentReceiptPanel(JFrame parent, String type) {
+    public KioskIncidentReceiptPanel(JFrame parent, String location, String comments, String incidentnumber) {
         initComponents();
         this.parent = parent;
-        this.type = type;
+        
+        LocationText.setText(location);
+        CommentsText.setText(comments);
+        Randnumber.setText(incidentnumber);
     }
 
     /**
@@ -40,13 +43,14 @@ public class KioskIncidentReceiptPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        commentsTextArea = new javax.swing.JTextArea();
+        CommentsText = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        LocationText = new javax.swing.JTextField();
+
         jLabel8 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -61,10 +65,10 @@ public class KioskIncidentReceiptPanel extends javax.swing.JPanel {
         add(jLabel4);
         jLabel4.setBounds(210, 159, 120, 29);
 
-        commentsTextArea.setColumns(20);
-        commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        commentsTextArea.setRows(5);
-        jScrollPane1.setViewportView(commentsTextArea);
+        CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CommentsText.setRows(5);
+        jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
         jScrollPane1.setBounds(348, 159, 425, 201);
@@ -89,18 +93,19 @@ public class KioskIncidentReceiptPanel extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(491, 495, 277, 148);
 
-        jTextField3.setText("jTextField1");
-        add(jTextField3);
-        jTextField3.setBounds(529, 386, 69, 22);
+        Randnumber.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Randnumber.setText("jTextField1");
+        add(Randnumber);
+        Randnumber.setBounds(529, 386, 69, 22);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
         add(jLabel1);
         jLabel1.setBounds(210, 378, 301, 29);
 
-        jTextField1.setText("jTextField1");
-        add(jTextField1);
-        jTextField1.setBounds(348, 104, 69, 22);
+        LocationText.setText("jTextField1");
+        add(LocationText);
+        LocationText.setBounds(348, 104, 69, 22);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel8);
@@ -114,7 +119,9 @@ public class KioskIncidentReceiptPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea commentsTextArea;
+    private javax.swing.JTextArea CommentsText;
+    private javax.swing.JTextField LocationText;
+    private javax.swing.JTextField Randnumber;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -123,7 +130,5 @@ public class KioskIncidentReceiptPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
