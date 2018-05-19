@@ -5,7 +5,20 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import java.util.Random;
 
 /**
  *
@@ -79,11 +92,6 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Small", "Medium", "Large" }));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -173,14 +181,50 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //CSV FILE HERE
+        //URL url = getClass().getResource("Reports.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        Random rand = new Random();
+        int  n = rand.nextInt(500) + 1;
+        
+        //add to reports
+        try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(n + ", " + new Date() + ",\"" + incidentInfo[2] + "\",\"" + reportTitleTextField.getText() + "\",\"" + reportSummaryTextField.getText() + "\",\"" + reportResolutionTextField.getText() + "\"," + incidentInfo[6] + "," + "Gerry Mortimer" + ",\"Security Guards Comments:" + reportTextTextArea.getText() + ";Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
+            writer.append(n + ", " + new Date() + ",\"" + incidentInfo[2] + "\",\"" + reportTitleTextField.getText() + "\",\"" + reportSummaryTextField.getText() + "\",\"" + reportResolutionTextField.getText() + "\"," + incidentInfo[6] + "," + "Gerry Mortimer" + ",\"Security Guards Comments:" + reportTextTextArea.getText() + ";Reporter Comments:" + incidentInfo[5] + "\"," + incidentInfo[3] + "," + (String) reportResultComboBox.getSelectedItem());
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+/*        try {
+
+            home.readReports();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+*/
         parent.setContentPane(new KioskFireReceiptPanel(parent, "fire"));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
+                                         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
