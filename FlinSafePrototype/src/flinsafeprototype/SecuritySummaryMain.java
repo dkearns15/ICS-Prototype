@@ -6,6 +6,7 @@
 package flinsafeprototype;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -59,6 +60,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         header = recentlyResolvedTable.getTableHeader();
         header.setFont(font);
         tabbedMenu.setFont(font);
+        this.getContentPane().setBackground(Color.white);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
@@ -96,9 +98,15 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         recentlyResolvedTable = new javax.swing.JTable();
         openReportButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Security Summary Main");
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        tabbedMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        NewIncidentsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         newIncidentTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         newIncidentTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,14 +141,14 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         NewIncidentsPanelLayout.setHorizontalGroup(
             NewIncidentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NewIncidentsPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1665, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(viewIncidentDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         NewIncidentsPanelLayout.setVerticalGroup(
             NewIncidentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
             .addGroup(NewIncidentsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(viewIncidentDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,6 +156,8 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         );
 
         tabbedMenu.addTab("New Incidents", NewIncidentsPanel);
+
+        tab1Queue.setBackground(new java.awt.Color(255, 255, 255));
 
         incidentQueueTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         incidentQueueTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -182,21 +192,26 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         tab1QueueLayout.setHorizontalGroup(
             tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab1QueueLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1656, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(respondToIncidentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         tab1QueueLayout.setVerticalGroup(
             tab1QueueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
             .addGroup(tab1QueueLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(respondToIncidentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
+            .addGroup(tab1QueueLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         tabbedMenu.addTab("Incident Queue", tab1Queue);
+
+        inProgressPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         inProgressTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inProgressTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -231,14 +246,14 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         inProgressPanelLayout.setHorizontalGroup(
             inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inProgressPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1665, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         inProgressPanelLayout.setVerticalGroup(
             inProgressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
             .addGroup(inProgressPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,6 +261,8 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         );
 
         tabbedMenu.addTab("In Progress", inProgressPanel);
+
+        recentlyResolvedPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         recentlyResolvedTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         recentlyResolvedTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -280,14 +297,14 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         recentlyResolvedPanelLayout.setHorizontalGroup(
             recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1665, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(openReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         recentlyResolvedPanelLayout.setVerticalGroup(
             recentlyResolvedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
             .addGroup(recentlyResolvedPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(openReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,15 +313,20 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
 
         tabbedMenu.addTab("Recently Resolved", recentlyResolvedPanel);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbannerSecSum.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedMenu)
+            .addComponent(tabbedMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLabel1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabbedMenu)
                 .addContainerGap())
         );
@@ -374,7 +396,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -532,7 +554,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
             //Not implemented yet
         }
     }
-    
+
     public void readInProgress() throws FileNotFoundException, IOException {
         //CSV FILE HERE
         //URL url = getClass().getResource("InProgress.csv");
@@ -656,6 +678,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     private javax.swing.JTable inProgressTable;
     private javax.swing.JTable incidentQueueTable;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
