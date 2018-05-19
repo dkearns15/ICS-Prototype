@@ -45,7 +45,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         accessibilityButton = new javax.swing.JButton();
         accessButton = new javax.swing.JButton();
-        maintenanceButton = new javax.swing.JButton();
+        EscortButton = new javax.swing.JButton();
         snakeButton = new javax.swing.JButton();
         intruderButton = new javax.swing.JButton();
         injuryButton = new javax.swing.JButton();
@@ -89,10 +89,10 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
             }
         });
 
-        maintenanceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/MaintenencePhone.png"))); // NOI18N
-        maintenanceButton.addActionListener(new java.awt.event.ActionListener() {
+        EscortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneEscort.png"))); // NOI18N
+        EscortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maintenanceButtonActionPerformed(evt);
+                EscortButtonActionPerformed(evt);
             }
         });
 
@@ -137,7 +137,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
 
         jLabel3.setText("Room Access");
 
-        jLabel4.setText("Maintenence");
+        jLabel4.setText("Escort");
 
         jLabel5.setText("Snake");
 
@@ -160,15 +160,13 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(maintenanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EscortButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(accessButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(injuryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fireButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))))
+                                .addComponent(jLabel3)))
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(accessibilityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,7 +179,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                         .addComponent(jLabel6))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addGap(27, 27, 27))
@@ -189,6 +187,9 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(snakeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5)
                                     .addGap(26, 26, 26)))
                             .addGap(45, 45, 45))
@@ -228,18 +229,18 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(snakeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(21, 21, 21)
                                 .addComponent(intruderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(maintenanceButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(EscortButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
                                 .addComponent(jLabel4)
-                                .addGap(12, 12, 12)
+                                .addGap(18, 18, 18)
                                 .addComponent(injuryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -287,10 +288,10 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
         System.out.println("working2");
     }//GEN-LAST:event_accessibilityButtonActionPerformed
 
-    private void maintenanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceButtonActionPerformed
-        parent.setContentPane(new PhonePanelMaintenence(parent));
+    private void EscortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EscortButtonActionPerformed
+        parent.setContentPane(new PhonePanelEscort(parent));
         parent.revalidate();
-    }//GEN-LAST:event_maintenanceButtonActionPerformed
+    }//GEN-LAST:event_EscortButtonActionPerformed
 
     private void snakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snakeButtonActionPerformed
         parent.setContentPane(new PhonePanelSnake(parent));
@@ -319,6 +320,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EscortButton;
     private javax.swing.JButton accessButton;
     private javax.swing.JButton accessibilityButton;
     private javax.swing.JButton backButton;
@@ -337,7 +339,6 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton maintenanceButton;
     private javax.swing.JButton otherButton;
     private javax.swing.JButton snakeButton;
     // End of variables declaration//GEN-END:variables
