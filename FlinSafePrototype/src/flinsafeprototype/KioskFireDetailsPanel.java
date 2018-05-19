@@ -58,9 +58,9 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CommentsText = new javax.swing.JTextArea();
-        TypeText = new javax.swing.JComboBox<>();
-        SizeText = new javax.swing.JComboBox<>();
-        LocationText = new javax.swing.JComboBox<>();
+        Type = new javax.swing.JComboBox<>();
+        Size = new javax.swing.JComboBox<>();
+        Location = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -88,11 +88,11 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
-        TypeText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Bushfire", "Chemical", "Electrical", "Gas", "Unknown" }));
+        Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Bushfire", "Chemical", "Electrical", "Gas", "Unknown" }));
 
-        SizeText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Small", "Medium", "Large" }));
+        Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Small", "Medium", "Large" }));
 
-        LocationText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
+        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -126,8 +126,8 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel2))
                                 .addGap(192, 192, 192)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(SizeText, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LocationText, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +137,7 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
                                         .addGap(228, 228, 228)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(TypeText, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(103, 103, 103))))))
@@ -154,16 +154,16 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(LocationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(SizeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TypeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,8 +200,8 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            System.out.println(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + (String) Type.getSelectedItem() + ", " + ", " + (String) Size.getSelectedItem() + ", " + CommentsText.getText());
-            writer.append(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + (String) Type.getSelectedItem() + ", " + ", " + (String) Size.getSelectedItem() + ", " + CommentsText.getText());
+            System.out.println(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + (String) Type.getSelectedItem() + ", " + (String) Size.getSelectedItem() + ", " + CommentsText.getText()+ ", ");
+            writer.append(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + (String) Type.getSelectedItem() + ", " + (String) Size.getSelectedItem() + ", " + CommentsText.getText()+ ", ");
             writer.newLine();
 
         } catch (IOException ex) {
@@ -215,29 +215,21 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*        try {
-
-            home.readReports();
-        } catch (IOException ex) {
-            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         */
-                String area = (String)AreaComboBox.getSelectedItem();
-        String room = (String)LocationText.getSelectedItem();
-        String type = (String)TypeComboBox.getSelectedItem();
-        String size = (String)SizeComboBox.getSelectedItem();
-        String comments = Comments.getText();
-        String IncidentNumber = Integer.toString(n);
-        parent.setContentPane(new KioskFireReceiptPanel(parent, "fire"));
+        String location = (String)Location.getSelectedItem();
+        String type = (String)Type.getSelectedItem();
+        String size = (String)Size.getSelectedItem();
+        String comments = CommentsText.getText();
+        String incidentnumber = Integer.toString(n);
+        parent.setContentPane(new KioskFireReceiptPanel(parent, location, type, size, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CommentsText;
-    private javax.swing.JComboBox<String> LocationText;
-    private javax.swing.JComboBox<String> SizeText;
-    private javax.swing.JComboBox<String> TypeText;
+    private javax.swing.JComboBox<String> Location;
+    private javax.swing.JComboBox<String> Size;
+    private javax.swing.JComboBox<String> Type;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
