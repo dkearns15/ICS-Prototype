@@ -5,6 +5,15 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -42,8 +51,8 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        commentsTextArea = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        CommentsText = new javax.swing.JTextArea();
+        Location = new javax.swing.JComboBox<>();
         submitReportButton = new javax.swing.JButton();
 
         backButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -60,12 +69,12 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Comments:");
 
-        commentsTextArea.setColumns(20);
-        commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        commentsTextArea.setRows(5);
-        jScrollPane1.setViewportView(commentsTextArea);
+        CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        CommentsText.setRows(5);
+        jScrollPane1.setViewportView(CommentsText);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
+        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
 
         submitReportButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         submitReportButton.setText("Submit Report");
@@ -94,7 +103,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
                                 .addComponent(submitReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -111,7 +120,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -126,15 +135,51 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void submitReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitReportButtonActionPerformed
-        parent.setContentPane(new KioskRecieptPanel(parent));
+        //CSV FILE HERE
+        //URL url = getClass().getResource("Reports.csv");
+        //File file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        Random rand = new Random();
+        int n = rand.nextInt(500) + 1;
+
+        //add to reports
+       try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(n + ", " + new Date() + ", " + "Other" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
+            writer.append(n + ", " + new Date() + ", " + "Other" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String location = (String)Location.getSelectedItem();
+        String comments = CommentsText.getText();
+        String incidentnumber = Integer.toString(n);
+        parent.setContentPane(new KioskRecieptPanel(parent, location, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_submitReportButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea CommentsText;
+    private javax.swing.JComboBox<String> Location;
     private javax.swing.JButton backButton;
-    private javax.swing.JTextArea commentsTextArea;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
