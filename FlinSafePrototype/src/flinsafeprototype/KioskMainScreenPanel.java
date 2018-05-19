@@ -37,10 +37,14 @@ public class KioskMainScreenPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         reportIncidentButton = new javax.swing.JButton();
         contactSecurityButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
+        setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 48)); // NOI18N
         jLabel1.setText("Flinders University Security Kiosk");
+        add(jLabel1);
+        jLabel1.setBounds(240, 0, 880, 87);
 
         reportIncidentButton.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         reportIncidentButton.setText("Report Incident");
@@ -49,6 +53,8 @@ public class KioskMainScreenPanel extends javax.swing.JPanel {
                 reportIncidentButtonActionPerformed(evt);
             }
         });
+        add(reportIncidentButton);
+        reportIncidentButton.setBounds(156, 94, 957, 175);
 
         contactSecurityButton.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         contactSecurityButton.setText("Contact Security");
@@ -57,41 +63,12 @@ public class KioskMainScreenPanel extends javax.swing.JPanel {
                 contactSecurityButtonActionPerformed(evt);
             }
         });
+        add(contactSecurityButton);
+        contactSecurityButton.setBounds(156, 287, 957, 175);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flinderslogo.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(254, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(247, 247, 247))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(reportIncidentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(contactSecurityButton, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(367, 367, 367)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reportIncidentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contactSecurityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addContainerGap(115, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
+        add(jLabel6);
+        jLabel6.setBounds(0, 0, 1370, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentButtonActionPerformed
@@ -108,7 +85,7 @@ public class KioskMainScreenPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton contactSecurityButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton reportIncidentButton;
     // End of variables declaration//GEN-END:variables
 }
