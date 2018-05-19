@@ -68,7 +68,7 @@ public class PhonePanelOther extends javax.swing.JPanel {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/phone4bottom.jpg"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Unspecified Report");
+        jLabel1.setText("Other Report");
 
         Back1.setText("Back");
         Back1.addActionListener(new java.awt.event.ActionListener() {

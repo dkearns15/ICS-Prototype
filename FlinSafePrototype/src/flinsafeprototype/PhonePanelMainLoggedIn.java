@@ -5,6 +5,9 @@
  */
 package flinsafeprototype;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -43,7 +46,7 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         PhoneCalling = new javax.swing.JButton();
         PhoneReportEmergency = new javax.swing.JButton();
-        PhoneSecurityAlerts = new javax.swing.JButton();
+        PhoneMyReports = new javax.swing.JButton();
         makeAReportButton = new javax.swing.JButton();
         BookTransport = new javax.swing.JButton();
 
@@ -72,10 +75,10 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
             }
         });
 
-        PhoneSecurityAlerts.setText("My Reports");
-        PhoneSecurityAlerts.addActionListener(new java.awt.event.ActionListener() {
+        PhoneMyReports.setText("My Reports");
+        PhoneMyReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PhoneSecurityAlertsActionPerformed(evt);
+                PhoneMyReportsActionPerformed(evt);
             }
         });
 
@@ -107,7 +110,7 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
                             .addGap(20, 20, 20))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(PhoneReportEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PhoneSecurityAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhoneMyReports, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(makeAReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(BookTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,7 +137,7 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(makeAReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PhoneSecurityAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PhoneMyReports, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(PhoneCalling, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -154,10 +157,14 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
         parent.revalidate();
     }//GEN-LAST:event_PhoneReportEmergencyActionPerformed
 
-    private void PhoneSecurityAlertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneSecurityAlertsActionPerformed
-        parent.setContentPane(new PhonePanelMyReports(parent));
-        parent.revalidate();
-    }//GEN-LAST:event_PhoneSecurityAlertsActionPerformed
+    private void PhoneMyReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneMyReportsActionPerformed
+        try {
+                parent.setContentPane(new PhonePanelMyReports(parent));
+                parent.revalidate();
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_PhoneMyReportsActionPerformed
 
     private void makeAReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeAReportButtonActionPerformed
         parent.setContentPane(new PhonePanelIncidentSelection(parent));
@@ -173,8 +180,8 @@ public class PhonePanelMainLoggedIn extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BookTransport;
     private javax.swing.JButton PhoneCalling;
+    private javax.swing.JButton PhoneMyReports;
     private javax.swing.JButton PhoneReportEmergency;
-    private javax.swing.JButton PhoneSecurityAlerts;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;

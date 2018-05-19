@@ -5,6 +5,15 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -85,7 +94,7 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Unspecified Report Summary");
+        jLabel1.setText("Other Report Summary");
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -96,7 +105,10 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 411, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(131, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(118, 118, 118))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -119,10 +131,7 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
                                                     .addComponent(jLabel3)
                                                     .addGap(37, 37, 37)
                                                     .addComponent(RoomText, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(Back1)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(24, 24, 24)
-                                                .addComponent(jLabel1)))
+                                            .addComponent(Back1))
                                         .addGap(0, 12, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(104, 104, 104)
@@ -135,7 +144,10 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 651, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jLabel1)
+                .addContainerGap(519, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -147,9 +159,7 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(Back1)
-                            .addGap(14, 14, 14)
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
+                            .addGap(49, 49, 49)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel2)
                                 .addComponent(AreaText))
@@ -179,6 +189,37 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
 
     private void ConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmActionPerformed
         // TODO add your handling code here:
+        
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        Random rand = new Random();
+        int  n = rand.nextInt(5000) + 1;
+        Date date = new Date();
+        String currentDate = String.format("%1$tb %1$td %1$tR", date );
+        //add to reports
+        try {
+          writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(n + "," + currentDate + "," + "Other Report" + "," + AreaText.getText() + "," + RoomText.getText() + ","  + ","  + ","  + "," + ","  + "," + CommentText.getText() + "," + "Matthew Flinders");
+            writer.append(n + "," + currentDate + "," + "Other Report" + "," + AreaText.getText() + "," + RoomText.getText() + ","  + ","  + ","  + "," + ","  + "," + CommentText.getText()+ "," + "Matthew Flinders");
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         parent.setContentPane(new PhonePanelMainLoggedIn(parent));
         parent.revalidate();
     }//GEN-LAST:event_ConfirmActionPerformed

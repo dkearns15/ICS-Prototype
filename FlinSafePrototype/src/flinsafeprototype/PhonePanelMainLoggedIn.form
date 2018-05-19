@@ -27,7 +27,7 @@
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="PhoneReportEmergency" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="PhoneSecurityAlerts" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="PhoneMyReports" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
                           <Component id="makeAReportButton" min="-2" pref="158" max="-2" attributes="0"/>
                           <Component id="PhoneCalling" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
                       </Group>
@@ -61,7 +61,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="makeAReportButton" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="PhoneSecurityAlerts" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="PhoneMyReports" min="-2" pref="54" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="PhoneCalling" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -127,12 +127,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PhoneReportEmergencyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="PhoneSecurityAlerts">
+    <Component class="javax.swing.JButton" name="PhoneMyReports">
       <Properties>
         <Property name="text" type="java.lang.String" value="My Reports"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PhoneSecurityAlertsActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PhoneMyReportsActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="makeAReportButton">

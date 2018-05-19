@@ -5,6 +5,15 @@
  */
 package flinsafeprototype;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -209,6 +218,37 @@ public class PhonePanelIntruderSummary extends javax.swing.JPanel {
 
     private void ConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmActionPerformed
         // TODO add your handling code here:
+        
+        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        BufferedWriter writer = null;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int min = calendar.get(Calendar.MINUTE);
+        Random rand = new Random();
+        int  n = rand.nextInt(5000) + 1;
+        Date date = new Date();
+        String currentDate = String.format("%1$tb %1$td %1$tR", date );
+        //add to reports
+        try {
+            writer = new BufferedWriter(new FileWriter(file, true));
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(n + "," + currentDate + "," + "Intruder Report" + "," + AreaText.getText() + "," + RoomText.getText() + "," + "," + "," + "," +  ArmedText.getText() + ","  + NumberText.getText() + "," + CommentText.getText()+ "," + "Matthew Flinders");
+            writer.append(n + "," + currentDate + "," + "Intruder Report" + "," + AreaText.getText() + "," + RoomText.getText() + "," + "," + "," + "," +  ArmedText.getText() + ","  + NumberText.getText() + "," + CommentText.getText()+ "," + "Matthew Flinders");
+            writer.newLine();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            writer.flush();
+            writer.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         parent.setContentPane(new PhonePanelMainLoggedIn(parent));
         parent.revalidate();
     }//GEN-LAST:event_ConfirmActionPerformed
