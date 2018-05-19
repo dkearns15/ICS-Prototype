@@ -59,6 +59,8 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         RoomText = new javax.swing.JTextField();
         TypeText = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        setLayout(null);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("Back");
@@ -67,18 +69,28 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2);
+        jButton2.setBounds(12, 13, 100, 50);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
+        add(jLabel2);
+        jLabel2.setBounds(326, 174, 96, 29);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Room:");
+        add(jLabel3);
+        jLabel3.setBounds(326, 217, 69, 29);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Type:");
+        add(jLabel4);
+        jLabel4.setBounds(326, 259, 60, 29);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
+        add(jLabel5);
+        jLabel5.setBounds(326, 318, 230, 29);
 
         CommentsText.setColumns(20);
         CommentsText.setRows(5);
@@ -86,10 +98,14 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
 
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         Location.addActionListener(new java.awt.event.ActionListener() {
+        add(jScrollPane1);
+        jScrollPane1.setBounds(614, 318, 325, 96);
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LocationActionPerformed(evt);
             }
         });
+        add(jComboBox1);
+        jComboBox1.setBounds(614, 182, 115, 22);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -98,9 +114,13 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
+        add(jButton3);
+        jButton3.setBounds(1057, 252, 208, 88);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setText("Access Request");
+        add(jLabel1);
+        jLabel1.setBounds(591, 24, 273, 87);
 
         RoomText.setText("jTextField1");
 
@@ -174,6 +194,10 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(292, Short.MAX_VALUE))
         );
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
+        add(jLabel6);
+        jLabel6.setBounds(0, 0, 1370, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -241,6 +265,7 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

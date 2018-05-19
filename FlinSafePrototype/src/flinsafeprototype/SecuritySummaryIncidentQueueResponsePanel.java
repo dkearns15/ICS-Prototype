@@ -5,6 +5,7 @@
  */
 package flinsafeprototype;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -278,7 +279,9 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        Dimension size = parent.getSize();
         parent.setContentPane(new SecuritySummaryrespondImmediatelyPanel(home, parent, this));
+        parent.setSize(size);
         parent.revalidate();
     }//GEN-LAST:event_respondImmeditatelyButtonActionPerformed
 

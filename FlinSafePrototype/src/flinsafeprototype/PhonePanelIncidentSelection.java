@@ -89,7 +89,7 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
             }
         });
 
-        EscortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneEscort.png"))); // NOI18N
+        EscortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/escort.png"))); // NOI18N
         EscortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EscortButtonActionPerformed(evt);
@@ -289,8 +289,8 @@ public class PhonePanelIncidentSelection extends javax.swing.JPanel {
     }//GEN-LAST:event_accessibilityButtonActionPerformed
 
     private void EscortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EscortButtonActionPerformed
-        parent.setContentPane(new PhonePanelEscort(parent));
-        parent.revalidate();
+        //parent.setContentPane(new PhonePanelEscort(parent));
+        //parent.revalidate();
     }//GEN-LAST:event_EscortButtonActionPerformed
 
     private void snakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snakeButtonActionPerformed

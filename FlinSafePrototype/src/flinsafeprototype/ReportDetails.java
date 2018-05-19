@@ -5,6 +5,8 @@
  */
 package flinsafeprototype;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,6 +31,8 @@ public class ReportDetails extends javax.swing.JFrame {
      */
     public ReportDetails(int incidentNum) throws IOException {
         initComponents();
+        this.setSize(new Dimension(1031,550));
+        this.getContentPane().setBackground(Color.white);
         initText(incidentNum);
     }
 
@@ -46,7 +50,6 @@ public class ReportDetails extends javax.swing.JFrame {
     private void initComponents() {
 
         mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -65,8 +68,12 @@ public class ReportDetails extends javax.swing.JFrame {
         numberLabel = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         resolutionLabel = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(null);
 
         javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
         mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
@@ -79,48 +86,73 @@ public class ReportDetails extends javax.swing.JFrame {
             .addGap(0, 382, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Report Summary for Incident Number:");
+        getContentPane().add(mapWithPointsPanel1);
+        mapWithPointsPanel1.setBounds(620, 100, 382, 382);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Report Title");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(60, 119, 92, 22);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Report Summary");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 148, 132, 22);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Report Date");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(58, 177, 94, 22);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Report Time");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(55, 206, 97, 22);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Report Location");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(28, 235, 124, 22);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Report Writer");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(47, 264, 105, 22);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Report Text");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(59, 328, 93, 22);
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         titleLabel.setText("jLabel9");
+        getContentPane().add(titleLabel);
+        titleLabel.setBounds(179, 121, 340, 20);
 
         summaryLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         summaryLabel.setText("jLabel9");
+        getContentPane().add(summaryLabel);
+        summaryLabel.setBounds(179, 150, 560, 20);
 
         dateLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         dateLabel.setText("jLabel9");
+        getContentPane().add(dateLabel);
+        dateLabel.setBounds(179, 179, 400, 20);
 
         timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         timeLabel.setText("jLabel9");
+        getContentPane().add(timeLabel);
+        timeLabel.setBounds(179, 208, 440, 20);
 
         locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         locationLabel.setText("jLabel9");
+        getContentPane().add(locationLabel);
+        locationLabel.setBounds(179, 237, 410, 20);
 
         writerLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         writerLabel.setText("jLabel9");
+        getContentPane().add(writerLabel);
+        writerLabel.setBounds(179, 266, 430, 20);
 
         textTextArea.setEditable(false);
         textTextArea.setBackground(new java.awt.Color(240, 240, 240));
@@ -131,97 +163,33 @@ public class ReportDetails extends javax.swing.JFrame {
         textTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(textTextArea);
 
-        numberLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(179, 328, 400, 160);
+
+        numberLabel.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
         numberLabel.setText("jLabel9");
+        getContentPane().add(numberLabel);
+        numberLabel.setBounds(900, 20, 130, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Report Resolution");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(12, 293, 140, 22);
 
         resolutionLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         resolutionLabel.setText("jLabel9");
+        getContentPane().add(resolutionLabel);
+        resolutionLabel.setBounds(179, 295, 630, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(numberLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(titleLabel)
-                                .addComponent(summaryLabel)
-                                .addComponent(dateLabel)
-                                .addComponent(timeLabel)
-                                .addComponent(locationLabel)
-                                .addComponent(writerLabel)
-                                .addComponent(resolutionLabel)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(numberLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(titleLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(summaryLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(dateLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(timeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(locationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(writerLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(resolutionLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 35, Short.MAX_VALUE))))
-        );
+        jLabel23.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel23.setText("FlinSafe: Report for Incident Number #");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(430, 20, 490, 30);
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbanner.png"))); // NOI18N
+        jLabel21.setText("jLabel2");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(-210, 0, 1240, 87);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,8 +283,9 @@ public class ReportDetails extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
