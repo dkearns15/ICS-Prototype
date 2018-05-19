@@ -15,7 +15,7 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
 
     JFrame parent;
     String type;
-    
+
     /**
      * Creates new form KioskIncidentDetailsPanel
      */
@@ -116,9 +116,9 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         add(LocationText);
         LocationText.setBounds(609, 152, 69, 22);
 
-        NumberText.setText("jTextField2");
-        add(NumberText);
-        NumberText.setBounds(609, 195, 69, 22);
+        SizeText.setText("jTextField2");
+        add(SizeText);
+        SizeText.setBounds(609, 195, 69, 22);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel8);

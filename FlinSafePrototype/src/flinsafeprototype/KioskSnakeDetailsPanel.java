@@ -24,7 +24,7 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
 
     JFrame parent;
     String type;
-    
+
     /**
      * Creates new form KioskIncidentDetailsPanel
      */
@@ -104,8 +104,8 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
                 LocationActionPerformed(evt);
             }
         });
-        add(jComboBox1);
-        jComboBox1.setBounds(614, 182, 115, 22);
+        add(Location);
+        Location.setBounds(614, 182, 115, 22);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");

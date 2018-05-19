@@ -98,14 +98,13 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
 
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         Location.addActionListener(new java.awt.event.ActionListener() {
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+              }
+        });
         add(jScrollPane1);
         jScrollPane1.setBounds(614, 318, 325, 96);
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LocationActionPerformed(evt);
-            }
-        });
-        add(jComboBox1);
-        jComboBox1.setBounds(614, 182, 115, 22);
+        add(Location);
+        Location.setBounds(614, 182, 115, 22);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -243,8 +242,8 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
         String room = RoomText.getText();
         String type = TypeText.getText();
         String comments = CommentsText.getText();
-        String incidentnumber = Integer.toString(n);        
-        parent.setContentPane(new KioskAccessRecieptPanel(parent, location, room, type, comments, incidentnumber);
+        String incidentnumber = Integer.toString(n);
+        parent.setContentPane(new KioskAccessReceiptPanel(parent, location, room, type, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 

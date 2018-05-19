@@ -5,6 +5,7 @@
  */
 package flinsafeprototype;
 
+import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -24,7 +25,7 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
 
     JFrame parent;
     String type;
-    
+
     /**
      * Creates new form KioskIncidentDetailsPanel
      */
@@ -53,12 +54,11 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CommentsText = new javax.swing.JTextArea();
-        Location = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-
         RoomText = new javax.swing.JTextField();
         TypeText = new javax.swing.JTextField();
+        Location = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -100,15 +100,6 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(614, 318, 325, 96);
 
-        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
-        Location.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        add(Location);
-        Location.setBounds(614, 182, 115, 22);
-
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +122,10 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         TypeText.setText("jTextField2");
         add(TypeText);
         TypeText.setBounds(614, 267, 69, 22);
+
+        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
+        add(Location);
+        Location.setBounds(610, 180, 120, 22);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
@@ -180,7 +175,7 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         String room = (String)RoomText.getText();
         String type = (String)TypeText.getText();
         String comments = CommentsText.getText();
-        String incidentnumber = Integer.toString(n);  
+        String incidentnumber = Integer.toString(n);
         parent.setContentPane(new KioskInjuryReceiptPanel(parent, location, room, type,comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
