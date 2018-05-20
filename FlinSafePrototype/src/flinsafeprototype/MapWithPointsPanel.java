@@ -92,14 +92,16 @@ public class MapWithPointsPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         //Should probably add a try catch here
-        URL url = getClass().getResource("flindersmap.png");
-        URL url2 = getClass().getResource("mappinsmall.png");
+        String file1 = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "flindersmap.png";
+        String file2 = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "mappinsmall.png";
+        //URL url = getClass().getResource("flindersmap.png");
+        //URL url2 = getClass().getResource("mappinsmall.png");
         //Read in the image into 'image'
         BufferedImage image = null;
         BufferedImage image2 = null;
         try {
-            image = ImageIO.read(new File(url.getPath()));
-            image2 = ImageIO.read(new File(url2.getPath()));
+            image = ImageIO.read(new File(file1));
+            image2 = ImageIO.read(new File(file2));
         } catch (IOException ex) {
             Logger.getLogger(MapWithPointsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

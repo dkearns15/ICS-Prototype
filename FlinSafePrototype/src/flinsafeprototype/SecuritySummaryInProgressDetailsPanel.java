@@ -72,7 +72,6 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         numLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         mapWithPointsPanel1 = new flinsafeprototype.MapWithPointsPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -80,8 +79,13 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         responderLabel = new javax.swing.JLabel();
         finishedRespondingButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         commentsTextArea.setEditable(false);
+        commentsTextArea.setBackground(new java.awt.Color(240, 240, 240));
         commentsTextArea.setColumns(20);
         commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);
@@ -89,36 +93,53 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
         commentsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(commentsTextArea);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(190, 300, 385, 87);
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Report Comments");
+        add(jLabel8);
+        jLabel8.setBounds(30, 300, 142, 22);
 
         locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         locationLabel.setText("jLabel9");
+        add(locationLabel);
+        locationLabel.setBounds(190, 210, 220, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Report Location");
+        add(jLabel7);
+        jLabel7.setBounds(50, 210, 124, 22);
 
         timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         timeLabel.setText("jLabel9");
+        add(timeLabel);
+        timeLabel.setBounds(190, 180, 150, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Report Time");
+        add(jLabel6);
+        jLabel6.setBounds(80, 180, 97, 22);
 
         typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         typeLabel.setText("jLabel9");
+        add(typeLabel);
+        typeLabel.setBounds(190, 150, 140, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Report Type");
+        add(jLabel4);
+        jLabel4.setBounds(80, 150, 97, 22);
 
         numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         numLabel.setText("jLabel9");
+        add(numLabel);
+        numLabel.setBounds(190, 120, 150, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Incident Number");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Incident Details:");
+        add(jLabel3);
+        jLabel3.setBounds(40, 120, 132, 22);
 
         javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
         mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
@@ -131,21 +152,33 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
             .addGap(0, 382, Short.MAX_VALUE)
         );
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel5.setText("Response Choice");
+        add(mapWithPointsPanel1);
+        mapWithPointsPanel1.setBounds(610, 100, 382, 382);
+
+        jLabel5.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel5.setText("FlinSafe: In Progress Response Choice");
+        add(jLabel5);
+        jLabel5.setBounds(540, 30, 470, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Responder");
+        add(jLabel9);
+        jLabel9.setBounds(90, 240, 83, 22);
 
         responseStartTimeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         responseStartTimeLabel.setText("jLabel9");
+        add(responseStartTimeLabel);
+        responseStartTimeLabel.setBounds(190, 270, 200, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Response Start Time");
+        add(jLabel10);
+        jLabel10.setBounds(10, 270, 163, 22);
 
         responderLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         responderLabel.setText("jLabel9");
+        add(responderLabel);
+        responderLabel.setBounds(190, 240, 180, 20);
 
         finishedRespondingButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         finishedRespondingButton.setText("Finished Responding");
@@ -154,105 +187,17 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
                 finishedRespondingButtonActionPerformed(evt);
             }
         });
+        add(finishedRespondingButton);
+        finishedRespondingButton.setBounds(250, 400, 178, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel7)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel3))
-                                        .addGap(1, 1, 1)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(responseStartTimeLabel)
-                                    .addComponent(numLabel)
-                                    .addComponent(typeLabel)
-                                    .addComponent(timeLabel)
-                                    .addComponent(locationLabel)
-                                    .addComponent(responderLabel)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(finishedRespondingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(175, 175, 175)))
-                .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(452, Short.MAX_VALUE)
-                    .addComponent(jLabel5)
-                    .addGap(439, 439, 439)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(numLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(typeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(timeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(locationLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(responderLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(responseStartTimeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(finishedRespondingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(jLabel5)
-                    .addContainerGap(391, Short.MAX_VALUE)))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbanner.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(-210, 0, 1240, 87);
     }// </editor-fold>//GEN-END:initComponents
 
     private void finishedRespondingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRespondingButtonActionPerformed
-        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
+        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent, this));
         parent.revalidate();
     }//GEN-LAST:event_finishedRespondingButtonActionPerformed
 
@@ -260,8 +205,8 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JButton finishedRespondingButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

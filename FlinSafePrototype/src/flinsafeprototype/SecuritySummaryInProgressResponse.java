@@ -28,10 +28,11 @@ public class SecuritySummaryInProgressResponse extends javax.swing.JFrame {
 
     public SecuritySummaryInProgressResponse(int rowNum, SecuritySummaryMain home) throws IOException {
         initComponents();
-        
-        URL url = getClass().getResource("InProgress.csv");
+        //CSV FILE HERE
+        //URL url = getClass().getResource("InProgress.csv");
         try {
-            File file = new File(url.getPath());
+            //File file = new File(url.getPath());
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
         
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -65,6 +66,7 @@ public class SecuritySummaryInProgressResponse extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +76,7 @@ public class SecuritySummaryInProgressResponse extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
 
         pack();

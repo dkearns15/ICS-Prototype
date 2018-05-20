@@ -5,15 +5,17 @@
  */
 package flinsafeprototype;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author dkear
- * 
+ *
  * MainMenu is used as a dispatch screen for each of the bits of functionality
  * implemented in this assignment
  */
@@ -23,6 +25,44 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public MainMenu() throws IOException {
+        String fileString;
+        File fileFile;
+        try {
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Reports.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "flindersmap.png";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+            fileString = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "mappinsmall.png";
+            fileFile = new File(fileString);
+            if(!fileFile.exists()){
+                throw new Exception();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "The system could not find one of the necessary files.\n Please ensure that the directory with the .jar files in it contains the following files:\n - NewIncidents.csv \n - IncidentQueue.csv \n - Reports.csv \n - InProgress.csv \n - flindersmap.png \n - mappinsmall.png");
+            System.exit(0);
+        }
         initComponents();
     }
 
@@ -36,10 +76,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         selectFeatureLabel = new javax.swing.JLabel();
-        execSummaryButton = new javax.swing.JButton();
         kioskButton = new javax.swing.JButton();
         securitySummaryButton = new javax.swing.JButton();
-        reportActivityButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         phoneAppButton = new javax.swing.JButton();
 
@@ -51,14 +89,6 @@ public class MainMenu extends javax.swing.JFrame {
         selectFeatureLabel.setForeground(new java.awt.Color(0, 51, 204));
         selectFeatureLabel.setText("Select a Prototype Feature");
 
-        execSummaryButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        execSummaryButton.setText("Executive Summary");
-        execSummaryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                execSummaryButtonActionPerformed(evt);
-            }
-        });
-
         kioskButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         kioskButton.setText("FlinSafe Kiosk");
         kioskButton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,18 +98,10 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         securitySummaryButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        securitySummaryButton.setText("Security Summary");
+        securitySummaryButton.setText("Security Application");
         securitySummaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securitySummaryButtonActionPerformed(evt);
-            }
-        });
-
-        reportActivityButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        reportActivityButton.setText("Report Activity");
-        reportActivityButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportActivityButtonActionPerformed(evt);
             }
         });
 
@@ -105,36 +127,30 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(kioskButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                             .addComponent(securitySummaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(execSummaryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reportActivityButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                             .addComponent(phoneAppButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(selectFeatureLabel)
                         .addGap(22, 22, 22))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(selectFeatureLabel)
-                .addGap(18, 18, 18)
-                .addComponent(kioskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(execSummaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(securitySummaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(reportActivityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(phoneAppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(securitySummaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(kioskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,30 +158,18 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void securitySummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securitySummaryButtonActionPerformed
         try {
-            new SecuritySummaryMain().setVisible(true);
+            new WelcomeScreen().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_securitySummaryButtonActionPerformed
 
-    private void reportActivityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActivityButtonActionPerformed
-        ReportActivityMain RAframe = new ReportActivityMain();
-        RAframe.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        //RAframe.setUndecorated(true);
-        RAframe.setVisible(true);
-        //new ReportActivityMain().setVisible(true);
-    }//GEN-LAST:event_reportActivityButtonActionPerformed
-
     private void kioskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kioskButtonActionPerformed
-        new KioskMain().setVisible(true);
+        new KioskFrame().setVisible(true);
     }//GEN-LAST:event_kioskButtonActionPerformed
 
-    private void execSummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_execSummaryButtonActionPerformed
-
-    }//GEN-LAST:event_execSummaryButtonActionPerformed
-
     private void phoneAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneAppButtonActionPerformed
-        new PhoneMain().setVisible(true);
+        new PhoneFrame().setVisible(true);
     }//GEN-LAST:event_phoneAppButtonActionPerformed
 
     /**
@@ -208,11 +212,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton execSummaryButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton kioskButton;
     private javax.swing.JButton phoneAppButton;
-    private javax.swing.JButton reportActivityButton;
     private javax.swing.JButton securitySummaryButton;
     private javax.swing.JLabel selectFeatureLabel;
     // End of variables declaration//GEN-END:variables

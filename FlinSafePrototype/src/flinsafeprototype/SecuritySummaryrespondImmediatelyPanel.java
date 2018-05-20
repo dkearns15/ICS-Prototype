@@ -6,6 +6,22 @@
 package flinsafeprototype;
 
 import java.util.Calendar;
+import javax.swing.JOptionPane;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,30 +31,30 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
 
     private String[] incidentInfo;
     SecuritySummaryNewIncidentResponse parent;
+    JPanel source;
     SecuritySummaryMain home;
-    
+
     /**
      * Creates new form respondImmediatelyPanel
      */
     public SecuritySummaryrespondImmediatelyPanel() {
         initComponents();
     }
-    
-    public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent) {
+
+    public SecuritySummaryrespondImmediatelyPanel(SecuritySummaryMain home, SecuritySummaryNewIncidentResponse parent, JPanel source) {
         this.parent = parent;
         this.incidentInfo = parent.getIncidentInfo();
         this.home = home;
+        this.source = source;
         HelperLocations locs = new HelperLocations();
         initComponents();
-        
-        
+        parent.setSize(new Dimension(1046,531));
         timeLabel.setText(incidentInfo[1]);
         numLabel.setText(incidentInfo[0]);
         typeLabel.setText(incidentInfo[2]);
         locationLabel.setText(incidentInfo[3]);
         commentsTextArea.setText(incidentInfo[4]);
-        
-        
+
         //Gets the location based on the word describing the locations
         //If it does not find the location, X and Y point will be zero
         //Currently supported locations (can add more in Locations.java)
@@ -70,16 +86,21 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         numLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        sendTextButton = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        phoneNumTextField = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 433));
+        jPanel1.setLayout(null);
 
         javax.swing.GroupLayout mapWithPointsPanel1Layout = new javax.swing.GroupLayout(mapWithPointsPanel1);
         mapWithPointsPanel1.setLayout(mapWithPointsPanel1Layout);
@@ -92,234 +113,348 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             .addGap(0, 382, Short.MAX_VALUE)
         );
 
+        jPanel1.add(mapWithPointsPanel1);
+        mapWithPointsPanel1.setBounds(570, 100, 382, 382);
+
         commentsTextArea.setEditable(false);
+        commentsTextArea.setBackground(new java.awt.Color(240, 240, 240));
         commentsTextArea.setColumns(20);
         commentsTextArea.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         commentsTextArea.setLineWrap(true);
         commentsTextArea.setRows(5);
+        commentsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(commentsTextArea);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(170, 240, 387, 80);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Report Comments");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(20, 240, 142, 22);
 
         locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         locationLabel.setText("jLabel9");
+        jPanel1.add(locationLabel);
+        locationLabel.setBounds(170, 210, 290, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Report Location");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(40, 210, 124, 22);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Report Time");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(60, 180, 97, 22);
 
         timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         timeLabel.setText("jLabel9");
+        jPanel1.add(timeLabel);
+        timeLabel.setBounds(170, 180, 280, 20);
 
         typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         typeLabel.setText("jLabel9");
+        jPanel1.add(typeLabel);
+        typeLabel.setBounds(170, 150, 210, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Report Type");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(60, 150, 97, 22);
 
         numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         numLabel.setText("jLabel9");
+        jPanel1.add(numLabel);
+        numLabel.setBounds(170, 120, 210, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Incident Number");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Incident Details:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(30, 120, 132, 22);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton1.setText("Print Summary to:");
+        jButton1.setText("Print");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(260, 350, 103, 40);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton2.setText("Text Summary to:");
+        sendTextButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        sendTextButton.setText("Send Text");
+        sendTextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendTextButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(sendTextButton);
+        sendTextButton.setBounds(260, 420, 103, 40);
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Security Office Printer", "Jerry's Printer"}));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(20, 350, 227, 40);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        phoneNumTextField.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jPanel1.add(phoneNumTextField);
+        phoneNumTextField.setBounds(60, 416, 183, 40);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton3.setText("Close");
+        jButton3.setText("Mark as In Progress and Close");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(160, 470, 290, 40);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton4.setText("Finished Responding");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Select a printer to print the incident summary to:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(20, 320, 280, 30);
+
+        jLabel9.setText("Enter a mobile phone number (4________) to text the incident summary to:");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(20, 390, 434, 30);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel10.setText("+61");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(20, 420, 30, 30);
+
+        backButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(backButton);
+        backButton.setBounds(20, 90, 100, 29);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setText("Respond");
+        jLabel23.setFont(new java.awt.Font("Lucida Bright", 1, 24)); // NOI18N
+        jLabel23.setText("FlinSafe: Response Choice");
+        jPanel1.add(jLabel23);
+        jLabel23.setBounds(640, 30, 380, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 311, Short.MAX_VALUE)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(numLabel)
-                                    .addComponent(typeLabel)
-                                    .addComponent(timeLabel)
-                                    .addComponent(locationLabel))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 183, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(295, 295, 295)
-                                .addComponent(jButton3)))))
-                .addGap(18, 18, 18)
-                .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(numLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(typeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(timeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(locationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))
-                        .addGap(28, 28, 28))
-                    .addComponent(mapWithPointsPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbanner.png"))); // NOI18N
+        jLabel21.setText("jLabel2");
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(-210, 0, 1240, 87);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1022, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(parent, "This is not functional in this prototype. Try the texting function");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         parent.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int min = calendar.get(Calendar.MINUTE);
-        String[] newIncidentInfo = {incidentInfo[0], Integer.toString(hour) + ":" + Integer.toString(min), incidentInfo[1], incidentInfo[2], "Gerry Mortimer", incidentInfo[4], incidentInfo[3]};
-        parent.setIncidentInfo(newIncidentInfo);
-        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
-        parent.revalidate();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void sendTextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendTextButtonActionPerformed
+        String phoneNumber = phoneNumTextField.getText();
+        if (phoneNumber.length() == 9 && phoneNumber.charAt(0) == '4' && isNumeric(phoneNumber) && false) {
+            String realPhoneNumber = "+61".concat(phoneNumber);
+            String ACCOUNT_SID = "notreal";
+            String AUTH_TOKEN = "notreal";
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
+            Message message = Message
+                    .creator(new PhoneNumber(realPhoneNumber), // to
+                            new PhoneNumber("+61417605225"), // from
+                            "Incident Number: " + incidentInfo[0] + "\n"
+                            + "Report Type: " + incidentInfo[2] + "\n"
+                            + "Report Time: " + incidentInfo[1] + "\n"
+                            + "Report Location: " + incidentInfo[3] + "\n"
+                            + "Report Comments: " + incidentInfo[4] + "\n")
+                    .create();
+            System.out.println(message);
+            System.out.println(message.getSid());
+        } else {
+            JOptionPane.showMessageDialog(parent, "The phone number must be in the format '4________' (4 followed by 8 numbers)");
+        }
+    }//GEN-LAST:event_sendTextButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+
+        boolean isNewIncident = false;
+        if (source instanceof SecuritySummaryIncidentResponsePanel) {
+            isNewIncident = true;
+        }
+        //CSV FILE HERE
+        //URL url = getClass().getResource("InProgress.csv");
+        //File file = new File(url.getPath());
+        if (isNewIncident) {
+            String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
+            BufferedWriter writer = null;
+            Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int min = calendar.get(Calendar.MINUTE);
+
+            //add to new incidents
+            try {
+                writer = new BufferedWriter(new FileWriter(file, true));
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                System.out.println(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + "0");
+                writer.append(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + "0");
+                writer.newLine();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                writer.flush();
+                writer.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+                home.readNewIncidents();
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (!isNewIncident) {
+            //add to incident queue
+            String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "IncidentQueue.csv";
+            BufferedWriter writer = null;
+            try {
+                writer = new BufferedWriter(new FileWriter(file, true));
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                System.out.println(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + incidentInfo[5] + "," + incidentInfo[6]);
+                writer.append(incidentInfo[0] + "," + incidentInfo[1] + "," + incidentInfo[2] + "," + incidentInfo[3] + "," + incidentInfo[4] + "," + incidentInfo[5] + "," + incidentInfo[6]);
+                writer.newLine();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                writer.flush();
+                writer.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+                home.readIncidentQueue();
+            } catch (IOException ex) {
+                Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        //remove from in progress queue
+        int id = Integer.parseInt(incidentInfo[0]);
+        //CSV FILE HERE
+        //url = getClass().getResource("NewIncidents.csv");
+        //file = new File(url.getPath());
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "InProgress.csv";
+        BufferedWriter writer = null;
+        //read in all lines
+        BufferedReader reader;
+        LinkedList<String> stringList = new LinkedList<String>();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            //reader.readLine();
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                stringList.add(currentLine);
+            }
+            reader.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //write all out except for the one we want to remove
+        try {
+
+            writer = new BufferedWriter(new FileWriter(file, false));
+            String currentLine;
+            currentLine = stringList.remove();
+            writer.write(currentLine);
+            writer.newLine();
+            while (stringList.size() > 0) {
+                currentLine = stringList.remove();
+                String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                if (Integer.parseInt(incident[0]) != id) {
+                    writer.write(currentLine);
+                    writer.newLine();
+                }
+            }
+            writer.close();
+            home.readInProgress();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Dimension size = parent.getSize();
+        parent.setContentPane(source);
+        
+        parent.setSize(size);
+        parent.revalidate();
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    public static boolean isNumeric(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel locationLabel;
     private flinsafeprototype.MapWithPointsPanel mapWithPointsPanel1;
     private javax.swing.JLabel numLabel;
+    private javax.swing.JTextField phoneNumTextField;
+    private javax.swing.JButton sendTextButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JLabel typeLabel;
     // End of variables declaration//GEN-END:variables
