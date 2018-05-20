@@ -429,7 +429,7 @@ Component frame = null;
         // TODO add your handling code here:
         
         try {
-            Desktop.getDesktop().browse(new URL("http://www.google.com").toURI());
+            Desktop.getDesktop().browse(new URL("http://lmgtfy.com/?q=how+the+heck+does+flinsafe+work%3F").toURI());
         } catch (Exception e) {}
         
     }//GEN-LAST:event_HelpButtonActionPerformed
@@ -437,10 +437,8 @@ Component frame = null;
     private void FlinSupportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FlinSupportActionPerformed
         // TODO add your handling code here:
         
-         try {
-            Desktop.getDesktop().browse(new URL("http://www.google.com").toURI());
-        } catch (Exception e) {}
-        
+         Component frame = null;
+        JOptionPane.showMessageDialog(frame, "For Support with the Flinsafe System, please refer to the following:\nUrgent Support: 234 (08 8000 0234 external)\nGeneral Support: 534 (08 8000 0534 external)\nOut of Hours Support: 04132345678\nEmail Enquiries: flinsafe@flinders.edu.au\n","Support Contact",JOptionPane.PLAIN_MESSAGE);  
     }//GEN-LAST:event_FlinSupportActionPerformed
 
     private void AllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllActionPerformed
@@ -471,7 +469,7 @@ Component frame = null;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 Component frame = null;
-        JOptionPane.showMessageDialog(frame, "The user lacks sufficient privilege to access this function, please contact an administrator.","Unauthorised Action",JOptionPane.ERROR_MESSAGE);    }//GEN-LAST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(frame, "This Function is not yet supported.");    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
