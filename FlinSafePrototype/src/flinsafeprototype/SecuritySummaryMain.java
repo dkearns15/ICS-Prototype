@@ -64,6 +64,9 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
+    public void setTabbedMenu(int i){
+        this.tabbedMenu.setSelectedIndex(i);
+    }
     public String getCurrentUser() {
         return currentUser;
     }
@@ -689,7 +692,7 @@ public class SecuritySummaryMain extends javax.swing.JFrame {
     private javax.swing.JTable recentlyResolvedTable;
     private javax.swing.JButton respondToIncidentButton;
     private javax.swing.JPanel tab1Queue;
-    private javax.swing.JTabbedPane tabbedMenu;
+    public static javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JButton viewIncidentDetailsButton;
     // End of variables declaration//GEN-END:variables
 }
