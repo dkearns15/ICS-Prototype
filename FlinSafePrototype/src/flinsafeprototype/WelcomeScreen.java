@@ -510,7 +510,7 @@ String priority = "";
         
         try {
             //File file = new File(url.getPath());
-            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
+            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "Priority.csv";
             String line;
             String[] incident = null;
             //DefaultTableModel tableModel = (DefaultTableModel) incidentQueueTable.getModel();
@@ -534,7 +534,7 @@ String priority = "";
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     //String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
-                    output = output + incident[2]+" at "+ incident[3]+" ( ago)\n";
+                    output = output + incident[2]+" at "+ incident[3]+" ("+incident[1]+")\n";
                     counter++;
                     //list.add(t);
                 }
@@ -585,7 +585,7 @@ String priority = "";
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     //String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
-                    output = output + incident[2]+" at "+ incident[3]+" ( ago)\n";
+                    output = output + incident[2]+" at "+ incident[3]+" ("+incident[1]+")\n";
                     counter++;
                     //list.add(t);
                 }
@@ -636,7 +636,7 @@ String priority = "";
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     //String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
-                    output = output + incident[5]+" at "+ incident[3]+ " by "+ incident[4]+" ( ago)\n";
+                    output = output + incident[3]+" at "+ incident[6]+ " by "+ incident[4]+" ("+incident[1]+")\n";
                     counter++;
                     //list.add(t);
                 }
@@ -684,7 +684,8 @@ String priority = "";
                     //The following regex splits a csv file by commas, but not if they are in quotes
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     //String[] t = new String[]{incident[0], incident[2], incident[3], incident[1], incident[4], incident[5], incident[6]};
-                    output = output + incident[2]+" by "+ incident[3]+" ( ago)\n";
+                    
+                    output = output + incident[2]+" by "+ incident[3]+" ("+incident[1]+")\n";
                     counter++;
                     //list.add(t);
                 }
