@@ -86,11 +86,12 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
         jLabel5.setBounds(326, 265, 230, 29);
 
         CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(614, 265, 325, 96);
+        jScrollPane1.setBounds(614, 265, 380, 120);
 
         Size.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Small", "Medium", "Large" }));

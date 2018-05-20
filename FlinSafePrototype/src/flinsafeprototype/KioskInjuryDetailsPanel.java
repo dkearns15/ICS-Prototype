@@ -94,11 +94,12 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         jLabel5.setBounds(326, 318, 230, 29);
 
         CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(600, 320, 325, 96);
+        jScrollPane1.setBounds(600, 320, 330, 116);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");

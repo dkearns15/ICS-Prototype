@@ -95,11 +95,12 @@ public class KioskAccessDetailsPanel1 extends javax.swing.JPanel {
         jLabel5.setBounds(326, 324, 230, 29);
 
         CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(614, 324, 325, 96);
+        jScrollPane1.setBounds(614, 324, 340, 116);
 
         Location.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));

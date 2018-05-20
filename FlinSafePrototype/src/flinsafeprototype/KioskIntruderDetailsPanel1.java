@@ -86,14 +86,15 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
         add(jLabel5);
-        jLabel5.setBounds(326, 340, 230, 29);
+        jLabel5.setBounds(310, 320, 230, 29);
 
         CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(614, 340, 325, 96);
+        jScrollPane1.setBounds(614, 316, 325, 120);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");

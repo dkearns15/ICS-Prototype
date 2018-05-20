@@ -96,12 +96,12 @@ public class KioskEscortDetailsPanel extends javax.swing.JPanel {
         jLabel5.setBounds(314, 337, 230, 29);
 
         CommentsText.setColumns(20);
-        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(668, 337, 325, 106);
+        jScrollPane1.setBounds(668, 337, 340, 116);
 
         Location.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));

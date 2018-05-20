@@ -98,11 +98,12 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
         jLabel5.setBounds(326, 319, 230, 29);
 
         CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(614, 319, 325, 96);
+        jScrollPane1.setBounds(610, 310, 350, 116);
 
         Type.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Bushfire", "Chemical", "Electrical", "Gas", "Unknown" }));

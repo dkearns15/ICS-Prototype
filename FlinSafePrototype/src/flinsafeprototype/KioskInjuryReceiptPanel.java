@@ -82,11 +82,12 @@ public class KioskInjuryReceiptPanel extends javax.swing.JPanel {
         jLabel5.setBounds(304, 279, 230, 29);
 
         CommentsText.setColumns(20);
+        CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(592, 279, 325, 96);
+        jScrollPane1.setBounds(592, 279, 380, 116);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("You have successfully submitted a security incident report with the following details:");
