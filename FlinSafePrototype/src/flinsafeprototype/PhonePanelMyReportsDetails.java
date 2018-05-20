@@ -19,7 +19,6 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author Bryn
@@ -28,65 +27,65 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
 
     JFrame parent;
     private String[] incidentInfo;
-    
+
     /**
      * Creates new form PhonePanelMyReportsDetails
      */
     public PhonePanelMyReportsDetails() {
         initComponents();
     }
-    
+
     public PhonePanelMyReportsDetails(JFrame parent, int rowNum, String id) throws IOException {
         initComponents();
         this.parent = parent;
-                
+
         try {
             //File file = new File(url.getPath());
-            String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
-        
-        String line;
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            for (int i = 0; i <= rowNum; i++) {
-                br.readLine();
-                
+            String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+
+            String line;
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                while(true) {
+                    line = br.readLine();
+                    this.incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                    if(incidentInfo[0].equals(id)){
+                        break;
+                    }
+
+                }
+
+                //setIncidentInfo(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1));
+                //System.out.println(incidentInfo);
             }
-            line = br.readLine();
-            this.incidentInfo = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-            
-            //setIncidentInfo(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1));
-            //System.out.println(incidentInfo);
-        }
         } catch (NullPointerException e) {
             //Create a popup saying, we can't find the file
         }
-        
-                IncidentNumberText.setText(incidentInfo[0]);
-                String test = IncidentNumberText.getText();
+
+        IncidentNumberText.setText(incidentInfo[0]);
+        String test = IncidentNumberText.getText();
         AreaText.setText(incidentInfo[3]);
         if (incidentInfo[2].equals("Accessibility Transport Request")) {
             RoomText.setText(incidentInfo[5]);
             reportTitle.setText("Accessibility Transport");
-        }
-        else {            
+        } else {
             RoomText.setText(incidentInfo[4]);
             CommentText.setText(incidentInfo[10]);
             reportTitle.setText(incidentInfo[2]);
         }
         reportTimeText.setText(incidentInfo[1]);
-        
-        
-        switch(incidentInfo[2]){
-            case "Escort Request" :                       
+
+        switch (incidentInfo[2]) {
+            case "Escort Request":
                 reportTimeLabel.setText("Report Time:");
                 ExtraLabel1.setText("Area:");
                 ExtraText1.setText(incidentInfo[5]);
-                ExtraLabel2.setText("Room:");            
+                ExtraLabel2.setText("Room:");
                 ExtraText2.setText(incidentInfo[6]);
-                ExtraLabel3.setText("Time for Escort:");            
+                ExtraLabel3.setText("Time for Escort:");
                 ExtraText3.setText(incidentInfo[7]);
                 break;
 
-            case "Fire Report" :
+            case "Fire Report":
                 DestinationLabel.setVisible(false);
                 ExtraLabel3.setVisible(false);
                 ExtraText3.setVisible(false);
@@ -99,7 +98,7 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 ExtraText2.setText(incidentInfo[8]);
                 break;
 
-            case "Intruder Report" :
+            case "Intruder Report":
                 DestinationLabel.setVisible(false);
                 ExtraLabel3.setVisible(false);
                 ExtraText3.setVisible(false);
@@ -111,7 +110,7 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 ExtraText1.setText(incidentInfo[9]);
                 ExtraText2.setText(incidentInfo[8]);
                 break;
-            
+
             case "Injury Report":
                 DestinationLabel.setVisible(false);
                 ExtraLabel3.setVisible(false);
@@ -124,8 +123,8 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
 
                 reportTimeLabel.setText("Report Time:");
                 break;
-            
-            case "Snake Sighting" :
+
+            case "Snake Sighting":
                 DestinationLabel.setVisible(false);
                 ExtraLabel3.setVisible(false);
                 ExtraText3.setVisible(false);
@@ -137,8 +136,8 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 ExtraText1.setText(incidentInfo[9]);
                 ExtraText2.setText(incidentInfo[8]);
                 break;
-            
-            case "Room Access Request" :
+
+            case "Room Access Request":
                 DestinationLabel.setVisible(false);
                 ExtraLabel3.setVisible(false);
                 ExtraText3.setVisible(false);
@@ -150,13 +149,13 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 ExtraLabel1.setText("Time for Access:");
                 ExtraText1.setText(incidentInfo[7]);
                 break;
-            
-            case "Accessibility Transport Request" :
+
+            case "Accessibility Transport Request":
                 ExtraLabel3.setVisible(false);
                 ExtraText3.setVisible(false);
                 CurrentLocationLabel.setVisible(false);
                 DestinationLabel.setVisible(false);
-                
+
                 AreaLabel.setText("Pick Up:");
                 RoomLabel.setText("Drop Off:");
                 reportTimeLabel.setText("Request Time:");
@@ -164,9 +163,9 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 ExtraText1.setText("Wednesday 23rd May");
                 ExtraLabel2.setText("Pick Up Time:");
                 ExtraText2.setText(incidentInfo[7]);
-            break;
+                break;
 
-            case "Other Report" :
+            case "Other Report":
                 DestinationLabel.setVisible(false);
                 ExtraLabel3.setVisible(false);
                 ExtraText3.setVisible(false);
@@ -177,9 +176,8 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 CurrentLocationLabel.setVisible(false);
 
                 reportTimeLabel.setText("Report Time:");
-        } 
-        
-          
+        }
+
     }
 
     /**
@@ -298,11 +296,11 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         try {
-                parent.setContentPane(new PhonePanelMyReports(parent));
-                parent.revalidate();
-            } catch (IOException ex) {
-                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            parent.setContentPane(new PhonePanelMyReports(parent));
+            parent.revalidate();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -313,7 +311,7 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
         //CSV FILE HERE
         //url = getClass().getResource("InProgress.csv");
         //file = new File(url.getPath());
-        String file = new File(".").getAbsolutePath().substring(0,new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
 
         //read in all lines
         BufferedReader reader;
@@ -322,7 +320,7 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
             reader = new BufferedReader(new FileReader(file));
             //reader.readLine();
             String currentLine;
-            while((currentLine = reader.readLine()) != null){
+            while ((currentLine = reader.readLine()) != null) {
                 stringList.add(currentLine);
             }
             reader.close();
@@ -333,7 +331,6 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
         }
 
         //write all out except for the one we want to remove
-
         try {
 
             writer = new BufferedWriter(new FileWriter(file, false));
@@ -341,10 +338,10 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
             currentLine = stringList.remove();
             writer.write(currentLine);
             writer.newLine();
-            while(stringList.size() > 0){
+            while (stringList.size() > 0) {
                 currentLine = stringList.remove();
                 String[] incident = currentLine.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-                if(Integer.parseInt(incident[0]) != id){
+                if (Integer.parseInt(incident[0]) != id) {
                     writer.write(currentLine);
                     writer.newLine();
                 }
@@ -356,11 +353,11 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryIncidentResponsePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-                parent.setContentPane(new PhonePanelMyReports(parent));
-                parent.revalidate();
-            } catch (IOException ex) {
-                Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            parent.setContentPane(new PhonePanelMyReports(parent));
+            parent.revalidate();
+        } catch (IOException ex) {
+            Logger.getLogger(SecuritySummaryMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_CancelActionPerformed
 
 
