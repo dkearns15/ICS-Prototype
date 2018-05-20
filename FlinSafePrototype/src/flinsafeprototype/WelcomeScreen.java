@@ -77,7 +77,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Flinsafe");
+        setTitle("FlinSafe: Security Home");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(760, 560));
         setResizable(false);
