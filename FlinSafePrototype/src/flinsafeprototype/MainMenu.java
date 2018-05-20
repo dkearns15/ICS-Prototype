@@ -98,7 +98,7 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         securitySummaryButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        securitySummaryButton.setText("Security Summary");
+        securitySummaryButton.setText("Security Application");
         securitySummaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 securitySummaryButtonActionPerformed(evt);
@@ -158,7 +158,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void securitySummaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_securitySummaryButtonActionPerformed
         try {
-            new SecuritySummaryMain().setVisible(true);
+            new WelcomeScreen().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
         }

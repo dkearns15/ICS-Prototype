@@ -91,7 +91,6 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         phoneNumTextField = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -182,7 +181,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(250, 350, 103, 40);
+        jButton1.setBounds(260, 350, 103, 40);
 
         sendTextButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         sendTextButton.setText("Send Text");
@@ -192,7 +191,7 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(sendTextButton);
-        sendTextButton.setBounds(260, 419, 103, 40);
+        sendTextButton.setBounds(260, 420, 103, 40);
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Security Office Printer", "Jerry's Printer"}));
@@ -204,24 +203,14 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
         phoneNumTextField.setBounds(60, 416, 183, 40);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton3.setText("Mark as In Progress");
+        jButton3.setText("Mark as In Progress and Close");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(70, 470, 173, 40);
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton4.setText("Mark as Completed");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton4);
-        jButton4.setBounds(260, 470, 183, 40);
+        jButton3.setBounds(160, 470, 290, 40);
 
         jLabel5.setText("Select a printer to print the incident summary to:");
         jPanel1.add(jLabel5);
@@ -277,18 +266,6 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         parent.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int min = calendar.get(Calendar.MINUTE);
-        String[] newIncidentInfo = {incidentInfo[0], Integer.toString(hour) + ":" + Integer.toString(min), incidentInfo[1], incidentInfo[2], "Gerry Mortimer", incidentInfo[4], incidentInfo[3]};
-        parent.setIncidentInfo(newIncidentInfo);
-        Dimension size = parent.getSize();
-        parent.setContentPane(new SecuritySummaryInProgressReportResultPanel(home, parent));
-        parent.setSize(size);
-        parent.revalidate();
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void sendTextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendTextButtonActionPerformed
         String phoneNumber = phoneNumTextField.getText();
@@ -460,7 +437,6 @@ public class SecuritySummaryrespondImmediatelyPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel21;
