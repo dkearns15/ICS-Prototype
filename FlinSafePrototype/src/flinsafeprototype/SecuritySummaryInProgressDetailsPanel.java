@@ -24,8 +24,6 @@ public class SecuritySummaryInProgressDetailsPanel extends javax.swing.JPanel {
     }
     
     public SecuritySummaryInProgressDetailsPanel(int incidentNum, SecuritySummaryMain home, SecuritySummaryInProgressResponse parent) throws IOException {
-        setOpaque(false);
-        this.repaint();
         initComponents();
         this.parent = parent;
         this.home = home;
