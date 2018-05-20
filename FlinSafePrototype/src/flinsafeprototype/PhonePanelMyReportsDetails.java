@@ -220,17 +220,17 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 78, -1, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         reportTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         reportTitle.setText("Report Details");
         add(reportTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 75, -1, -1));
 
         ExtraText3.setText("jLabel6");
-        add(ExtraText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 323, 137, -1));
+        add(ExtraText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 137, -1));
 
         CommentLabel.setText("Additional Comments:");
-        add(CommentLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 374, -1, -1));
+        add(CommentLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
         Cancel.setText("Cancel Report");
         Cancel.addActionListener(new java.awt.event.ActionListener() {
@@ -244,41 +244,41 @@ public class PhonePanelMyReportsDetails extends javax.swing.JPanel {
         add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 177, -1));
 
         AreaLabel.setText("Area:");
-        add(AreaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 184, -1, -1));
+        add(AreaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         CurrentLocationLabel.setText("Your Current Location:");
-        add(CurrentLocationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 164, -1, -1));
+        add(CurrentLocationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         RoomText.setText("jLabel6");
         add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 177, -1));
 
         DestinationLabel.setText("Your Destination:");
-        add(DestinationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 241, -1, -1));
+        add(DestinationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         ExtraLabel1.setText("Area:");
-        add(ExtraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 266, -1, -1));
+        add(ExtraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 398, 256, 113));
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 256, 113));
 
         ExtraLabel2.setText("Room:");
-        add(ExtraLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 298, -1, -1));
+        add(ExtraLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         ExtraText1.setText("jLabel5");
-        add(ExtraText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 176, -1));
+        add(ExtraText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 170, -1));
 
         ExtraLabel3.setText("Time for Escort:");
-        add(ExtraLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 323, -1, -1));
+        add(ExtraLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         ExtraText2.setText("jLabel6");
-        add(ExtraText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 176, -1));
+        add(ExtraText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 170, -1));
 
         RoomLabel.setText("Room:");
         add(RoomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         jLabel2.setText("Incident Number:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 112, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         IncidentNumberText.setText("jLabel3");
         add(IncidentNumberText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));

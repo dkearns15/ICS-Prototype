@@ -84,7 +84,7 @@ public class PhonePanelFire extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 297, -1, -1));
 
         Comments.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 255, 172));
+        add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 255, 172));
 
         AreaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humanities", "Social Sciences North", "Tonsley", "Information Science & Technology" }));
         AreaComboBox.addActionListener(new java.awt.event.ActionListener() {

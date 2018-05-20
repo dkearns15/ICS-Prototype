@@ -72,16 +72,16 @@ public class PhonePanelInjury extends javax.swing.JPanel {
         add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         jLabel2.setText("Area:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 227, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         jLabel3.setText("Room:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 258, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jLabel4.setText("Additional Comments:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 286, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         Comments.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 310, 247, 172));
+        add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 247, 172));
 
         AreaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humanities", "Social Sciences North", "Tonsley", "Information Science & Technology" }));
         AreaComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -89,10 +89,10 @@ public class PhonePanelInjury extends javax.swing.JPanel {
                 AreaComboBoxActionPerformed(evt);
             }
         });
-        add(AreaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 224, -1, -1));
+        add(AreaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         RoomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.01", "1.30", "2.62", "North Theatre 1" }));
-        add(RoomComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 255, 188, -1));
+        add(RoomComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 188, -1));
 
         Submit.setText("Submit");
         Submit.addActionListener(new java.awt.event.ActionListener() {

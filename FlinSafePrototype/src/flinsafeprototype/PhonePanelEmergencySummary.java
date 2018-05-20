@@ -131,7 +131,7 @@ public class PhonePanelEmergencySummary extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 351, -1, -1));
 
         commentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(commentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 255, 130));
+        add(commentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 255, 130));
 
         jLabel11.setText("Type of Emergency:");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));

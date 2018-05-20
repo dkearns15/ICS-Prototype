@@ -59,7 +59,7 @@ public class PhonePanelOther extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Other Report");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 108, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
         Back1.setText("Back");
         Back1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,19 +67,19 @@ public class PhonePanelOther extends javax.swing.JPanel {
                 Back1ActionPerformed(evt);
             }
         });
-        add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 75, -1, -1));
+        add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel2.setText("Room:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel3.setText("Area:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         jLabel4.setText("Description of Report Item and Comments");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         Comments.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 243, 263));
+        add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 243, 263));
 
         AreaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humanities", "Social Sciences North", "Tonsley", "Information Science & Technology" }));
         AreaComboBox.addActionListener(new java.awt.event.ActionListener() {

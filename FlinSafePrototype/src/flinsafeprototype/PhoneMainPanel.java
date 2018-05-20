@@ -52,7 +52,7 @@ public class PhoneMainPanel extends javax.swing.JPanel {
                 LogInActionPerformed(evt);
             }
         });
-        add(LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 190, 60));
+        add(LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 190, 60));
 
         PhoneReportEmergency.setText("Report Emergency");
         PhoneReportEmergency.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +60,7 @@ public class PhoneMainPanel extends javax.swing.JPanel {
                 PhoneReportEmergencyActionPerformed(evt);
             }
         });
-        add(PhoneReportEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 190, 60));
+        add(PhoneReportEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 190, 60));
 
         PhoneCalling.setText("Call Security Now");
         PhoneCalling.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +68,7 @@ public class PhoneMainPanel extends javax.swing.JPanel {
                 PhoneCallingActionPerformed(evt);
             }
         });
-        add(PhoneCalling, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 190, 60));
+        add(PhoneCalling, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 190, 60));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N

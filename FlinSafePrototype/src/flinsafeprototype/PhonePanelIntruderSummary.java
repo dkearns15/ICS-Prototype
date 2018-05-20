@@ -69,7 +69,7 @@ public class PhonePanelIntruderSummary extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Intruder Summary");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         Back1.setText("Back");
         Back1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,16 +77,16 @@ public class PhonePanelIntruderSummary extends javax.swing.JPanel {
                 Back1ActionPerformed(evt);
             }
         });
-        add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 75, -1, -1));
+        add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel2.setText("Area:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         jLabel3.setText("Room:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel4.setText("Additional Comments:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         Confirm.setText("Confirm");
         Confirm.addActionListener(new java.awt.event.ActionListener() {
@@ -97,26 +97,26 @@ public class PhonePanelIntruderSummary extends javax.swing.JPanel {
         add(Confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 506, -1, -1));
 
         AreaText.setText("jLabel5");
-        add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 196, -1));
+        add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 196, -1));
 
         RoomText.setText("jLabel6");
-        add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 197, -1));
+        add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 197, -1));
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 256, 198));
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 256, 198));
 
         jLabel5.setText("Armed:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         ArmedText.setText("jLabel6");
-        add(ArmedText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 137, -1));
+        add(ArmedText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 137, -1));
 
         jLabel6.setText("Number:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         NumberText.setText("jLabel6");
-        add(NumberText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 137, -1));
+        add(NumberText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 137, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N

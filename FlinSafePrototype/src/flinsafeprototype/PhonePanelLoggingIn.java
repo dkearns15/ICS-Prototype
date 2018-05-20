@@ -84,7 +84,7 @@ public class PhonePanelLoggingIn extends javax.swing.JPanel {
                 Back1ActionPerformed(evt);
             }
         });
-        add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 82, -1, -1));
+        add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel4.setText("Username");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 165, -1, -1));
@@ -94,8 +94,10 @@ public class PhonePanelLoggingIn extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 215, -1, -1));
 
         jLabel6.setText("Remember Me");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 266, -1, -1));
-        add(RememberMe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 266, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+
+        RememberMe1.setBackground(new java.awt.Color(255, 211, 0));
+        add(RememberMe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
 
         loginButton.setText("Log In");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +105,7 @@ public class PhonePanelLoggingIn extends javax.swing.JPanel {
                 loginButtonActionPerformed(evt);
             }
         });
-        add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 298, 185, 56));
+        add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 185, 56));
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

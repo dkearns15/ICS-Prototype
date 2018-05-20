@@ -81,13 +81,13 @@ public class PhonePanelFireSummary extends javax.swing.JPanel {
         add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel2.setText("Area:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         jLabel3.setText("Room:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel4.setText("Additional Comments:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         Confirm.setText("Confirm");
         Confirm.addActionListener(new java.awt.event.ActionListener() {
@@ -98,26 +98,26 @@ public class PhonePanelFireSummary extends javax.swing.JPanel {
         add(Confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, -1));
 
         AreaText.setText("jLabel5");
-        add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 196, -1));
+        add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 196, -1));
 
         RoomText.setText("jLabel6");
-        add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 197, -1));
+        add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 197, -1));
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 256, 198));
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 256, 198));
 
         jLabel5.setText("Type:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         TypeText.setText("jLabel6");
-        add(TypeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 137, -1));
+        add(TypeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 137, -1));
 
         jLabel6.setText("Size:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         SizeText.setText("jLabel6");
-        add(SizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 137, -1));
+        add(SizeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 137, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N

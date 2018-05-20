@@ -62,10 +62,10 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Description of Report Item and Comments");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         jLabel3.setText("Room:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         RoomText.setText("jLabel6");
         add(RoomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 197, -1));
@@ -79,7 +79,7 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
         add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel2.setText("Area:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         AreaText.setText("jLabel5");
         add(AreaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 196, -1));
@@ -94,11 +94,11 @@ public class PhonePanelOtherSummary extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Other Report Summary");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 256, 261));
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 256, 261));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N

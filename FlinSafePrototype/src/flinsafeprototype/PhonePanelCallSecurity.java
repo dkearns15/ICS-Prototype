@@ -59,13 +59,20 @@ public class PhonePanelCallSecurity extends javax.swing.JPanel {
         jLabel3.setText("Call Volume");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
-        hangUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/endcallbutton.png"))); // NOI18N
+        hangUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/endcallbuttonPhone.png"))); // NOI18N
+        hangUpButton.setAlignmentY(0.0F);
+        hangUpButton.setBorder(null);
+        hangUpButton.setBorderPainted(false);
+        hangUpButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        hangUpButton.setIconTextGap(0);
+        hangUpButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        hangUpButton.setPreferredSize(new java.awt.Dimension(118, 118));
         hangUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hangUpButtonActionPerformed(evt);
             }
         });
-        add(hangUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 119, 117));
+        add(hangUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 110, 110));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N

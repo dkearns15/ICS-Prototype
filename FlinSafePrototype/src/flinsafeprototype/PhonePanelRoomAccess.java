@@ -63,7 +63,7 @@ public class PhonePanelRoomAccess extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Room Access Request");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
 
         Back1.setText("Back");
         Back1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,19 +71,19 @@ public class PhonePanelRoomAccess extends javax.swing.JPanel {
                 Back1ActionPerformed(evt);
             }
         });
-        jPanel1.add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jPanel1.add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel2.setText("Area:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         jLabel3.setText("Room:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         jLabel4.setText("Reason for Access and Additional Comments:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
         Comments.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        jPanel1.add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 254, 199));
+        jPanel1.add(Comments, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 254, 199));
 
         AreaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humanities", "Social Sciences North", "Tonsley", "Information Science & Technology" }));
         AreaComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class PhonePanelRoomAccess extends javax.swing.JPanel {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, -1, -1));
 
         jLabel5.setText("Access Time:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         Time.setText("ASAP");
         Time.addActionListener(new java.awt.event.ActionListener() {

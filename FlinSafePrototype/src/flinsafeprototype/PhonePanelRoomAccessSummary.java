@@ -67,7 +67,7 @@ public class PhonePanelRoomAccessSummary extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Room Access Request Summary");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
         Back1.setText("Back");
         Back1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,13 +78,13 @@ public class PhonePanelRoomAccessSummary extends javax.swing.JPanel {
         add(Back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         jLabel2.setText("Area:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         jLabel3.setText("Room:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel4.setText("Reason for Access and Additional Comments:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         jButton1.setText("Confirm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,10 +102,10 @@ public class PhonePanelRoomAccessSummary extends javax.swing.JPanel {
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 256, 227));
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 256, 227));
 
         jLabel5.setText("Access Time:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         TimeText.setText("jLabel6");
         add(TimeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 137, -1));

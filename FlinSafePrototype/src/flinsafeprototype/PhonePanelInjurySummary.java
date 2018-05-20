@@ -98,7 +98,7 @@ public class PhonePanelInjurySummary extends javax.swing.JPanel {
 
         CommentText.setEditable(false);
         CommentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 256, 220));
+        add(CommentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 256, 220));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N

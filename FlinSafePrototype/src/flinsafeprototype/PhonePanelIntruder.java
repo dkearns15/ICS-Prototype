@@ -113,7 +113,7 @@ public class PhonePanelIntruder extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLabel6.setText("Number:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         ArmedComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Knife", "Gun", "Other", "Unknown" }));
         ArmedComboBox.addActionListener(new java.awt.event.ActionListener() {

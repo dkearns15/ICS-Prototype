@@ -98,11 +98,11 @@ public class PhonePanelMyReports extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 82, -1, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("My Reports");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 116, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
         MyReportsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,7 +122,7 @@ public class PhonePanelMyReports extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(MyReportsTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 149, 257, 310));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 257, 310));
 
         ReportDetailsButton.setText("View Report Details");
         ReportDetailsButton.addActionListener(new java.awt.event.ActionListener() {

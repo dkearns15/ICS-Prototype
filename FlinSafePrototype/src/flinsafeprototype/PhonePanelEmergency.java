@@ -103,10 +103,10 @@ public class PhonePanelEmergency extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 75, -1, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         roomComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.01", "1.30", "2.62", "North Theatre 1" }));
-        add(roomComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 227, 188, -1));
+        add(roomComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 188, -1));
 
         Submit.setText("Submit");
         Submit.addActionListener(new java.awt.event.ActionListener() {
@@ -117,10 +117,10 @@ public class PhonePanelEmergency extends javax.swing.JPanel {
         add(Submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 513, -1, -1));
 
         extraLabel1.setText("Type:");
-        add(extraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 268, -1, -1));
+        add(extraLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         extraLabel2.setText("Size:");
-        add(extraLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 306, -1, -1));
+        add(extraLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Emergency Reporting");
@@ -132,22 +132,22 @@ public class PhonePanelEmergency extends javax.swing.JPanel {
                 extraComboBox1ActionPerformed(evt);
             }
         });
-        add(extraComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 265, -1, -1));
+        add(extraComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         extraComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Small", "Medium", "Large" }));
-        add(extraComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 303, -1, -1));
+        add(extraComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
 
         jLabel2.setText("Area:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 199, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         jLabel3.setText("Room:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 230, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         jLabel4.setText("Additional Comments:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 341, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
         commentText.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        add(commentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 365, 255, 130));
+        add(commentText, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 255, 130));
 
         areaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humanities", "Social Sciences North", "Tonsley", "Information Science & Technology" }));
         areaComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +155,10 @@ public class PhonePanelEmergency extends javax.swing.JPanel {
                 areaComboBoxActionPerformed(evt);
             }
         });
-        add(areaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 196, -1, -1));
+        add(areaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
 
         jLabel11.setText("Type of Emergency:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 161, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         emergencyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fire Report", "Intruder Report", "Injury Report", "Other Report" }));
         emergencyComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -166,10 +166,10 @@ public class PhonePanelEmergency extends javax.swing.JPanel {
                 emergencyComboBoxActionPerformed(evt);
             }
         });
-        add(emergencyComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 158, -1, -1));
+        add(emergencyComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
         jLabel12.setText("If safe please call 000 or security");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 128, -1, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         callSecurity.setText("Call Security");
         callSecurity.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +177,7 @@ public class PhonePanelEmergency extends javax.swing.JPanel {
                 callSecurityActionPerformed(evt);
             }
         });
-        add(callSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 124, -1, -1));
+        add(callSecurity, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/PhoneWhiteBackground.png"))); // NOI18N
