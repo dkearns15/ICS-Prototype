@@ -43,8 +43,8 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
         injuryButton = new javax.swing.JButton();
         snakeButton = new javax.swing.JButton();
         intruderButton = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         otherButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -70,7 +70,7 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(fireButton);
-        fireButton.setBounds(56, 132, 200, 150);
+        fireButton.setBounds(190, 120, 200, 150);
 
         accessButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/request Access.png"))); // NOI18N
         accessButton.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +79,7 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(accessButton);
-        accessButton.setBounds(424, 446, 200, 150);
+        accessButton.setBounds(560, 440, 200, 150);
 
         escortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/escort.png"))); // NOI18N
         escortButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,7 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(escortButton);
-        escortButton.setBounds(157, 446, 200, 150);
+        escortButton.setBounds(290, 440, 200, 150);
 
         injuryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/injury.png"))); // NOI18N
         injuryButton.setMaximumSize(new java.awt.Dimension(83, 37));
@@ -98,7 +98,7 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(injuryButton);
-        injuryButton.setBounds(850, 132, 200, 150);
+        injuryButton.setBounds(980, 120, 200, 150);
 
         snakeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/Eastern-Brown-Snake.png"))); // NOI18N
         snakeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(snakeButton);
-        snakeButton.setBounds(327, 129, 200, 159);
+        snakeButton.setBounds(460, 120, 200, 160);
 
         intruderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/Intruder.png"))); // NOI18N
         intruderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,11 +116,7 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(intruderButton);
-        intruderButton.setBounds(590, 132, 200, 150);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
-        add(jLabel6);
-        jLabel6.setBounds(0, 0, 1370, 760);
+        intruderButton.setBounds(720, 120, 200, 150);
 
         otherButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         otherButton.setText("Other");
@@ -130,7 +126,11 @@ public class KioskReportSelectionPanel extends javax.swing.JPanel {
             }
         });
         add(otherButton);
-        otherButton.setBounds(685, 446, 200, 150);
+        otherButton.setBounds(820, 440, 200, 150);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
+        add(jLabel6);
+        jLabel6.setBounds(0, 0, 1370, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

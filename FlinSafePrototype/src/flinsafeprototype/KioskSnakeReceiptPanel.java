@@ -51,14 +51,11 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-
-        LocationText = new javax.swing.JTextField();
-        SizeText = new javax.swing.JTextField();
+        SizeText = new javax.swing.JLabel();
+        LocationText = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setLayout(null);
-
-
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
@@ -75,6 +72,7 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(321, 235, 230, 29);
 
+        CommentsText.setEditable(false);
         CommentsText.setColumns(20);
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
@@ -102,27 +100,30 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
         add(jLabel7);
         jLabel7.setBounds(430, 457, 640, 29);
 
-
+        Randnumber.setEditable(false);
+        Randnumber.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Randnumber.setText("jTextField1");
         add(Randnumber);
-        Randnumber.setBounds(640, 357, 69, 22);
+        Randnumber.setBounds(610, 390, 105, 31);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
         add(jLabel1);
-        jLabel1.setBounds(321, 349, 301, 29);
+        jLabel1.setBounds(250, 390, 301, 29);
 
-        LocationText.setText("jTextField1");
-        add(LocationText);
-        LocationText.setBounds(609, 152, 69, 22);
-
-        SizeText.setText("jTextField2");
+        SizeText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        SizeText.setText("jLabel4");
         add(SizeText);
-        SizeText.setBounds(609, 195, 69, 22);
+        SizeText.setBounds(610, 190, 270, 25);
+
+        LocationText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        LocationText.setText("jLabel4");
+        add(LocationText);
+        LocationText.setBounds(610, 150, 350, 25);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel8);
-        jLabel8.setBounds(0, 0, 1370, 760);
+        jLabel8.setBounds(0, 0, 1390, 770);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -133,9 +134,9 @@ public class KioskSnakeReceiptPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CommentsText;
-    private javax.swing.JTextField LocationText;
+    private javax.swing.JLabel LocationText;
     private javax.swing.JTextField Randnumber;
-    private javax.swing.JTextField SizeText;
+    private javax.swing.JLabel SizeText;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

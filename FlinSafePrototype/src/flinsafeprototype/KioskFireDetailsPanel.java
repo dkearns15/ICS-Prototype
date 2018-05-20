@@ -104,17 +104,20 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(614, 319, 325, 96);
 
+        Type.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Bushfire", "Chemical", "Electrical", "Gas", "Unknown" }));
         add(Type);
-        Type.setBounds(614, 268, 115, 22);
+        Type.setBounds(610, 270, 300, 31);
 
+        Size.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Small", "Medium", "Large" }));
         add(Size);
-        Size.setBounds(614, 225, 115, 22);
+        Size.setBounds(610, 220, 300, 31);
 
+        Location.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         add(Location);
-        Location.setBounds(614, 182, 115, 22);
+        Location.setBounds(610, 170, 300, 31);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -124,7 +127,7 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(1057, 253, 208, 88);
+        jButton3.setBounds(510, 460, 208, 88);
 
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 36)); // NOI18N
         jLabel1.setText("Fire");
@@ -133,7 +136,7 @@ public class KioskFireDetailsPanel extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
-        jLabel6.setBounds(0, 0, 1400, 770);
+        jLabel6.setBounds(0, 0, 1400, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

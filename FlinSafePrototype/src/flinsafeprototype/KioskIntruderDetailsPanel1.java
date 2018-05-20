@@ -50,13 +50,13 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         Location = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        Number = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CommentsText = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("Back");
@@ -65,26 +65,35 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2);
+        jButton2.setBounds(12, 13, 100, 50);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setText("Intruder");
+        add(jLabel1);
+        jLabel1.setBounds(591, 24, 138, 87);
 
+        Location.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
+        add(Location);
+        Location.setBounds(614, 170, 226, 31);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Number:");
-
-        Number.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "1", "2", "3", "4 or more" }));
+        add(jLabel2);
+        jLabel2.setBounds(326, 169, 96, 29);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
+        add(jLabel5);
+        jLabel5.setBounds(326, 340, 230, 29);
 
         CommentsText.setColumns(20);
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(614, 340, 325, 96);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -93,74 +102,12 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
+        add(jButton3);
+        jButton3.setBounds(580, 470, 208, 88);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(479, 479, 479)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(192, 192, 192)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Number, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(537, 537, 537))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(58, 58, 58)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(93, 93, 93))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(Number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(326, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(jLabel6);
+        jLabel6.setBounds(0, 0, 1390, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -187,8 +134,8 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            System.out.println(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + (String) Number.getSelectedItem() + ", " + CommentsText.getText()+ ", ");
-            writer.append(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + (String) Number.getSelectedItem() + ", " + CommentsText.getText()+ ", ");
+            System.out.println(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
+            writer.append(n + ", " + new Date() + ", " + "Fire reported" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
             writer.newLine();
 
         } catch (IOException ex) {
@@ -203,10 +150,9 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
         }
 
         String location = (String)Location.getSelectedItem();
-        String number = (String)Number.getSelectedItem();
         String comments = CommentsText.getText();
         String incidentnumber = Integer.toString(n);
-        parent.setContentPane(new KioskIntruderReceiptPanel(parent, location, number, comments, incidentnumber));
+        parent.setContentPane(new KioskIntruderReceiptPanel(parent, location, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -214,12 +160,10 @@ public class KioskIntruderDetailsPanel1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CommentsText;
     private javax.swing.JComboBox<String> Location;
-    private javax.swing.JComboBox<String> Number;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;

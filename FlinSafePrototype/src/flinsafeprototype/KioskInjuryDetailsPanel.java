@@ -98,7 +98,7 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(CommentsText);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(614, 318, 325, 96);
+        jScrollPane1.setBounds(600, 320, 325, 96);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -108,28 +108,34 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(1057, 252, 208, 88);
+        jButton3.setBounds(540, 500, 208, 88);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setText("Injury");
         add(jLabel1);
         jLabel1.setBounds(591, 24, 95, 87);
 
-        RoomText.setText("jTextField1");
+        RoomText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        RoomText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomTextActionPerformed(evt);
+            }
+        });
         add(RoomText);
-        RoomText.setBounds(614, 224, 69, 22);
+        RoomText.setBounds(600, 220, 290, 30);
 
-        TypeText.setText("jTextField2");
+        TypeText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         add(TypeText);
-        TypeText.setBounds(614, 267, 69, 22);
+        TypeText.setBounds(600, 260, 290, 31);
 
+        Location.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         add(Location);
-        Location.setBounds(610, 180, 120, 22);
+        Location.setBounds(600, 180, 190, 31);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
-        jLabel6.setBounds(0, 0, 1370, 760);
+        jLabel6.setBounds(0, 0, 1360, 790);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -179,6 +185,10 @@ public class KioskInjuryDetailsPanel extends javax.swing.JPanel {
         parent.setContentPane(new KioskInjuryReceiptPanel(parent, location, room, type,comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void RoomTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

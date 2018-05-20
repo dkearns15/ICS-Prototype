@@ -54,6 +54,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         CommentsText = new javax.swing.JTextArea();
         Location = new javax.swing.JComboBox<>();
         submitReportButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -71,25 +72,25 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
         add(jLabel2);
-        jLabel2.setBounds(205, 132, 96, 29);
+        jLabel2.setBounds(380, 130, 96, 29);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Comments:");
         add(jLabel4);
-        jLabel4.setBounds(181, 195, 120, 29);
+        jLabel4.setBounds(360, 210, 120, 29);
 
         CommentsText.setColumns(20);
         CommentsText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
-        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         add(jScrollPane1);
-        jScrollPane1.setBounds(319, 195, 425, 201);
+        jScrollPane1.setBounds(570, 210, 425, 201);
 
-      
+        Location.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         add(Location);
-        Location.setBounds(333, 140, 126, 22);
+        Location.setBounds(570, 130, 260, 28);
 
         submitReportButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         submitReportButton.setText("Submit Report");
@@ -99,8 +100,12 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
             }
         });
         add(submitReportButton);
-        submitReportButton.setBounds(850, 312, 238, 84);
+        submitReportButton.setBounds(480, 450, 238, 84);
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
+        jLabel1.setText("Other");
+        add(jLabel1);
+        jLabel1.setBounds(591, 24, 95, 87);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
@@ -149,7 +154,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         String location = (String)Location.getSelectedItem();
         String comments = CommentsText.getText();
         String incidentnumber = Integer.toString(n);
-        parent.setContentPane(new KioskRecieptPanel(parent, location, comments, incidentnumber));
+        parent.setContentPane(new KioskIncidentReceiptPanel(parent, location, comments, incidentnumber));
         parent.revalidate();
     }//GEN-LAST:event_submitReportButtonActionPerformed
 
@@ -158,6 +163,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea CommentsText;
     private javax.swing.JComboBox<String> Location;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

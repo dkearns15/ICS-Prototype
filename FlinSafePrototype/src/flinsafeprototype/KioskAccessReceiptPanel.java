@@ -48,14 +48,14 @@ public class KioskAccessReceiptPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CommentsText = new javax.swing.JTextArea();
-        RoomText = new javax.swing.JTextField();
-        TypeText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        LocationText = new javax.swing.JTextField();
+        RoomText = new javax.swing.JLabel();
+        TypeText = new javax.swing.JLabel();
+        LocationText = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -73,7 +73,7 @@ public class KioskAccessReceiptPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Type:");
         add(jLabel4);
-        jLabel4.setBounds(321, 201, 60, 29);
+        jLabel4.setBounds(320, 210, 60, 29);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
@@ -84,16 +84,8 @@ public class KioskAccessReceiptPanel extends javax.swing.JPanel {
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
-        RoomText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        RoomText.setText("jTextField1");
-
-        TypeText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        TypeText.setText("jTextField2");
         add(jScrollPane1);
         jScrollPane1.setBounds(583, 260, 325, 96);
-        RoomText.setBounds(609, 159, 69, 22);
-
-        TypeText.setBounds(609, 194, 69, 22);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("You have successfully submitted a security incident report with the following details:");
@@ -115,19 +107,31 @@ public class KioskAccessReceiptPanel extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(607, 514, 277, 148);
 
+        Randnumber.setEditable(false);
         Randnumber.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Randnumber.setText("jTextField1");
-        Randnumber.setBounds(640, 390, 69, 22);
+        add(Randnumber);
+        Randnumber.setBounds(580, 400, 122, 35);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
         add(jLabel1);
-        jLabel1.setBounds(321, 382, 301, 29);
+        jLabel1.setBounds(250, 400, 301, 29);
 
-        LocationText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        LocationText.setText("jTextField4");
+        RoomText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        RoomText.setText("jLabel9");
+        add(RoomText);
+        RoomText.setBounds(580, 160, 240, 30);
+
+        TypeText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        TypeText.setText("jLabel9");
+        add(TypeText);
+        TypeText.setBounds(580, 210, 240, 30);
+
+        LocationText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        LocationText.setText("jLabel9");
         add(LocationText);
-        LocationText.setBounds(609, 119, 69, 22);
+        LocationText.setBounds(580, 110, 240, 30);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel8);
@@ -142,10 +146,10 @@ public class KioskAccessReceiptPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CommentsText;
-    private javax.swing.JTextField LocationText;
+    private javax.swing.JLabel LocationText;
     private javax.swing.JTextField Randnumber;
-    private javax.swing.JTextField RoomText;
-    private javax.swing.JTextField TypeText;
+    private javax.swing.JLabel RoomText;
+    private javax.swing.JLabel TypeText;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

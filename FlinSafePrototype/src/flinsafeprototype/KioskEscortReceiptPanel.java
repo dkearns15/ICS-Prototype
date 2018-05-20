@@ -49,46 +49,56 @@ public class KioskEscortReceiptPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CommentsText = new javax.swing.JTextArea();
-        RoomText = new javax.swing.JTextField();
-        DestinationText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        LocationText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-
-        TimeText = new javax.swing.JTextField();
+        RoomText = new javax.swing.JLabel();
+        LocationText = new javax.swing.JLabel();
+        DestinationText = new javax.swing.JLabel();
+        TimeText = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Location:");
+        add(jLabel2);
+        jLabel2.setBounds(313, 123, 96, 29);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Room:");
+        add(jLabel3);
+        jLabel3.setBounds(313, 162, 69, 29);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Destination:");
+        add(jLabel4);
+        jLabel4.setBounds(313, 210, 126, 29);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
+        add(jLabel5);
+        jLabel5.setBounds(313, 309, 230, 29);
 
         CommentsText.setColumns(20);
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
-        RoomText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        RoomText.setText("jTextField1");
-
-        DestinationText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        DestinationText.setText("jTextField2");
+        add(jScrollPane1);
+        jScrollPane1.setBounds(640, 309, 325, 96);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("You have successfully submitted a security incident report with the following details:");
+        add(jLabel6);
+        jLabel6.setBounds(254, 56, 895, 29);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("One of our security guards will deal with the incident shortly");
+        add(jLabel7);
+        jLabel7.setBounds(388, 529, 640, 29);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jButton1.setText("Finish");
@@ -97,118 +107,48 @@ public class KioskEscortReceiptPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1);
+        jButton1.setBounds(591, 576, 277, 148);
 
+        Randnumber.setEditable(false);
         Randnumber.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Randnumber.setText("jTextField1");
+        add(Randnumber);
+        Randnumber.setBounds(640, 481, 122, 35);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
-
-        LocationText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        LocationText.setText("jTextField4");
+        add(jLabel1);
+        jLabel1.setBounds(321, 484, 301, 29);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Time");
+        add(jLabel8);
+        jLabel8.setBounds(313, 252, 52, 29);
+
+        RoomText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        RoomText.setText("jLabel10");
+        add(RoomText);
+        RoomText.setBounds(640, 160, 350, 29);
+
+        LocationText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        LocationText.setText("jLabel10");
+        add(LocationText);
+        LocationText.setBounds(640, 120, 350, 29);
+
+        DestinationText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        DestinationText.setText("jLabel10");
+        add(DestinationText);
+        DestinationText.setBounds(640, 210, 350, 29);
 
         TimeText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        TimeText.setText("ASAP");
-        TimeText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TimeTextActionPerformed(evt);
-            }
-        });
+        TimeText.setText("jLabel10");
+        add(TimeText);
+        TimeText.setBounds(640, 250, 310, 29);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(388, 388, 388)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(160, 160, 160))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jLabel1))
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Randnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel8))
-                                .addGap(201, 201, 201)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TimeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(RoomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(DestinationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                          .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LocationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                    
-                       .addContainerGap(217, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LocationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(RoomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(DestinationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(TimeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Randnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(jLabel9);
+        jLabel9.setBounds(0, 0, 1370, 760);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -216,18 +156,14 @@ public class KioskEscortReceiptPanel extends javax.swing.JPanel {
         parent.revalidate();        // SUBMIT BUTTON
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void TimeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TimeTextActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CommentsText;
-    private javax.swing.JTextField DestinationText;
-    private javax.swing.JTextField LocationText;
+    private javax.swing.JLabel DestinationText;
+    private javax.swing.JLabel LocationText;
     private javax.swing.JTextField Randnumber;
-    private javax.swing.JTextField RoomText;
-    private javax.swing.JTextField TimeText;
+    private javax.swing.JLabel RoomText;
+    private javax.swing.JLabel TimeText;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

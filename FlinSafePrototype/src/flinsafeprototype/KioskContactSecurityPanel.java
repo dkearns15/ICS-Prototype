@@ -90,7 +90,7 @@ public class KioskContactSecurityPanel extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
-        jLabel6.setBounds(0, 0, 1520, 770);
+        jLabel6.setBounds(0, -10, 1520, 770);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

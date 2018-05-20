@@ -89,15 +89,20 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
         CommentsText.setRows(5);
         jScrollPane1.setViewportView(CommentsText);
 
-
         add(jScrollPane1);
         jScrollPane1.setBounds(614, 265, 325, 96);
 
+        Size.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Small", "Medium", "Large" }));
+        Size.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SizeActionPerformed(evt);
+            }
+        });
         add(Size);
-        Size.setBounds(614, 225, 115, 22);
+        Size.setBounds(610, 220, 270, 31);
 
-
+        Location.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         Location.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Hub", "Social Sciences", "Physical Sciences", "Tonsley", "Sturt" }));
         Location.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +110,7 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
             }
         });
         add(Location);
-        Location.setBounds(614, 182, 115, 22);
+        Location.setBounds(610, 180, 270, 31);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("Submit Report");
@@ -115,17 +120,16 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(1057, 253, 208, 88);
+        jButton3.setBounds(530, 410, 208, 88);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setText("Snake");
         add(jLabel1);
         jLabel1.setBounds(591, 24, 117, 87);
 
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel6);
-        jLabel6.setBounds(0, 0, 1370, 760);
+        jLabel6.setBounds(0, 0, 1370, 780);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -178,6 +182,10 @@ public class KioskSnakeDetailsPanel extends javax.swing.JPanel {
     private void LocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LocationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LocationActionPerformed
+
+    private void SizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SizeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

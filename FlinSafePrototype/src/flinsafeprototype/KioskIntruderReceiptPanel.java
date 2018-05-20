@@ -22,12 +22,11 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
     public KioskIntruderReceiptPanel() {
         initComponents();
     }
-    public KioskIntruderReceiptPanel(JFrame parent, String location, String number, String comments, String incidentnumber) {
+    public KioskIntruderReceiptPanel(JFrame parent, String location, String comments, String incidentnumber) {
         initComponents();
         this.parent = parent;
 
         LocationText.setText(location);
-        NumberText.setText(number);
         CommentsText.setText(comments);
         Randnumber.setText(incidentnumber);
     }
@@ -42,7 +41,6 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CommentsText = new javax.swing.JTextArea();
@@ -51,9 +49,7 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         Randnumber = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-
-        LocationText = new javax.swing.JTextField();
-        NumberText = new javax.swing.JTextField();
+        LocationText = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -62,11 +58,6 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
         jLabel2.setText("Location:");
         add(jLabel2);
         jLabel2.setBounds(242, 106, 96, 29);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Number:");
-        add(jLabel3);
-        jLabel3.setBounds(242, 162, 92, 29);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Additional Comments:");
@@ -100,29 +91,25 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
         add(jLabel7);
         jLabel7.setBounds(340, 428, 640, 29);
 
-
+        Randnumber.setEditable(false);
+        Randnumber.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Randnumber.setText("jTextField1");
         add(Randnumber);
-        Randnumber.setBounds(561, 339, 69, 22);
+        Randnumber.setBounds(530, 350, 140, 35);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Incident Reference Number:");
         add(jLabel1);
-        jLabel1.setBounds(242, 331, 301, 29);
+        jLabel1.setBounds(170, 350, 301, 29);
 
-
-        LocationText.setText("jTextField1");
+        LocationText.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        LocationText.setText("jLabel4");
         add(LocationText);
-        LocationText.setBounds(530, 114, 69, 22);
-
-        NumberText.setText("jTextField2");
-        add(NumberText);
-        NumberText.setBounds(530, 170, 69, 22);
+        LocationText.setBounds(530, 110, 270, 25);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel9);
         jLabel9.setBounds(0, 0, 1370, 780);
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -133,13 +120,11 @@ public class KioskIntruderReceiptPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea CommentsText;
-    private javax.swing.JTextField LocationText;
-    private javax.swing.JTextField NumberText;
+    private javax.swing.JLabel LocationText;
     private javax.swing.JTextField Randnumber;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -54,7 +54,7 @@ public class KioskCallingPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Calling");
         add(jLabel1);
-        jLabel1.setBounds(492, 13, 222, 47);
+        jLabel1.setBounds(590, 10, 222, 47);
         add(jSlider1);
         jSlider1.setBounds(479, 164, 459, 159);
 
@@ -69,7 +69,7 @@ public class KioskCallingPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(506, 467, 307, 209);
+        jButton3.setBounds(560, 480, 307, 209);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flinsafeprototype/flindersbackgroundfaded.jpg"))); // NOI18N
         add(jLabel7);
