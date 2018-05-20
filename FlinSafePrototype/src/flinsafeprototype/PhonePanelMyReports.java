@@ -56,7 +56,7 @@ public class PhonePanelMyReports extends javax.swing.JPanel {
                     incident = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                     String[] t = new String[]{incident[0], incident[2], incident[1]};
                     //list.add(t);
-                    if (incident[11].equals("Matthew Flinders"))
+                    if (incident.length > 11 && incident[11].equals("Matthew Flinders"))
                     {
                         tableModel.addRow(t);
                     }

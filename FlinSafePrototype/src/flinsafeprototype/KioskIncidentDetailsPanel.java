@@ -121,7 +121,7 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
         //CSV FILE HERE
         //URL url = getClass().getResource("Reports.csv");
         //File file = new File(url.getPath());
-        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "ReportsKioskPhone.csv";
+        String file = new File(".").getAbsolutePath().substring(0, new File(".").getAbsolutePath().length() - 1) + "NewIncidents.csv";
         BufferedWriter writer = null;
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -136,8 +136,8 @@ public class KioskIncidentDetailsPanel extends javax.swing.JPanel {
             Logger.getLogger(SecuritySummaryNewIncidentResponse.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            System.out.println(n + ", " + new Date() + ", " + "Other" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
-            writer.append(n + ", " + new Date() + ", " + "Other" + ", " + (String) Location.getSelectedItem() + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + ", " + CommentsText.getText()+ ", ");
+            System.out.println(n + "," + new Date() + "," + "Other" + "," + (String) Location.getSelectedItem() + "," + CommentsText.getText());
+            writer.append(n + "," + new Date() + "," + "Other" + "," + (String) Location.getSelectedItem() + "," + CommentsText.getText());
             writer.newLine();
 
         } catch (IOException ex) {
