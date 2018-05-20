@@ -147,12 +147,12 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
         locationLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         locationLabel.setText("jLabel9");
         add(locationLabel);
-        locationLabel.setBounds(171, 205, 51, 20);
+        locationLabel.setBounds(171, 205, 340, 20);
 
         timeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         timeLabel.setText("jLabel9");
         add(timeLabel);
-        timeLabel.setBounds(171, 176, 51, 20);
+        timeLabel.setBounds(171, 176, 340, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Report Time");
@@ -167,12 +167,12 @@ public class SecuritySummaryIncidentQueueResponsePanel extends javax.swing.JPane
         typeLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         typeLabel.setText("jLabel9");
         add(typeLabel);
-        typeLabel.setBounds(171, 147, 51, 20);
+        typeLabel.setBounds(171, 147, 280, 20);
 
         numLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         numLabel.setText("jLabel9");
         add(numLabel);
-        numLabel.setBounds(171, 118, 51, 20);
+        numLabel.setBounds(171, 118, 280, 20);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Incident Number");
